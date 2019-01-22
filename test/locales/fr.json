@@ -1,0 +1,18 @@
+{
+	"pages.eaMainPage.name": "Endpoint App Page Spec",
+	"pages.eaMainPage.sections.whenDoorOpensAndCloses.name": "Quand cette porte s'ouvre et se ferme",
+	"pages.eaMainPage.settings.contactSensor.name": "Sélectionnez un capteur d'ouverture / fermeture",
+	"pages.eaMainPage.sections.turnLightsOnAndOff.name": "Allumer et éteindre ces lumières",
+	"pages.eaMainPage.settings.lights.name": "Sélectionner des lumières",
+	"pages.i18nMainPage.name": "Page Builder i18n Spec",
+	"pages.i18nMainPage.sections.whenDoorOpensAndCloses.name": "Quand cette porte s'ouvre et se ferme",
+	"pages.i18nMainPage.settings.contactSensor.name": "Sélectionnez un capteur d'ouverture / fermeture",
+	"pages.i18nMainPage.sections.turnLightsOnAndOff.name": "Allumer et éteindre ces lumières",
+	"pages.i18nMainPage.settings.lights.name": "Sélectionnez une ou plusieurs lumières à contrôler",
+	"pages.mainPage.name": "Page Builder Spec",
+	"pages.mainPage.sections.whenDoorOpensAndCloses.name": "Quand cette porte s'ouvre et se ferme",
+	"pages.mainPage.settings.contactSensor.name": "Sélectionnez un capteur d'ouverture / fermeture",
+	"pages.mainPage.sections.turnLightsOnAndOff.name": "Allumer et éteindre ces lumières",
+	"pages.mainPage.settings.lights.name": "Sélectionner des lumières",
+	"Tap to set": "Appuyez pour définir"
+}

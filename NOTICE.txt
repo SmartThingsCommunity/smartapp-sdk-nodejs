@@ -1,0 +1,2 @@
+SmartApp SDK for JavaScript and NodeJS
+Copyright 2018-2019 SmartThings, Inc. All rights reserved
