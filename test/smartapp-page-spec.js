@@ -3,10 +3,11 @@ const {expect} = require('chai');
 const SmartApp = require('../lib/smart-app');
 
 describe ('smartapp-page-spec', () => {
+
     it('should set page ID', () => {
         const app = new SmartApp();
         app.appId('xxx');
-        app.page('eaMainPage', (page) => {
+        app.page('eaMainPage', (ctx, page) => {
             page.section('whenDoorOpensAndCloses', (section) => {
                 section.deviceSetting('contactSensor')
                     .capabilities(['contactSensor']);
@@ -62,5 +63,37 @@ describe ('smartapp-page-spec', () => {
 
         console.log(JSON.stringify(initResponse, null, 2));
         console.log(JSON.stringify(pageReponse, null, 2));
+    });
+
+    it('should configure event logger', () => {
+        const app = new SmartApp();
+        app.appId('xxx');
+        app.enableEventLogging(4);
+        app.page('eaMainPage', (ctx, page) => {
+            page.section('whenDoorOpensAndCloses', (section) => {
+                section.deviceSetting('contactSensor')
+                    .capabilities(['contactSensor']);
+            });
+        });
+
+        app.handleMockCallback({
+            'lifecycle': 'CONFIGURATION',
+            'executionId': 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+            'locale': 'en',
+            'version': '0.1.0',
+            'client': {
+                'os': 'ios',
+                'version': '0.0.0',
+                'language': 'en-US'
+            },
+            'configurationData': {
+                'installedAppId': '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
+                'phase': 'INITIALIZE',
+                'pageId': '',
+                'previousPageId': '',
+                'config': {}
+            },
+            'settings': {}
+        });
     });
 });
