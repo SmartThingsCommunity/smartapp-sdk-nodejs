@@ -1,10 +1,11 @@
 {
   "name": "@smartthings/smartapp",
   "version": "1.0.1",
-  "description": "SDK for SmartApps using Node JS",
+  "description": "NodeJS SDK for SmartApps",
+  "displayName": "SmartThings SmartApp SDK for NodeJS",
   "author": "SmartThings",
   "contributors": [
-    "Bob Florian"
+    "Bob Florian (https://github.com/bflorian)"
   ],
   "keywords": [
     "smartthings",
@@ -12,16 +13,14 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/**/*.js"
+    "test": "mocha test/**/*.js",
+    "lint": "xo"
   },
   "engines": {
     "node": ">=6.12.3 <8.0.0 || >=8.9.4 <10.0.0 || >=10.4.1"
   },
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs.git"
-  },
+  "repository": "github:SmartThingsCommunity/smartapp-sdk-nodejs",
   "bugs": {
     "url": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues"
   },
@@ -37,8 +36,9 @@
   "devDependencies": {
     "ajv": "^6.5.3",
     "chai": "^4.1.2",
-    "eslint": "^5.6.0",
+    "eslint-config-xo": "^0.26.0",
     "mocha": "^5.2.0",
-    "mockery": "^2.1.0"
+    "mockery": "^2.1.0",
+    "xo": "^0.24.0"
   }
 }
