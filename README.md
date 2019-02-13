@@ -122,3 +122,25 @@ server.post('/', function(req, response) {
     smartapp.handleHttpCallback(req, response);
 });
 ```
+
+---
+
+## More about SmartThings
+
+If you are not familiar with SmartThings, we have
+[extensive on-line documentation](https://smartthings.developer.samsung.com/develop/index.html).
+
+To create and manage your services and devices on SmartThings, create an account in the
+[developer workspace](https://devworkspace.developer.samsung.com/).
+
+The [SmartThings Community](https://community.smartthings.com/c/developers/) is a good place share and
+ask questions.
+
+There is also a [SmartThings reddit community](https://www.reddit.com/r/SmartThings/) where you
+can read and share information.
+
+## License and Copyright
+
+Licensed under the [Apache License, Version 2.0](LICENSE)
+
+Copyright 2019 SmartThings, Inc.
