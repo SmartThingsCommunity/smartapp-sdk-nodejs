@@ -40,7 +40,7 @@
     "mocha": "^5.2.0",
     "mockery": "^2.1.0",
     "xo": "^0.24.0"
-  }, 
+  },
   "xo": {
     "space": false,
     "semicolon": false,
