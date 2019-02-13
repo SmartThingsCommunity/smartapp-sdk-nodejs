@@ -32,13 +32,11 @@
     "i18n": "^0.8.3",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "winston": "^3.1.0"
+    "winston": "^3.2.1"
   },
   "devDependencies": {
-    "ajv": "^6.5.3",
     "chai": "^4.1.2",
     "mocha": "^5.2.0",
-    "mockery": "^2.1.0",
     "xo": "^0.24.0"
   },
   "xo": {
