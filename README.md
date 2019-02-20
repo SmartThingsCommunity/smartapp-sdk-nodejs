@@ -44,32 +44,84 @@ import smartapp from '@smartthings/smartapp'
 
 ## Example
 
-### Run as an AWS Lambda function
+The following example is the equivalent of the original SmartThings Groovy _Let There Be Light_ app that turns on and off a light when a door opens and closes.
 
-Here's the equivalent of the original SmartThings Groovy _Let There Be Light_ app that turns on and off a light when a door opens and closes, set up to run as a Lambda.
+### Running it as a web service
+
+To run the app with an HTTP server, like Express.js:
 
 ```javascript
-const smartapp = require('@smartthings/smartapp')
-smartapp.configureI18n()
-    .page('mainPage', (page) => {
-        page.section('sensors', (section) => {
-            section.deviceSetting('contactSensor').capabilities(['contactSensor']);
+const express    = require('express');
+const smartapp   = require('@smartthings/smartapp');
+const server     = module.exports = express();
+const PORT       = 8080;
+
+server.use(express.json());
+
+// @smartthings_rsa.pub is your on-disk public key
+// If you do not have it yet, omit publicKey()
+smartapp
+    .publicKey('@smartthings_rsa.pub') // optional until app verified
+    .configureI18n()
+    .page('mainPage', (context, page, configData) => {
+        page.section('sensors', section => {
+           section.deviceSetting('contactSensor').capabilities(['contactSensor']).required(false);
         });
-        page.section('lights', (section) => {
+        page.section('lights', section => {
             section.deviceSetting('lights').capabilities(['switch']).multiple(true).permissions('rx');
         });
     })
-    .updated(() => {
-        smartapp.api.devices.unsubscribeAll().then(() => {
-            smartapp.api.devices.subscribe(smartapp.config.contactSensor, 'contactSensor', 'contact', 'openCloseHandler');
+    .installed((context, installData) => {
+        console.log('installed', JSON.stringify(installData));
+    })
+    .uninstalled((context, uninstallData) => {
+        console.log('uninstalled', JSON.stringify(uninstallData));
+    })
+    .updated((context, updateData) => {
+        console.log('updated', JSON.stringify(updateData));
+        context.api.subscriptions.unsubscribeAll().then(() => {
+              console.log('unsubscribeAll() executed');
+              context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
         });
     })
-    .subscribedEventHandler('openCloseHandler', (event) => {
-        const value = event.value === 'open' ? 'on' : 'off';
-        smartapp.api.devices.sendCommands(smartapp.config.lights, 'switch', value);
+    .subscribedEventHandler('myDeviceEventHandler', (context, deviceEvent) => {
+        const value = deviceEvent.value === 'open' ? 'on' : 'off';
+        context.api.devices.sendCommands(context.config.lights, 'switch', value);
+        console.log(`sendCommands(${JSON.stringify(context.config.lights)}, 'switch', '${value}')`);
+
+        /* All subscription event handler types:
+         *   - DEVICE_EVENT (context, deviceEvent)
+         *   - TIMER_EVENT (context, timerEvent)
+         *   - DEVICE_COMMANDS_EVENT (context, deviceId, command, deviceCommandsEvent)
+         *   - MODE_EVENT (context, modeEvent)
+         *   - SECURITY_ARM_STATE_EVENT (context, securityArmStateEvent)
+        */
     });
-exports.handle = (evt, context, callback) => {
-    smartapp.handleLambdaCallback(evt, context, callback);
+
+/* Handle POST requests */
+server.post('/', function(req, res, next) {
+  console.log(`${new Date().toISOString()} ${req.method} ${req.path} ${req.body && req.body.lifecycle}`);
+  smartapp.handleHttpCallback(req, res);
+});
+
+/* Start listening at your defined PORT */
+server.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`));
+```
+
+### Running as an AWS Lambda function
+
+To run as a Lambda function instead of an HTTP server, ensure that your main entry file exports `smartapp.handleLambdaCallback(...)`.
+
+> **Note:** This snippet is heavily truncated for brevity – see the web service example above a more detailed example of how to define a `smartapp`.
+
+```javascript
+const smartapp = require('@smartthings/smartapp')
+smartapp
+    .page( ... )
+    .updated(() => { ... })
+    .subscribedEventHandler( ... );
+exports.handle = (event, context, callback) => {
+    smartapp.handleLambdaCallback(event, context, callback);
 };
 ```
 
@@ -86,41 +138,6 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
   "pages.mainPage.settings.lights.name": "Select lights and switches",
   "Tap to set": "Tap to set"
 }
-```
-
-### Run as a web service
-
-To run the app in a webserver rather than a lambda replace the `exports.handle = ...` function with an HTTP server
-with the public key file specified:
-
-```javascript
-const express = require('express');
-const bodyParser = require('body-parser');
-const server = module.exports = express();
-const smartapp = require('@smartthings/smartapp');
-smartapp.publicKey(`@${process.env.HOME}/smartthings_rsa.pub`)
-    .configureI18n()
-    .page('mainPage', (page) => {
-        page.section('sensors', (section) => {
-            section.deviceSetting('contactSensor').capabilities(['contactSensor']);
-        });
-        page.section('lights', (section) => {
-            section.deviceSetting('lights').capabilities(['switch']).multiple(true).permissions('rx');
-        });
-    })
-    .updated(() => {
-        smartapp.api.devices.unsubscribeAll().then(() => {
-            smartapp.api.devices.subscribe(smartapp.config.contactSensor, 'contactSensor', 'contact', 'openCloseHandler');
-        });
-    })
-    .subscribedEventHandler('openCloseHandler', (event) => {
-        const value = event.value === 'open' ? 'on' : 'off';
-        smartapp.api.devices.sendCommands(smartapp.config.lights, 'switch', value);
-    });
-server.use(bodyParser.json());
-server.post('/', function(req, response) {
-    smartapp.handleHttpCallback(req, response);
-});
 ```
 
 ---
