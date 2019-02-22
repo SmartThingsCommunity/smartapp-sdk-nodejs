@@ -37,10 +37,14 @@ import smartapp from '@smartthings/smartapp'
 ## Highlights
 
 - [x] Javascript API hides details of REST calls and authentication.
-- [x] Event handler framework dispatches lifecycle evebnts to named event handlers.
+- [x] Event handler framework dispatches lifecycle events to named event handlers.
 - [x] Configuration page API simplifies page definition.
 - [x] Integrated [i18n](https://www.npmjs.com/package/i18n) framework provides configuration page localization.
 - [x] [Winston](https://www.npmjs.com/package/winston) framework manges log messages.
+
+## Roadmap
+
+![Roadmap](doc/roadmap-2019.png)
 
 ## Example
 
