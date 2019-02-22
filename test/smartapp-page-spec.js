@@ -1,4 +1,5 @@
 /* eslint no-undef: "off" */
+const assert = require('assert').strict
 const SmartApp = require('../lib/smart-app')
 
 describe('smartapp-page-spec', () => {
@@ -39,7 +40,7 @@ describe('smartapp-page-spec', () => {
 			settings: {}
 		})
 
-		const pageReponse = app.handleMockCallback({
+		const pageResponse = app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
 			executionId: 'abcf6e72-60f4-1f27-341b-449ad9e2192e',
 			locale: 'en',
@@ -59,8 +60,66 @@ describe('smartapp-page-spec', () => {
 			settings: {}
 		})
 
-		console.log(JSON.stringify(initResponse, null, 2))
-		console.log(JSON.stringify(pageReponse, null, 2))
+		const expectedInitResponse = {initialize: {
+			id: 'xxx',
+			firstPageId: 'eaMainPage',
+			permissions: [],
+			disableCustomDisplayName: false,
+			disableRemoveApp: false
+		}}
+
+		const expectedPageResponse = {
+			page: {
+				name: 'pages.eaMainPage.name',
+				complete: true,
+				pageId: 'eaMainPage',
+				nextPageId: null,
+				previousPageId: null,
+				sections: [
+					{
+						name: 'whenDoorOpensAndCloses',
+						settings: [
+							{
+								id: 'contactSensor',
+								name: 'pages.eaMainPage.settings.contactSensor.name',
+								required: true,
+								type: 'DEVICE',
+								description: 'Tap to set',
+								multiple: false,
+								capabilities: [
+									'contactSensor'
+								],
+								permissions: [
+									'r'
+								]
+							}
+						]
+					},
+					{
+						name: 'turnLightsOnAndOff',
+						settings: [
+							{
+								id: 'lights',
+								name: 'pages.eaMainPage.settings.lights.name',
+								required: true,
+								type: 'DEVICE',
+								description: 'Tap to set',
+								multiple: true,
+								capabilities: [
+									'switch'
+								],
+								permissions: [
+									'r',
+									'x'
+								]
+							}
+						]
+					}
+				]
+			}
+		}
+		assert.deepStrictEqual(initResponse.configurationData, expectedInitResponse)
+		assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
 	})
 
 	it('should configure event logger', () => {
