@@ -20,7 +20,8 @@ describe('smartapp-page-spec', () => {
 			})
 		})
 
-		const initResponse = app.handleMockCallback({
+		// Initialize configuration callback
+		app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
 			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
 			locale: 'en',
@@ -38,9 +39,19 @@ describe('smartapp-page-spec', () => {
 				config: {}
 			},
 			settings: {}
+		}).then(initResponse => {
+			const expectedInitResponse = {initialize: {
+				id: 'xxx',
+				firstPageId: 'eaMainPage',
+				permissions: [],
+				disableCustomDisplayName: false,
+				disableRemoveApp: false
+			}}
+
+			assert.deepStrictEqual(initResponse.configurationData, expectedInitResponse)
 		})
 
-		const pageResponse = app.handleMockCallback({
+		app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
 			executionId: 'abcf6e72-60f4-1f27-341b-449ad9e2192e',
 			locale: 'en',
@@ -58,68 +69,59 @@ describe('smartapp-page-spec', () => {
 				config: {}
 			},
 			settings: {}
-		})
-
-		const expectedInitResponse = {initialize: {
-			id: 'xxx',
-			firstPageId: 'eaMainPage',
-			permissions: [],
-			disableCustomDisplayName: false,
-			disableRemoveApp: false
-		}}
-
-		const expectedPageResponse = {
-			page: {
-				name: 'pages.eaMainPage.name',
-				complete: true,
-				pageId: 'eaMainPage',
-				nextPageId: null,
-				previousPageId: null,
-				sections: [
-					{
-						name: 'whenDoorOpensAndCloses',
-						settings: [
-							{
-								id: 'contactSensor',
-								name: 'pages.eaMainPage.settings.contactSensor.name',
-								required: true,
-								type: 'DEVICE',
-								description: 'Tap to set',
-								multiple: false,
-								capabilities: [
-									'contactSensor'
-								],
-								permissions: [
-									'r'
-								]
-							}
-						]
-					},
-					{
-						name: 'turnLightsOnAndOff',
-						settings: [
-							{
-								id: 'lights',
-								name: 'pages.eaMainPage.settings.lights.name',
-								required: true,
-								type: 'DEVICE',
-								description: 'Tap to set',
-								multiple: true,
-								capabilities: [
-									'switch'
-								],
-								permissions: [
-									'r',
-									'x'
-								]
-							}
-						]
-					}
-				]
+		}).then(pageResponse => {
+			const expectedPageResponse = {
+				page: {
+					name: 'pages.eaMainPage.name',
+					complete: true,
+					pageId: 'eaMainPage',
+					nextPageId: null,
+					previousPageId: null,
+					sections: [
+						{
+							name: 'whenDoorOpensAndCloses',
+							settings: [
+								{
+									id: 'contactSensor',
+									name: 'pages.eaMainPage.settings.contactSensor.name',
+									required: true,
+									type: 'DEVICE',
+									description: 'Tap to set',
+									multiple: false,
+									capabilities: [
+										'contactSensor'
+									],
+									permissions: [
+										'r'
+									]
+								}
+							]
+						},
+						{
+							name: 'turnLightsOnAndOff',
+							settings: [
+								{
+									id: 'lights',
+									name: 'pages.eaMainPage.settings.lights.name',
+									required: true,
+									type: 'DEVICE',
+									description: 'Tap to set',
+									multiple: true,
+									capabilities: [
+										'switch'
+									],
+									permissions: [
+										'r',
+										'x'
+									]
+								}
+							]
+						}
+					]
+				}
 			}
-		}
-		assert.deepStrictEqual(initResponse.configurationData, expectedInitResponse)
-		assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+			assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+		})
 	})
 
 	it('should configure event logger', () => {
