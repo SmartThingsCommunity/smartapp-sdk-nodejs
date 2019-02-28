@@ -43,6 +43,7 @@ jobs:
     executor: daneel
     steps:
       - *attach_workspace
+      - checkout
       - run: npx semantic-release
 
 workflows:
