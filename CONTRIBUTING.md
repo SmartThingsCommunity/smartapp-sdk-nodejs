@@ -26,7 +26,14 @@ We're always looking for more opinions on discussions in the issue tracker. It's
 - For ambitious tasks, you should try to get your work in front of the community for feedback as soon as possible. Open a pull request as soon as you have done the minimum needed to demonstrate your idea. At this early stage, don't worry about making things perfect, or 100% complete. Add a `[WIP]` prefix to the title, and describe what you still need to do. This lets reviewers know not to nit-pick small details or point out improvements you already know you need to make.
 - Don't include unrelated changes
 - New features should be accompanied with tests and documentation
-- Use a clear and descriptive title for the pull request and commits
+- Commit messages
+  - Use a clear and descriptive title for the pull request and commits
+  - We use [semantic-release](https://www.npmjs.com/package/semantic-release) to automatically generate release
+    notes, versions and publish releases. This requires commit messages must be formatted properly using
+    [Angular's git commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
+  - As a convenience, a tool called `semantic-git-commit-cli` is installed in node_modules so you can commit using
+    `npx sgc` instead of `git commit`. This tool will ask a series of questions and generate a properly-formatted
+    commit message for you. You can still run `git commit` and format the message properly yourself if you prefer.
 - Lint and test before submitting the pull request by running `$ npm test`
 - Write a convincing description of why we should land your pull request. Answer _why_ it's needed and provide use-cases.
 - Make the pull request from a [topic branch](https://github.com/dchelimsky/rspec/wiki/Topic-Branches) (not master)
