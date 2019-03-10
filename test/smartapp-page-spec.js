@@ -10,6 +10,7 @@ describe('smartapp-page-spec', () => {
 			page.section('whenDoorOpensAndCloses', section => {
 				section.deviceSetting('contactSensor')
 					.capabilities(['contactSensor'])
+					.required(true)
 			})
 
 			page.section('turnLightsOnAndOff', section => {
@@ -17,6 +18,7 @@ describe('smartapp-page-spec', () => {
 					.capabilities(['switch'])
 					.multiple(true)
 					.permissions('rx')
+					.required(true)
 			})
 		})
 
