@@ -44,7 +44,7 @@ jobs:
     steps:
       - *attach_workspace
       - checkout
-      - run: npx semantic-release
+      - run: npm run semantic-release
 
 workflows:
   build:

@@ -27,13 +27,13 @@ npm i @smartthings/smartapp --save
 `NodeJS`:
 
 ```javascript
-const smartapp = require('@smartthings/smartapp')
+const SmartApp = require('@smartthings/smartapp')
 ```
 
-Or, if you're transpiling to `ES6`/`ES2015`+:
+Or `ES2015`+:
 
 ```javascript
-import smartapp from '@smartthings/smartapp'
+import SmartApp from '@smartthings/smartapp'
 ```
 
 ## Highlights
@@ -43,6 +43,9 @@ import smartapp from '@smartthings/smartapp'
 - [x] Configuration page API simplifies page definition.
 - [x] Integrated [i18n](https://www.npmjs.com/package/i18n) framework provides configuration page localization.
 - [x] [Winston](https://www.npmjs.com/package/winston) framework manges log messages.
+- [x] Context Store plugins – easily scale access token management (and more) to support many users
+  - [x] [AWS DynamoDB](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs) plugin ([usage](#amazon-aws-dynamodb))
+  - [x] [Firebase Cloud Firestore](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs) plugin ([usage](#firebase-cloud-firestore))
 
 ## Roadmap
 
@@ -58,55 +61,46 @@ To run the app with an HTTP server, like Express.js:
 
 ```javascript
 const express    = require('express');
-const smartapp   = require('@smartthings/smartapp');
+const SmartApp   = require('@smartthings/smartapp');
 const server     = module.exports = express();
 const PORT       = 8080;
 
 server.use(express.json());
 
-// @smartthings_rsa.pub is your on-disk public key
-// If you do not have it yet, omit publicKey()
-smartapp
+/* Define the SmartApp */
+const smartapp = new SmartApp()
+    // @smartthings_rsa.pub is your on-disk public key
+    // If you do not have it yet, omit publicKey()
     .publicKey('@smartthings_rsa.pub') // optional until app verified
+    .enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
-           section.deviceSetting('contactSensor').capabilities(['contactSensor']).required(false);
+           section
+            .deviceSetting('contactSensor')
+            .capabilities(['contactSensor'])
+            .required(false);
         });
         page.section('lights', section => {
-            section.deviceSetting('lights').capabilities(['switch']).multiple(true).permissions('rx');
+            section
+                .deviceSetting('lights')
+                .capabilities(['switch'])
+                .multiple(true)
+                .permissions('rx');
         });
     })
-    .installed((context, installData) => {
-        console.log('installed', JSON.stringify(installData));
+    .updated(async (context, updateData) => {
+        // Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
+        await context.api.subscriptions.unsubscribeAll()
+        return context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
     })
-    .uninstalled((context, uninstallData) => {
-        console.log('uninstalled', JSON.stringify(uninstallData));
-    })
-    .updated((context, updateData) => {
-        console.log('updated', JSON.stringify(updateData));
-        context.api.subscriptions.unsubscribeAll().then(() => {
-              console.log('unsubscribeAll() executed');
-              context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
-        });
-    })
-    .subscribedEventHandler('myDeviceEventHandler', (context, deviceEvent) => {
-        const value = deviceEvent.value === 'open' ? 'on' : 'off';
+    .subscribedEventHandler('myDeviceEventHandler', (context, event) => {
+        const value = event.value === 'open' ? 'on' : 'off';
         context.api.devices.sendCommands(context.config.lights, 'switch', value);
-        console.log(`sendCommands(${JSON.stringify(context.config.lights)}, 'switch', '${value}')`);
-
-        /* All subscription event handler types:
-         *   - DEVICE_EVENT (context, deviceEvent)
-         *   - TIMER_EVENT (context, timerEvent)
-         *   - DEVICE_COMMANDS_EVENT (context, deviceId, command, deviceCommandsEvent)
-         *   - MODE_EVENT (context, modeEvent)
-         *   - SECURITY_ARM_STATE_EVENT (context, securityArmStateEvent)
-        */
     });
 
 /* Handle POST requests */
 server.post('/', function(req, res, next) {
-  console.log(`${new Date().toISOString()} ${req.method} ${req.path} ${req.body && req.body.lifecycle}`);
   smartapp.handleHttpCallback(req, res);
 });
 
@@ -121,12 +115,14 @@ To run as a Lambda function instead of an HTTP server, ensure that your main ent
 > **Note:** This snippet is heavily truncated for brevity – see the web service example above a more detailed example of how to define a `smartapp`.
 
 ```javascript
-const smartapp = require('@smartthings/smartapp')
-smartapp
+const SmartApp = require('@smartthings/smartapp')
+const smartapp = new SmartApp()
+    .enableEventLogging() // logs all lifecycle event requests and responses. Omit in production
     .page( ... )
     .updated(() => { ... })
     .subscribedEventHandler( ... );
-exports.handle = (event, context, callback) => {
+
+exports.handler = (event, context, callback) => {
     smartapp.handleLambdaCallback(event, context, callback);
 };
 ```
@@ -145,6 +141,48 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
   "Tap to set": "Tap to set"
 }
 ```
+
+### Unhandled Promise Rejection Handling
+
+By default, instantiation of the SmartApp object registers an "unhandledReject" handler 
+that logs unhandled promise rejections. If you don't want this behavior you can disable
+it by passing an option to the SmartApp instantiation, e.g. `new SmartApp({logUnhandledRejections: false})`.
+If you want to replace the handler you can do that by calling `unhandledRejectionHandler(promise => {...})`
+on the SmartApp object.
+
+### Making API calls outside of an EVENT handler
+
+By default, the SmartApp SDK will facilitate API calls on behalf of a user within the `EVENT` lifecycle. These user tokens are ephemeral and last *5 minutes*. These access tokens are not able to be refreshed and should _not_ be stored. If you're making out-of-band API calls on behalf of a user's installed app, you will need to use the 24-hour access token that are supplied after `INSTALL` and `UPDATE` lifecycles. This token includes a `refresh_token`, and will be automatically refreshed by the SDK when necessary.
+
+> Be aware that **there is no in-memory context store**, you must use a context store plugin. If you'd like to add a custom context store plugin, please [contribute](CONTRIBUTING.md)!
+
+To get started, let's add a compatible `ContextStore` plugin that will persist these tokens (among other things) to a database.
+
+#### Amazon AWS DynamoDB
+
+Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/dynamodb-context-store) or [fork on GitHub](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/fork).
+
+If you are hosting your SmartApp as an AWS Lambda, this DynamoDB context store makes perfect sense. This assumes you've already configured the [`aws-sdk`](https://www.npmjs.com/package/aws-sdk) package to interact with your Lambda, so extending your context store to DynamoDB is a drop-in solution.
+
+If you are self-hosted and still want to use DynamoDB, you can do that, too:
+
+1. Import the package to your project: `npm i --save @smartthings/dynamodb-context-store`
+    - *Note:* when adding this package, you also have `aws-sdk` available at the global scope, so you can configure the AWS SDK: `AWS.config.loadFromPath(creds)`
+1. Get an [AWS Access Key and Secret](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
+1. Set your credentials for your app, [any of the following ways are fine](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html).
+1. Register your Context Store plugin as described on [the project repository's readme.](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs#usage)
+
+For complete directions on usage, please see this project's GitHub repository. ([SmartThingsCommunity/dynamodb-context-store-nodejs](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs))
+
+#### Firebase Cloud Firestore
+
+Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/firestore-context-store) or [fork on GitHub](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs/fork). Usage is generally the same as DynamoDB:
+
+1. Generate a Firebase service account. You will receive a JSON file with the credentials.
+1. Load your Google Services JSON
+1. Create the context store
+
+See the full usage guide on the project's GitHub repository. ([SmartThingsCommunity/firestore-context-store-nodejs](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs#usage))
 
 ---
 
