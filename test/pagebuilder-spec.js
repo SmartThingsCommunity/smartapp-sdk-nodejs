@@ -13,7 +13,7 @@ describe('pagebuilder', () => {
 
 	it('should process one section', () => {
 		const page = new Page('mainPage')
-
+		page.defaultRequired(true)
 		page.section('When this door opens and closes', section => {
 			section.deviceSetting('contactSensor')
 				.capabilities(['contactSensor'])
@@ -37,7 +37,7 @@ describe('pagebuilder', () => {
 
 	it('should process two sections', () => {
 		const page = new Page('mainPage')
-
+		page.defaultRequired(true)
 		page.section('When this door opens and closes', section => {
 			section.deviceSetting('contactSensor')
 				.capabilities(['contactSensor'])
@@ -82,7 +82,7 @@ describe('pagebuilder', () => {
 
 	it('should process unnamed section', () => {
 		const page = new Page('mainPage')
-
+		page.defaultRequired(true)
 		page.section(section => {
 			section.deviceSetting('contactSensor')
 				.capabilities(['contactSensor'])
@@ -125,10 +125,8 @@ describe('pagebuilder', () => {
 
 	it('should honor default required', () => {
 		const page = new Page('mainPage')
-		page.defaultRequired(false)
-
+		page.defaultRequired(true)
 		page.section('When this door opens and closes', section => {
-			section.defaultRequired(true)
 			section.deviceSetting('contactSensor')
 				.capabilities(['contactSensor'])
 				.name('Select an open/close sensor')
@@ -150,7 +148,7 @@ describe('pagebuilder', () => {
 		// Console.log(JSON.stringify(json, null, 2))
 		expect(json.sections[0].settings[0].required).to.equal(true)
 		expect(json.sections[0].settings[1].required).to.equal(false)
-		expect(json.sections[1].settings[0].required).to.equal(false)
+		expect(json.sections[1].settings[0].required).to.equal(true)
 	})
 
 	it('options formats', () => {
@@ -198,5 +196,17 @@ describe('pagebuilder', () => {
 		expect(json.sections[0].settings[0].id).to.equal('anotherPage')
 		expect(json.sections[0].settings[0].page).to.equal('anotherPage')
 		expect(json.sections[0].settings[0].required).to.equal(undefined)
+	})
+
+	it('page defaultRequired adds required:true', () => {
+		const page = new Page('mainPage')
+		page.defaultRequired(true)
+		page.section(section => {
+			section.paragraphSetting('mainParagraph')
+		})
+
+		const json = page.toJson()
+		// Console.log(JSON.stringify(json, null, 2))
+		expect(json.sections[0].settings[0].required).to.equal(true)
 	})
 })
