@@ -64,10 +64,12 @@ const PORT       = 8080;
 
 server.use(express.json());
 
-// @smartthings_rsa.pub is your on-disk public key
-// If you do not have it yet, omit publicKey()
+/* Define the SmartApp */
 smartapp
+    // @smartthings_rsa.pub is your on-disk public key
+    // If you do not have it yet, omit publicKey()
     .publicKey('@smartthings_rsa.pub') // optional until app verified
+    .app.enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
@@ -77,36 +79,18 @@ smartapp
             section.deviceSetting('lights').capabilities(['switch']).multiple(true).permissions('rx');
         });
     })
-    .installed((context, installData) => {
-        console.log('installed', JSON.stringify(installData));
+    .updated(async (context, updateData) => {
+    	// Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
+        await context.api.subscriptions.unsubscribeAll()
+        return context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
     })
-    .uninstalled((context, uninstallData) => {
-        console.log('uninstalled', JSON.stringify(uninstallData));
-    })
-    .updated((context, updateData) => {
-        console.log('updated', JSON.stringify(updateData));
-        context.api.subscriptions.unsubscribeAll().then(() => {
-              console.log('unsubscribeAll() executed');
-              context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
-        });
-    })
-    .subscribedEventHandler('myDeviceEventHandler', (context, deviceEvent) => {
-        const value = deviceEvent.value === 'open' ? 'on' : 'off';
+    .subscribedEventHandler('myDeviceEventHandler', (context, event) => {
+        const value = event.value === 'open' ? 'on' : 'off';
         context.api.devices.sendCommands(context.config.lights, 'switch', value);
-        console.log(`sendCommands(${JSON.stringify(context.config.lights)}, 'switch', '${value}')`);
-
-        /* All subscription event handler types:
-         *   - DEVICE_EVENT (context, deviceEvent)
-         *   - TIMER_EVENT (context, timerEvent)
-         *   - DEVICE_COMMANDS_EVENT (context, deviceId, command, deviceCommandsEvent)
-         *   - MODE_EVENT (context, modeEvent)
-         *   - SECURITY_ARM_STATE_EVENT (context, securityArmStateEvent)
-        */
     });
 
 /* Handle POST requests */
 server.post('/', function(req, res, next) {
-  console.log(`${new Date().toISOString()} ${req.method} ${req.path} ${req.body && req.body.lifecycle}`);
   smartapp.handleHttpCallback(req, res);
 });
 
@@ -120,12 +104,14 @@ To run as a Lambda function instead of an HTTP server, ensure that your main ent
 
 > **Note:** This snippet is heavily truncated for brevity – see the web service example above a more detailed example of how to define a `smartapp`.
 
-```javascript
+```
 const smartapp = require('@smartthings/smartapp')
 smartapp
+    .app.enableEventLogging() // logs all lifecycle event requests and responses. Omit in production
     .page( ... )
     .updated(() => { ... })
     .subscribedEventHandler( ... );
+
 exports.handle = (event, context, callback) => {
     smartapp.handleLambdaCallback(event, context, callback);
 };
