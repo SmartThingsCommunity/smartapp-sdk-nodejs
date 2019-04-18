@@ -27,13 +27,13 @@ npm i @smartthings/smartapp --save
 `NodeJS`:
 
 ```javascript
-const smartapp = require('@smartthings/smartapp')
+const SmartApp = require('@smartthings/smartapp')
 ```
 
-Or, if you're transpiling to `ES6`/`ES2015`+:
+Or `ES2015`+:
 
 ```javascript
-import smartapp from '@smartthings/smartapp'
+import SmartApp from '@smartthings/smartapp'
 ```
 
 ## Highlights
@@ -43,6 +43,9 @@ import smartapp from '@smartthings/smartapp'
 - [x] Configuration page API simplifies page definition.
 - [x] Integrated [i18n](https://www.npmjs.com/package/i18n) framework provides configuration page localization.
 - [x] [Winston](https://www.npmjs.com/package/winston) framework manges log messages.
+- [x] Context Store plugins – easily scale access token management (and more) to support many users
+  - [x] [AWS DynamoDB](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs) plugin
+  - [x] [Firebase Cloud Firestore](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs) plugin
 
 ## Roadmap
 
@@ -58,14 +61,14 @@ To run the app with an HTTP server, like Express.js:
 
 ```javascript
 const express    = require('express');
-const smartapp   = require('@smartthings/smartapp');
+const SmartApp   = require('@smartthings/smartapp');
 const server     = module.exports = express();
 const PORT       = 8080;
 
 server.use(express.json());
 
 /* Define the SmartApp */
-smartapp
+const smartapp = new SmartApp()
     // @smartthings_rsa.pub is your on-disk public key
     // If you do not have it yet, omit publicKey()
     .publicKey('@smartthings_rsa.pub') // optional until app verified
@@ -73,14 +76,21 @@ smartapp
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
-           section.deviceSetting('contactSensor').capabilities(['contactSensor']).required(false);
+           section
+            .deviceSetting('contactSensor')
+            .capabilities(['contactSensor'])
+            .required(false);
         });
         page.section('lights', section => {
-            section.deviceSetting('lights').capabilities(['switch']).multiple(true).permissions('rx');
+            section
+                .deviceSetting('lights')
+                .capabilities(['switch'])
+                .multiple(true)
+                .permissions('rx');
         });
     })
     .updated(async (context, updateData) => {
-    	// Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
+        // Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
         await context.api.subscriptions.unsubscribeAll()
         return context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
     })
@@ -104,15 +114,15 @@ To run as a Lambda function instead of an HTTP server, ensure that your main ent
 
 > **Note:** This snippet is heavily truncated for brevity – see the web service example above a more detailed example of how to define a `smartapp`.
 
-```
-const smartapp = require('@smartthings/smartapp')
-smartapp
-    .app.enableEventLogging() // logs all lifecycle event requests and responses. Omit in production
+```javascript
+const SmartApp = require('@smartthings/smartapp')
+const smartapp = new SmartApp()
+    .enableEventLogging() // logs all lifecycle event requests and responses. Omit in production
     .page( ... )
     .updated(() => { ... })
     .subscribedEventHandler( ... );
 
-exports.handle = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
     smartapp.handleLambdaCallback(event, context, callback);
 };
 ```
