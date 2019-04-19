@@ -153,7 +153,6 @@ describe('pagebuilder', () => {
 
 	it('options formats', () => {
 		const page = new Page('mainPage')
-		page.defaultRequired(false)
 
 		page.section(section => {
 			section.enumSetting('standardOptions').options([{id: 'one', name: 'One'}, {id: 'two', name: 'Two'}])
@@ -185,7 +184,6 @@ describe('pagebuilder', () => {
 
 	it('page setting', () => {
 		const page = new Page('mainPage')
-		page.defaultRequired(false)
 
 		page.section(section => {
 			section.pageSetting('anotherPage')
