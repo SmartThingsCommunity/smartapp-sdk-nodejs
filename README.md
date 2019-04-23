@@ -44,8 +44,8 @@ import SmartApp from '@smartthings/smartapp'
 - [x] Integrated [i18n](https://www.npmjs.com/package/i18n) framework provides configuration page localization.
 - [x] [Winston](https://www.npmjs.com/package/winston) framework manges log messages.
 - [x] Context Store plugins – easily scale access token management (and more) to support many users
-  - [x] [AWS DynamoDB](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs) plugin
-  - [x] [Firebase Cloud Firestore](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs) plugin
+  - [x] [AWS DynamoDB](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs) plugin ([usage](#amazon-aws-dynamodb))
+  - [x] [Firebase Cloud Firestore](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs) plugin ([usage](#firebase-cloud-firestore))
 
 ## Roadmap
 
@@ -72,7 +72,7 @@ const smartapp = new SmartApp()
     // @smartthings_rsa.pub is your on-disk public key
     // If you do not have it yet, omit publicKey()
     .publicKey('@smartthings_rsa.pub') // optional until app verified
-    .app.enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
+    .enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
@@ -141,6 +141,40 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
   "Tap to set": "Tap to set"
 }
 ```
+
+### Making API calls outside of an EVENT handler
+
+By default, the SmartApp SDK will facilitate API calls on behalf of a user within the `EVENT` lifecycle. These user tokens are ephemeral and last *5 minutes*. These access tokens are not able to be refreshed and should _not_ be stored. If you're making out-of-band API calls on behalf of a user's installed app, you will need to use the 24-hour access token that are supplied after `INSTALL` and `UPDATE` lifecycles. This token includes a `refresh_token`, and will be automatically refreshed by the SDK when necessary.
+
+> Be aware that **there is no in-memory context store**, you must use a context store plugin. If you'd like to add a custom context store plugin, please [contribute](CONTRIBUTING.md)!
+
+To get started, let's add a compatible `ContextStore` plugin that will persist these tokens (among other things) to a database.
+
+#### Amazon AWS DynamoDB
+
+Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/dynamodb-context-store) or [fork on GitHub](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs/fork).
+
+If you are hosting your SmartApp as an AWS Lambda, this DynamoDB context store makes perfect sense. This assumes you've already configured the [`aws-sdk`](https://www.npmjs.com/package/aws-sdk) package to interact with your Lambda, so extending your context store to DynamoDB is a drop-in solution.
+
+If you are self-hosted and still want to use DynamoDB, you can do that, too:
+
+1. Import the package to your project: `npm i --save @smartthings/dynamodb-context-store`
+    - *Note:* when adding this package, you also have `aws-sdk` available at the global scope, so you can configure the AWS SDK: `AWS.config.loadFromPath(creds)`
+1. Get an [AWS Access Key and Secret](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-your-credentials.html)
+1. Set your credentials for your app, [any of the following ways are fine](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html).
+1. Register your Context Store plugin as described on [the project repository's readme.](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs#usage)
+
+For complete directions on usage, please see this project's GitHub repository. ([SmartThingsCommunity/dynamodb-context-store-nodejs](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs))
+
+#### Firebase Cloud Firestore
+
+Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/firestore-context-store) or [fork on GitHub](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs/fork). Usage is generally the same as DynamoDB:
+
+1. Generate a Firebase service account. You will receive a JSON file with the credentials.
+1. Load your Google Services JSON
+1. Create the context store
+
+See the full usage guide on the project's GitHub repository. ([SmartThingsCommunity/firestore-context-store-nodejs](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs#usage))
 
 ---
 
