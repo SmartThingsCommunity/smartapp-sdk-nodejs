@@ -72,7 +72,7 @@ const smartapp = new SmartApp()
     // @smartthings_rsa.pub is your on-disk public key
     // If you do not have it yet, omit publicKey()
     .publicKey('@smartthings_rsa.pub') // optional until app verified
-    .app.enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
+    .enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
