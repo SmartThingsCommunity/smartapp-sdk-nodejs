@@ -168,7 +168,7 @@ For complete directions on usage, please see this project's GitHub repository. (
 
 #### Firebase Cloud Firestore
 
-Although this node package is a work in progress, you can [fork it on GitHub](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs/fork) and use it in your own project. Usage is generally the same as DynamoDB: 
+Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/firestore-context-store) or [fork on GitHub](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs/fork). Usage is generally the same as DynamoDB:
 
 1. Generate a Firebase service account. You will receive a JSON file with the credentials.
 1. Load your Google Services JSON
