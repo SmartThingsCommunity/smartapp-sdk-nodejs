@@ -142,6 +142,14 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
 }
 ```
 
+### Unhandled Promise Rejection Handling
+
+By default, instation of the SmartApp object registers an "unhandledReject" handler 
+that logs unhandled promise rejections. If you don't want this behavior you can disable
+it by passing an option to the SmartApp instantion, e.g. `new SmartApp({logUnhandedRejections: false})`.
+If you want to replace the handler you can do that by calling `unhandledRejectionHandler(promise => {...})`
+on the SmartApp object.
+
 ### Making API calls outside of an EVENT handler
 
 By default, the SmartApp SDK will facilitate API calls on behalf of a user within the `EVENT` lifecycle. These user tokens are ephemeral and last *5 minutes*. These access tokens are not able to be refreshed and should _not_ be stored. If you're making out-of-band API calls on behalf of a user's installed app, you will need to use the 24-hour access token that are supplied after `INSTALL` and `UPDATE` lifecycles. This token includes a `refresh_token`, and will be automatically refreshed by the SDK when necessary.
