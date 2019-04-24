@@ -144,9 +144,9 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
 
 ### Unhandled Promise Rejection Handling
 
-By default, instation of the SmartApp object registers an "unhandledReject" handler 
+By default, instantiation of the SmartApp object registers an "unhandledReject" handler 
 that logs unhandled promise rejections. If you don't want this behavior you can disable
-it by passing an option to the SmartApp instantion, e.g. `new SmartApp({logUnhandedRejections: false})`.
+it by passing an option to the SmartApp instantiation, e.g. `new SmartApp({logUnhandledRejections: false})`.
 If you want to replace the handler you can do that by calling `unhandledRejectionHandler(promise => {...})`
 on the SmartApp object.
 
