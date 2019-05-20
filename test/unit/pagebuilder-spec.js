@@ -1,6 +1,6 @@
 /* eslint no-undef: "off" */
 const {expect} = require('chai')
-const Page = require('../lib/pages/page')
+const Page = require('../../lib/pages/page')
 
 describe('pagebuilder', () => {
 	it('should set page ID', () => {

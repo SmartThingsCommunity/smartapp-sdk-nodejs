@@ -2,7 +2,7 @@
 const path = require('path')
 const {expect} = require('chai')
 const i18n = require('i18n')
-const Page = require('../lib/pages/page')
+const Page = require('../../lib/pages/page')
 
 i18n.configure({
 	locales: ['en', 'fr'],

@@ -1,6 +1,6 @@
 /* eslint no-undef: "off" */
 const assert = require('assert').strict
-const SmartApp = require('../lib/smart-app')
+const SmartApp = require('../../lib/smart-app')
 
 describe('smartapp-spec', () => {
 	let app

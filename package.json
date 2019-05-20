@@ -14,7 +14,9 @@
   "main": "lib/smart-app.js",
   "scripts": {
     "lint": "xo",
-    "test": "xo && nyc mocha test/**/*.js",
+    "test:unit": "mocha test/unit",
+    "test:functional": "mocha test/functional",
+    "test": "xo && nyc mocha test/unit",
     "start": "node ./smart-app.js",
     "debug": "node --inspect ./lib/smart-app.js",
     "semantic-release": "semantic-release -e ./config/release.config.js"
@@ -43,7 +45,8 @@
     "@semantic-release/release-notes-generator": "~7.1.4",
     "@semantic-release/git": "~7.0.8",
     "chai": "~4.2.0",
-    "conventional-changelog-eslint": "~3.0.1",
+	"conventional-changelog-eslint": "~3.0.1",
+	"dotenv": "^8.0.0",
     "mocha": "^6.1.4",
     "nyc": "~13.3.0",
     "semantic-git-commit-cli": "~3.2.2",
