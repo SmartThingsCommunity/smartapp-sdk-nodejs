@@ -47,11 +47,7 @@ import SmartApp from '@smartthings/smartapp'
   - [x] [AWS DynamoDB](https://github.com/SmartThingsCommunity/dynamodb-context-store-nodejs) plugin ([usage](#amazon-aws-dynamodb))
   - [x] [Firebase Cloud Firestore](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs) plugin ([usage](#firebase-cloud-firestore))
 
-## Roadmap
-
-![Roadmap](doc/roadmap-2019.png)
-
-## Example
+## Examples
 
 The following example is the equivalent of the original SmartThings Groovy _Let There Be Light_ app that turns on and off a light when a door opens and closes.
 
@@ -76,10 +72,10 @@ const smartapp = new SmartApp()
     .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
-           section
-            .deviceSetting('contactSensor')
-            .capabilities(['contactSensor'])
-            .required(false);
+            section
+                .deviceSetting('contactSensor')
+                .capabilities(['contactSensor'])
+                .required(false);
         });
         page.section('lights', section => {
             section
@@ -126,6 +122,11 @@ exports.handler = (event, context, callback) => {
     smartapp.handleLambdaCallback(event, context, callback);
 };
 ```
+There are also a few Glitch examples:
+
+- [Simple SmartThings Automation App using Contact Sensors](https://glitch.com/edit/#!/south-mayonnaise?path=README.md:1:0)
+- [Simple SmartThings Automation App using Motion Detectors](https://glitch.com/edit/#!/polite-math?path=README.md:1:0)
+- [Simple Switch Cloud-to-Cloud (C2C) App](https://glitch.com/edit/#!/aquamarine-crop?path=README.md:1:0)
 
 ### Localization
 
@@ -144,7 +145,7 @@ Configuration page strings are specified in a separate `locales/en.json` file, w
 
 ### Unhandled Promise Rejection Handling
 
-By default, instantiation of the SmartApp object registers an "unhandledReject" handler 
+By default, instantiation of the SmartApp object registers an "unhandledReject" handler
 that logs unhandled promise rejections. If you don't want this behavior you can disable
 it by passing an option to the SmartApp instantiation, e.g. `new SmartApp({logUnhandledRejections: false})`.
 If you want to replace the handler you can do that by calling `unhandledRejectionHandler(promise => {...})`
