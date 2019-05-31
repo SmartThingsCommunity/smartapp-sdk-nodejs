@@ -9,7 +9,5 @@
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 - [ ] I have read the **[CONTRIBUTING](/CONTRIBUTING.md)** document
 - [ ] My code follows the code style of this project (hint: install an [xo editor plugin](https://github.com/xojs/xo#editor-plugins))
-- [ ] My change requires a change to the documentation
-- [ ] I have updated the documentation accordingly
+- [ ] Any required documentation has been added
 - [ ] I have added tests to cover my changes
-- [ ] All new and existing tests passed
