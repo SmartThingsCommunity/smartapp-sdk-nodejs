@@ -1,11 +1,4 @@
----
-name: Pull request checklist
-about: Checklist for pull requests
-title: ''
-labels: pull
-assignees: erodewald
-
----
+<!-- Describe your pull request. -->
 
 ## Types of changes
 

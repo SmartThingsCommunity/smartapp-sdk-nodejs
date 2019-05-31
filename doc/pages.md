@@ -6,25 +6,25 @@
 
 **page (id, definition)**
 
-```
+```javascript
 app.page.('pageOne', (page) => {
     page.nextPageId('pageTwo')
     ...
 })
 ```
-Creates a new configuration page. All pages must have an ID, which is used to reference the page in link and next/previous 
+Creates a new configuration page. All pages must have an ID, which is used to reference the page in link and next/previous
 fields.
 
 #### Page Properties
 
 ##### _name (text)_
 Specify the name appearing at the top of this page. If omitted and i18n localization
-has been configured then this text is taked from the appropriate 
+has been configured then this text is taken from the appropriate
 locale file.
 
 ##### _complete ( true | false )_
 If true then the _Done_ button appears on the page, allowing the app
-to be installed or updated. 
+to be installed or updated.
 
 ##### _nextPageId (id)_
 ID of the page to display when the _Next_ button is pressed.
@@ -36,7 +36,7 @@ ID of the page to display when the _Back_ button is pressed.
 
 **section([title], definition)**
 
-```
+```javascript
 app.page.('pageOne', (page) => {
     page.section('Select sensors', (section) => {
         section.hideable(true)
@@ -57,11 +57,11 @@ Section contents can be displayed or hidden on the page. Hideable sections shoul
 The initial state of the section is hidden.
 
 ### Settings
-```aidl
+```javascript
 app.page.('pageOne', (page) => {
     page.section('Select sensors', (section) => {
         section.deviceSetting('motionSensors')
-            .capability('motionSensor)
+            .capability('motionSensor')
             .multiple(true)
     })
 })
