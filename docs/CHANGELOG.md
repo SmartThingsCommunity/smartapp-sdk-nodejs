@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.2.2...v1.2.3) (2019-07-08)
+
+
+### Bug Fixes
+
+* .snyk, package.json & package-lock.json to reduce vulnerabilities ([#75](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/75)) ([3e0df34](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/3e0df34))
+
 ## [1.2.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.2.1...v1.2.2) (2019-05-07)
 
 
