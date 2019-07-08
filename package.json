@@ -40,7 +40,7 @@
     "request": "~2.88.0",
     "request-promise-native": "^1.0.7",
     "winston": "~3.2.1",
-    "snyk": "^1.189.0"
+    "snyk": "^1.192.3"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "~6.1.0",
