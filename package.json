@@ -1,6 +1,6 @@
 {
   "name": "@smartthings/smartapp",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "description": "NodeJS SDK for SmartApps",
   "displayName": "SmartThings SmartApp SDK for NodeJS",
   "author": "SmartThings",

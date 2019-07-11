@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.2.4...v1.3.0) (2019-07-11)
+
+
+### Features
+
+* Add support for async confirmation ([#78](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/78)) ([dd14a6f](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/dd14a6f)), closes [#77](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/77)
+
 ## [1.2.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.2.3...v1.2.4) (2019-07-08)
 
 
