@@ -30,3 +30,5 @@ patch:
         patched: '2019-07-08T14:08:34.686Z'
     - snyk > snyk-go-plugin > graphlib > lodash:
         patched: '2019-07-08T14:08:34.686Z'
+    - node-cache > lodash:
+        patched: '2019-07-11T12:43:32.265Z'
