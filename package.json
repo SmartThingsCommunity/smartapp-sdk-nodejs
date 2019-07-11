@@ -37,21 +37,25 @@
     "fs-extra": "~7.0.1",
     "http-signature": "~1.2.0",
     "i18n": "~0.8.3",
+    "node-cache": "~4.2.0",
     "request": "~2.88.0",
     "request-promise-native": "^1.0.7",
-    "winston": "~3.2.1",
-    "snyk": "^1.192.3"
+    "snyk": "^1.192.3",
+    "sshpk": "~1.16.1",
+    "winston": "~3.2.1"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "~6.1.0",
     "@semantic-release/changelog": "~3.0.2",
-    "@semantic-release/release-notes-generator": "~7.1.4",
+    "@semantic-release/commit-analyzer": "~6.1.0",
     "@semantic-release/git": "~7.0.8",
+    "@semantic-release/release-notes-generator": "~7.1.4",
     "chai": "~4.2.0",
     "conventional-changelog-eslint": "~3.0.1",
     "dotenv": "^8.0.0",
     "mocha": "^6.1.4",
+    "nock": "^10.0.6",
     "nyc": "~13.3.0",
+    "proxyquire": "^2.1.0",
     "semantic-git-commit-cli": "~3.2.2",
     "semantic-release": "^15.13.12",
     "xo": "~0.24.0"
@@ -64,7 +68,15 @@
       "promise/prefer-await-to-then": 1,
       "prefer-object-spread": 1,
       "no-template-curly-in-string": 0
-    }
+    },
+    "overrides": [
+      {
+        "files": "examples/**/*.js",
+        "rules": {
+          "import/no-unresolved": 0
+        }
+      }
+    ]
   },
   "snyk": true
 }
