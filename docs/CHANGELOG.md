@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.0...v1.3.1) (2019-07-11)
+
+
+### Bug Fixes
+
+* Fix broken Ping lifecycle authorization due to Issue-77 addition ([#83](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/83)) ([2399c40](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/2399c40))
+
 # [1.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.2.4...v1.3.0) (2019-07-11)
 
 
