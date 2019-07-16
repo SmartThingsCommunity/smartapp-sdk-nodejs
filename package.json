@@ -58,6 +58,7 @@
     "proxyquire": "^2.1.0",
     "semantic-git-commit-cli": "~3.2.2",
     "semantic-release": "^15.13.12",
+    "sinon": "^7.3.2",
     "xo": "~0.24.0"
   },
   "xo": {
