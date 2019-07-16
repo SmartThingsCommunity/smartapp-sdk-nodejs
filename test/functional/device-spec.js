@@ -19,7 +19,7 @@ async function fetchContent() {
 	const [profiles, installApp, locations] = await Promise.all([api.deviceProfiles.list(), api.installedApps.list(), api.locations.list()])
 
 	// Generates an access token to be utilized for testing endpoints
-	token = Client.refreshToken('https://auth-global.api.smartthings.com/oauth/token', process.env.CLIENT_ID, process.env.CLIENT_KEY, process.env.REFRESH_TOKEN)
+	const token = Client.refreshToken('https://auth-global.api.smartthings.com/oauth/token', process.env.CLIENT_ID, process.env.CLIENT_KEY, process.env.REFRESH_TOKEN)
 	await token.then(response => {
 		parsedObj = JSON.parse(response.body)
 		accessToken = parsedObj.access_token
