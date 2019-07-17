@@ -1,10 +1,14 @@
-/* eslint no-undef: "off" */
-const assert = require('assert').strict
+/* eslint-disable no-undef, no-unused-expressions */
 const fs = require('fs')
 const path = require('path')
 const nock = require('nock')
+const sinon = require('sinon')
+const {expect, assert} = require('chai')
 const proxyquire = require('proxyquire')
 const sshpk = require('sshpk')
+const httpSignature = require('http-signature')
+const SmartApp = require('../../lib/smart-app')
+const Log = require('../../lib/util/log')
 
 const Authorizer = proxyquire('../../lib/util/authorizer', {
 	'http-signature': {
@@ -16,6 +20,7 @@ const Authorizer = proxyquire('../../lib/util/authorizer', {
 		}
 	}
 })
+
 const publicKeyFilePath = path.resolve(__dirname, '../fixtures/unit_test_rsa.key')
 const publicCertFilePath = path.resolve(__dirname, '../fixtures/unit_test_cert.crt')
 describe('authorizer-spec', () => {
@@ -66,5 +71,55 @@ describe('authorizer-spec', () => {
 		})
 		assert.strictEqual(isValid, true)
 		scope.done()
+	})
+})
+
+describe('authorizer-logger-spec', () => {
+	const request = {
+		body: {
+			lifecycle: 'CONFIGURATION',
+			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'en-US'
+			},
+			configurationData: {
+				installedAppId: '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
+				phase: 'INITIALIZE',
+				pageId: '',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		}
+	}
+
+	it('should throw exception when authorizing header key is missing', async () => {
+		const app = new SmartApp()
+		const parseRequestStub = sinon.stub(httpSignature, 'parseRequest')
+		parseRequestStub.throws('MissingHeaderException')
+		app.handleHttpCallback(request, undefined)
+
+		expect(parseRequestStub.calledOnce).to.be.true
+		expect(parseRequestStub.threw('MissingHeaderException')).to.be.true
+		expect(app._authorizer._logger).to.not.be.undefined
+		parseRequestStub.restore()
+	})
+
+	it('should use a default Log instance when none configured', async () => {
+		const app = new SmartApp()
+		app.handleMockCallback(request.body)
+		expect(app._authorizer._logger).to.not.be.undefined
+		expect(app._authorizer._logger).to.be.an.instanceof(Log)
+	})
+
+	it('should use the Log logger specified by the user', () => {
+		const app = new SmartApp({logger: console})
+		app.handleMockCallback(request.body)
+		expect(app._authorizer._logger._logger).to.not.be.undefined
+		expect(app._authorizer._logger._logger).to.be.an.instanceOf(console.Console)
 	})
 })
