@@ -50,6 +50,7 @@
     "@semantic-release/git": "~7.0.8",
     "@semantic-release/release-notes-generator": "~7.1.4",
     "chai": "~4.2.0",
+    "chai-datetime": "^1.5.0",
     "conventional-changelog-eslint": "~3.0.1",
     "dotenv": "^8.0.0",
     "mocha": "^6.1.4",
