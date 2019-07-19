@@ -34,9 +34,9 @@ params:
 
 ##### _devices.listAll ()_
 
-##### _devices.sendCommand (item, capability, command, args)_
+##### _devices.sendCommand (item, capability, command, arguments)_<br>_devices.sendCommand (item, [{capability:'switch', command:'on', arguments:[]}])_
 
-##### _devices.sendCommands (items, capability, command, args)_
+##### _devices.sendCommands (items, capability, command, arguments)_<br>_devices.sendCommands (items, [{capability:'switch', command:'on', arguments:[]}])_
 
 ##### _devices.postCommands (deviceId, body)_
 
