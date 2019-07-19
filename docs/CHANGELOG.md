@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.1...v1.3.2) (2019-07-19)
+
+
+### Bug Fixes
+
+* **context:** Fix npe prone code ([#87](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/87)) ([39757bf](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/39757bf))
+
 ## [1.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.0...v1.3.1) (2019-07-11)
 
 
