@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.2...v1.4.0) (2019-07-19)
+
+
+### Features
+
+* Accept lists of device commands ([#88](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/88)) ([bed23a0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/bed23a0))
+
 ## [1.3.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.1...v1.3.2) (2019-07-19)
 
 
