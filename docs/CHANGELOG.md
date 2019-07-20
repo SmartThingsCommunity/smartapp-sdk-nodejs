@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.0...v1.4.1) (2019-07-20)
+
+
+### Bug Fixes
+
+* Output stack trace for uncaught exceptions in handler ([#89](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/89)) ([c13e655](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/c13e655))
+
 # [1.4.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.3.2...v1.4.0) (2019-07-19)
 
 
