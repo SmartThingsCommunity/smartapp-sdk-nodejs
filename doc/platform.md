@@ -101,6 +101,19 @@ params:
 ##### _scenes.execute (id)_
 
 
+### Rooms
+
+##### _rooms.list (locationId = null)_
+
+##### _rooms.get (id, locationId = null)_
+
+##### _rooms.create (data, locationId = null)_
+
+##### _rooms.update (id, data, locationId = null)_
+
+##### _rooms.delete (id, locationId = null)_
+
+
 ### Schedules
 
 ##### _schedules.schedule (name, cronExpression)_
