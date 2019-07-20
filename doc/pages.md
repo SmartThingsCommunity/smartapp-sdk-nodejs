@@ -7,13 +7,27 @@
 **page (id, definition)**
 
 ```javascript
-app.page.('pageOne', (page) => {
-    page.nextPageId('pageTwo')
-    ...
+app.page('pageOne', (ctx, page, configData) => {
+    page.section('Heading', section => {
+    	...
+    })
 })
 ```
 Creates a new configuration page. All pages must have an ID, which is used to reference the page in link and next/previous
 fields.
+
+**page (id, definition)**
+
+```javascript
+app.defaultPage((ctx, page, configData) => {
+    if(configData.pageId === 'pageTwo') {
+    	...
+    } else {
+    	...
+    }
+})
+```
+Defines a handler that is called if the page ID doesn't match any of the declared pages.
 
 #### Page Properties
 
