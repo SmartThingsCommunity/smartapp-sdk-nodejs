@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.3...v1.5.0) (2019-07-22)
+
+
+### Features
+
+* Allow API calls while rendering pages in installed app ([#90](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/90)) ([1601918](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/1601918))
+
 ## [1.4.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.2...v1.4.3) (2019-07-22)
 
 
