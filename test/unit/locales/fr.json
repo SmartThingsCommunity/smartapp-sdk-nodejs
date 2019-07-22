@@ -14,5 +14,9 @@
 	"pages.mainPage.settings.contactSensor.name": "Sélectionnez un capteur d'ouverture / fermeture",
 	"pages.mainPage.sections.turnLightsOnAndOff.name": "Allumer et éteindre ces lumières",
 	"pages.mainPage.settings.lights.name": "Sélectionner des lumières",
-	"Tap to set": "Appuyez pour définir"
+	"Tap to set": "Appuyez pour définir",
+	"whenDoorOpensAndCloses": "whenDoorOpensAndCloses",
+	"turnLightsOnAndOff": "turnLightsOnAndOff",
+	"When anything opens or closes": "When anything opens or closes",
+	"Any open or close sensor": "Any open or close sensor"
 }

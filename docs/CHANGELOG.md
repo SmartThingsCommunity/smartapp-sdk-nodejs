@@ -1,3 +1,17 @@
+## [1.4.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.2...v1.4.3) (2019-07-22)
+
+
+### Bug Fixes
+
+* bugs in devices by capability query and section name localization ([#93](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/93)) ([2711cd4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/2711cd4))
+
+## [1.4.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.1...v1.4.2) (2019-07-21)
+
+
+### Bug Fixes
+
+* removed resolveWithFull response that is a beaking change ([#94](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/94)) ([755e21b](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/755e21b))
+
 ## [1.4.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.0...v1.4.1) (2019-07-20)
 
 
