@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.5.0...v1.5.1) (2019-07-23)
+
+
+### Bug Fixes
+
+* Bug in configuration/page retrieveTokens when no ctx store ([#96](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/96)) ([63ef46a](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/63ef46a))
+
 # [1.5.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.4.3...v1.5.0) (2019-07-22)
 
 
