@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.5.1...v1.6.0) (2019-07-23)
+
+
+### Features
+
+* Added rooms API ([#91](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/91)) ([8421be4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/8421be4))
+
 ## [1.5.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.5.0...v1.5.1) (2019-07-23)
 
 
