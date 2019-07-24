@@ -69,7 +69,8 @@
       "no-useless-constructor": 1,
       "promise/prefer-await-to-then": 1,
       "prefer-object-spread": 1,
-      "no-template-curly-in-string": 0
+      "no-template-curly-in-string": 0,
+      "quote-props": ["error", "consistent"]
     },
     "overrides": [
       {
