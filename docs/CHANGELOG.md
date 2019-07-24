@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.6.0...v1.7.0) (2019-07-24)
+
+
+### Features
+
+* Added default page handler ([#92](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/92)) ([86f0bef](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/86f0bef))
+
 # [1.6.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.5.1...v1.6.0) (2019-07-23)
 
 
