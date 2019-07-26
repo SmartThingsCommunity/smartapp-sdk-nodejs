@@ -3,6 +3,7 @@ const assert = require('assert').strict
 const SmartApp = require('../../lib/smart-app')
 
 describe('event-type-handler-spec', () => {
+	/** @type {SmartApp} */
 	let app
 	let receivedEvent
 
