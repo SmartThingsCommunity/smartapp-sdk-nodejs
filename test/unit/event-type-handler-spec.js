@@ -12,9 +12,14 @@ describe('event-type-handler-spec', () => {
 	})
 
 	it('should handle MODE_EVENT', () => {
-		app.subscribedEventHandler('modeHandler', (_, event) => {
+		const expectedEvent = {
+			'eventId': 'e9ede6a6-ade1-11e9-8a15-5998645d79ea',
+			'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
+			'modeId': '57ae8db9-9187-4293-bf7c-c0218825e94e'
+		}
+		app.subscribedModeEventHandler('modeHandler', (_, event) => {
 			receivedEvent = event
-		}, 'MODE_EVENT')
+		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '66D91548-8643-444F-B402-F5CE832A5120',
@@ -37,25 +42,29 @@ describe('event-type-handler-spec', () => {
 					{
 						'eventTime': '2019-07-24T07:09:01Z',
 						'eventType': 'MODE_EVENT',
-						'modeEvent': {
-							'eventId': 'e9ede6a6-ade1-11e9-8a15-5998645d79ea',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'modeId': '57ae8db9-9187-4293-bf7c-c0218825e94e'
-						}
+						'modeEvent': expectedEvent
 					}
 				]
 			},
 			'settings': {}
 		})
-		assert.equal(receivedEvent.eventId, 'e9ede6a6-ade1-11e9-8a15-5998645d79ea')
-		assert.equal(receivedEvent.locationId, '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5')
-		assert.equal(receivedEvent.modeId, '57ae8db9-9187-4293-bf7c-c0218825e94e')
+
+		assert.deepStrictEqual(receivedEvent, expectedEvent)
 	})
 
 	it('should handle DEVICE_LIFECYCLE_EVENT', () => {
-		app.subscribedEventHandler('deviceLifecycle', (_, event) => {
+		const expectedEvent = {
+			'lifecycle': 'UPDATE',
+			'eventId': '091bd080-ade3-11e9-aa79-415d41e7ce77',
+			'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
+			'deviceId': 'ba0767c3-f883-438d-9db1-b1a84b8d347b',
+			'deviceName': '',
+			'principal': '',
+			'update': {}
+		}
+		app.subscribedDeviceLifecycleEventHandler('deviceLifecycle', (_, event) => {
 			receivedEvent = event
-		}, 'DEVICE_LIFECYCLE_EVENT')
+		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '6b85d1aa-a059-fe2f-ac71-f863df37da65',
@@ -78,27 +87,27 @@ describe('event-type-handler-spec', () => {
 					{
 						'eventTime': '2019-07-24T07:17:03Z',
 						'eventType': 'DEVICE_LIFECYCLE_EVENT',
-						'deviceLifecycleEvent': {
-							'lifecycle': 'UPDATE',
-							'eventId': '091bd080-ade3-11e9-aa79-415d41e7ce77',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': 'ba0767c3-f883-438d-9db1-b1a84b8d347b',
-							'deviceName': '',
-							'principal': '',
-							'update': {}
-						}
+						'deviceLifecycleEvent': expectedEvent
 					}
 				]
 			},
 			'settings': {}
 		})
-		assert.equal(receivedEvent.eventId, '091bd080-ade3-11e9-aa79-415d41e7ce77')
+		assert.deepStrictEqual(receivedEvent, expectedEvent)
 	})
 
 	it('should handle DEVICE_HEALTH_EVENT', () => {
-		app.subscribedEventHandler('deviceHealthHandler', (_, event) => {
+		const expectedEvent = {
+			'eventId': '0bde7df0-ade4-11e9-b187-3f8238130d63',
+			'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
+			'deviceId': '1ed46054-c643-4153-b50d-7509de9b237b',
+			'hubId': '',
+			'status': 'OFFLINE',
+			'reason': 'SERVICE_UNAVAILABLE'
+		}
+		app.subscribedDeviceHealthEventHandler('deviceHealth', (_, event) => {
 			receivedEvent = event
-		}, 'DEVICE_HEALTH_EVENT')
+		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '66b5208f-f3e2-403a-b2da-e2e34e009828',
@@ -121,26 +130,25 @@ describe('event-type-handler-spec', () => {
 					{
 						'eventTime': '2019-07-24T07:24:17Z',
 						'eventType': 'DEVICE_HEALTH_EVENT',
-						'deviceHealthEvent': {
-							'eventId': '0bde7df0-ade4-11e9-b187-3f8238130d63',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': '1ed46054-c643-4153-b50d-7509de9b237b',
-							'hubId': '',
-							'status': 'OFFLINE',
-							'reason': 'SERVICE_UNAVAILABLE'
-						}
+						'deviceHealthEvent': expectedEvent
 					}
 				]
 			},
 			'settings': {}
 		})
-		assert.equal(receivedEvent.eventId, '0bde7df0-ade4-11e9-b187-3f8238130d63')
+		assert.deepStrictEqual(receivedEvent, expectedEvent)
 	})
 
 	it('should handle HUB_HEALTH_EVENT', () => {
-		app.subscribedEventHandler('hubHealthHandler', (_, event) => {
+		const expectedEvent = {
+			'eventId': '12347df0-ade4-11e9-b187-3f8238130d63',
+			'locationId': '66b5208f-f3e2-4a1a-c3eb-e2e34e009828',
+			'hubId': '1935208f-f4d2-4a1a-c3eb-e2e45e008928',
+			'status': 'OFFLINE'
+		}
+		app.subscribedHubHealthEventHandler('hubHealth', (_, event) => {
 			receivedEvent = event
-		}, 'HUB_HEALTH_EVENT')
+		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '66b5208f-f3e2-403a-b2da-e2e34e009828',
@@ -162,21 +170,33 @@ describe('event-type-handler-spec', () => {
 					{
 						'eventTime': '2019-07-24T07:24:17Z',
 						'eventType': 'HUB_HEALTH_EVENT',
-						'hubHealthEvent': {
-							'eventId': '12347df0-ade4-11e9-b187-3f8238130d63'
-						}
+						'hubHealthEvent': expectedEvent
 					}
 				]
 			},
 			'settings': {}
 		})
-		assert.equal(receivedEvent.eventId, '12347df0-ade4-11e9-b187-3f8238130d63')
+		assert.deepStrictEqual(receivedEvent, expectedEvent)
 	})
 
 	it('should handle SECURITY_ARM_STATE_EVENT', () => {
-		app.subscribedEventHandler('hubHealthHandler', (_, event) => {
+		const expectedEvent = {
+			'eventId': '12347df0-ade4-11e9-b187-3f8238130d63',
+			'armState': 'UNKNOWN',
+			'locationId': '66b5208f-f3e2-4a1a-c3eb-e2e34e009828',
+			'optionalArguments': {
+				'property1': {
+					'valueType': 'NULL_VALUE',
+					'intValue': 0,
+					'doubleValue': 0,
+					'stringValue': 'string',
+					'boolValue': true
+				}
+			}
+		}
+		app.subscribedSecurityArmStateEventHandler('securityArmState', (_, event) => {
 			receivedEvent = event
-		}, 'SECURITY_ARM_STATE_EVENT')
+		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '66b5208f-f3e2-403a-b2da-e2e34e009828',
@@ -198,14 +218,12 @@ describe('event-type-handler-spec', () => {
 					{
 						'eventTime': '2019-07-24T07:24:17Z',
 						'eventType': 'SECURITY_ARM_STATE_EVENT',
-						'securityArmStateEvent': {
-							'eventId': '12347df0-ade4-11e9-b187-3f8238130d63'
-						}
+						'securityArmStateEvent': expectedEvent
 					}
 				]
 			},
 			'settings': {}
 		})
-		assert.equal(receivedEvent.eventId, '12347df0-ade4-11e9-b187-3f8238130d63')
+		assert.deepStrictEqual(receivedEvent, expectedEvent)
 	})
 })
