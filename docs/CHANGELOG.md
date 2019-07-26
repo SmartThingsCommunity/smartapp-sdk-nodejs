@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.7.0...v1.8.0) (2019-07-26)
+
+
+### Features
+
+* corrected handlers for non-device event types ([#99](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/99)) ([990280e](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/990280e))
+
 # [1.7.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.6.0...v1.7.0) (2019-07-24)
 
 
