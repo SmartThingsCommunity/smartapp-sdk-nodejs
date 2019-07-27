@@ -16,7 +16,7 @@
     "lint": "xo",
     "test:unit": "mocha test/unit",
     "test:functional": "mocha test/functional",
-    "test": "xo && nyc mocha test/unit",
+    "test": "xo && nyc mocha test/unit/**",
     "start": "node ./smart-app.js",
     "debug": "node --inspect ./lib/smart-app.js",
     "semantic-release": "semantic-release -e ./config/release.config.js",
@@ -61,6 +61,14 @@
     "semantic-release": "^15.13.12",
     "sinon": "^7.3.2",
     "xo": "~0.24.0"
+  },
+  "nyc": {
+    "watermarks": {
+      "lines": [40, 95],
+      "functions": [40, 95],
+      "branches": [40, 95],
+      "statements": [40, 95]
+    }
   },
   "xo": {
     "space": false,
