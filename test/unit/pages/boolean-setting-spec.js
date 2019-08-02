@@ -1,8 +1,8 @@
 /* eslint no-undef: "off" */
 const {expect} = require('chai')
-const Page = require('../../lib/pages/page')
-const Section = require('../../lib/pages/section')
-const BooleanSetting = require('../../lib/pages/boolean-setting')
+const Page = require('../../../lib/pages/page')
+const Section = require('../../../lib/pages/section')
+const BooleanSetting = require('../../../lib/pages/boolean-setting')
 
 describe('boolean-setting', () => {
 	let page = {}

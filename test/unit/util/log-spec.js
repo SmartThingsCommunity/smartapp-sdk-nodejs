@@ -1,7 +1,7 @@
 /* eslint-disable no-undef, no-unused-expressions */
 const sinon = require('sinon')
 const {expect} = require('chai')
-const Log = require('../../lib/util/log')
+const Log = require('../../../lib/util/log')
 
 const event = {
 	lifecycle: 'CONFIGURATION',
