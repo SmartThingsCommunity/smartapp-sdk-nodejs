@@ -1,7 +1,7 @@
 /* eslint-disable no-undef, no-unused-expressions */
 const chai = require('chai')
-const EndpointContext = require('../../lib/util/endpoint-context')
-const SmartApp = require('../../lib/smart-app')
+const EndpointContext = require('../../../lib/util/endpoint-context')
+const SmartApp = require('../../../lib/smart-app')
 
 const {expect} = chai
 chai.use(require('chai-datetime'))

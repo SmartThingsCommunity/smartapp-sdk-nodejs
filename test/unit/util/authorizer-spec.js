@@ -7,10 +7,10 @@ const {expect, assert} = require('chai')
 const proxyquire = require('proxyquire')
 const sshpk = require('sshpk')
 const httpSignature = require('http-signature')
-const SmartApp = require('../../lib/smart-app')
-const Log = require('../../lib/util/log')
+const SmartApp = require('../../../lib/smart-app')
+const Log = require('../../../lib/util/log')
 
-const Authorizer = proxyquire('../../lib/util/authorizer', {
+const Authorizer = proxyquire('../../../lib/util/authorizer', {
 	'http-signature': {
 		parseRequest: req => {
 			return {keyId: req.keyId}
@@ -21,8 +21,8 @@ const Authorizer = proxyquire('../../lib/util/authorizer', {
 	}
 })
 
-const publicKeyFilePath = path.resolve(__dirname, '../fixtures/unit_test_rsa.key')
-const publicCertFilePath = path.resolve(__dirname, '../fixtures/unit_test_cert.crt')
+const publicKeyFilePath = path.resolve(__dirname, '../../fixtures/unit_test_rsa.key')
+const publicCertFilePath = path.resolve(__dirname, '../../fixtures/unit_test_cert.crt')
 describe('authorizer-spec', () => {
 	let publicKey
 	let publicCert
