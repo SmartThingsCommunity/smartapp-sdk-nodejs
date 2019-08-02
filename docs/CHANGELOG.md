@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.8.0...v1.8.1) (2019-08-02)
+
+
+### Bug Fixes
+
+* pagecallback does not return smartapp instance ([#104](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/104)) ([d5e499d](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/d5e499d))
+
 # [1.8.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.7.0...v1.8.0) (2019-07-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@smartthings/smartapp",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "NodeJS SDK for SmartApps",
   "displayName": "SmartThings SmartApp SDK for NodeJS",
   "author": "SmartThings",
@@ -64,10 +64,22 @@
   },
   "nyc": {
     "watermarks": {
-      "lines": [40, 95],
-      "functions": [40, 95],
-      "branches": [40, 95],
-      "statements": [40, 95]
+      "lines": [
+        40,
+        95
+      ],
+      "functions": [
+        40,
+        95
+      ],
+      "branches": [
+        40,
+        95
+      ],
+      "statements": [
+        40,
+        95
+      ]
     }
   },
   "xo": {
