@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.8.1...v1.9.0) (2019-08-20)
+
+
+### Features
+
+* added method to list devices in a room ([#105](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/105)) ([001420a](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/001420a))
+
 ## [1.8.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.8.0...v1.8.1) (2019-08-02)
 
 
