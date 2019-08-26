@@ -8,7 +8,7 @@ describe('event-type-handler-spec', () => {
 	let receivedEvent
 
 	beforeEach(() => {
-		app = new SmartApp()
+		app = new SmartApp({logUnhandledRejections: false})
 	})
 
 	it('should handle MODE_EVENT', () => {

@@ -98,7 +98,7 @@ describe('authorizer-logger-spec', () => {
 	}
 
 	it('should throw exception when authorizing header key is missing', async () => {
-		const app = new SmartApp()
+		const app = new SmartApp({logUnhandledRejections: false})
 		const parseRequestStub = sinon.stub(httpSignature, 'parseRequest')
 		parseRequestStub.throws('MissingHeaderException')
 		app.handleHttpCallback(request, undefined)
@@ -110,14 +110,14 @@ describe('authorizer-logger-spec', () => {
 	})
 
 	it('should use a default Log instance when none configured', async () => {
-		const app = new SmartApp()
+		const app = new SmartApp({logUnhandledRejections: false})
 		app.handleMockCallback(request.body)
 		expect(app._authorizer._logger).to.not.be.undefined
 		expect(app._authorizer._logger).to.be.an.instanceof(Log)
 	})
 
 	it('should use the Log logger specified by the user', () => {
-		const app = new SmartApp({logger: console})
+		const app = new SmartApp({logger: console, logUnhandledRejections: false})
 		app.handleMockCallback(request.body)
 		expect(app._authorizer._logger._logger).to.not.be.undefined
 		expect(app._authorizer._logger._logger).to.be.an.instanceOf(console.Console)

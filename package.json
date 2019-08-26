@@ -14,7 +14,7 @@
   "main": "lib/smart-app.js",
   "scripts": {
     "lint": "xo",
-    "test:unit": "mocha test/unit",
+    "test:unit": "mocha test/unit/**",
     "test:functional": "mocha test/functional",
     "test": "xo && nyc mocha test/unit/**",
     "start": "node ./smart-app.js",
