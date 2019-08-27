@@ -8,7 +8,7 @@ describe('smartapp-spec', () => {
 	let receivedData
 
 	beforeEach(() => {
-		app = new SmartApp()
+		app = new SmartApp({logUnhandledRejections: false})
 		expectedData = {
 			authToken: 'string',
 			refreshToken: 'string',

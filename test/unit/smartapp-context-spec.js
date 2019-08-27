@@ -1,7 +1,9 @@
 /* eslint no-undef: "off" */
 
 const assert = require('assert').strict
+const {expect} = require('chai')
 const SmartApp = require('../../lib/smart-app')
+const SmartAppContext = require('../../lib/util/smart-app-context')
 
 class ContextStore {
 	constructor() {
@@ -41,10 +43,10 @@ describe('smartapp-context-spec', () => {
 	let app
 
 	beforeEach(() => {
-		app = new SmartApp()
+		app = new SmartApp({logUnhandledRejections: false})
 	})
 
-	it('should handle context store', async () => {
+	it('endpoint app with context store', async () => {
 		const installData = {
 			authToken: 'xxx',
 			refreshToken: 'yyy',
@@ -73,6 +75,7 @@ describe('smartapp-context-spec', () => {
 		})
 
 		const ctx = await app.withContext('d692699d-e7a6-400d-a0b7-d5be96e7a564')
+		expect(ctx).to.be.instanceof(SmartAppContext)
 
 		assert.equal(installData.installedApp.installedAppId, ctx.installedAppId)
 		assert.equal(installData.installedApp.locationId, ctx.locationId)
@@ -80,7 +83,7 @@ describe('smartapp-context-spec', () => {
 		assert.equal(installData.refreshToken, ctx.api.client.refreshToken)
 	})
 
-	it('should handle context object', async () => {
+	it('endpoint app with context object', async () => {
 		const params = {
 			authToken: 'xxx',
 			refreshToken: 'yyy',
@@ -88,6 +91,23 @@ describe('smartapp-context-spec', () => {
 			locationId: 'bbb',
 			locale: 'en',
 			config: {device: 'ccc'}
+		}
+
+		const ctx = await app.withContext(params)
+
+		assert.equal(params.installedAppId, ctx.installedAppId)
+		assert.equal(params.locationId, ctx.locationId)
+		assert.equal(params.authToken, ctx.api.client.authToken)
+		assert.equal(params.refreshToken, ctx.api.client.refreshToken)
+		assert.equal(params.locale, ctx.event.locale)
+	})
+
+	it('api app with context object', async () => {
+		const params = {
+			authToken: 'xxx',
+			refreshToken: 'yyy',
+			installedAppId: 'aaa',
+			locationId: 'bbb'
 		}
 
 		const ctx = await app.withContext(params)

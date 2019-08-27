@@ -1,6 +1,6 @@
 /* eslint-disable no-undef, no-unused-expressions */
 const chai = require('chai')
-const EndpointContext = require('../../../lib/util/endpoint-context')
+const EndpointContext = require('../../../lib/util/smart-app-context')
 const SmartApp = require('../../../lib/smart-app')
 
 const {expect} = chai
@@ -12,7 +12,7 @@ describe('endpoint-context-spec', () => {
 	let date
 
 	beforeEach(() => {
-		app = new SmartApp()
+		app = new SmartApp({logUnhandledRejections: false})
 		date = new Date()
 		event = {
 			lifecycle: 'UPDATE',
