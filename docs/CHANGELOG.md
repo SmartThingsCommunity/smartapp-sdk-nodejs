@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.9.0...v1.10.0) (2019-08-27)
+
+
+### Features
+
+* additional app event types ([#106](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/106)) ([ba3ed36](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/ba3ed36))
+
 # [1.9.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.8.1...v1.9.0) (2019-08-20)
 
 
