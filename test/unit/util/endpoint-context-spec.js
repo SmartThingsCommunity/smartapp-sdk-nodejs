@@ -6,7 +6,7 @@ const SmartApp = require('../../../lib/smart-app')
 const {expect} = chai
 chai.use(require('chai-datetime'))
 
-describe('endpoint-context-spec', () => {
+describe('smart-app-context-spec', () => {
 	let app
 	let event
 	let date
