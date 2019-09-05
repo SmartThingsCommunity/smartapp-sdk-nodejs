@@ -182,6 +182,73 @@ describe('pagebuilder', () => {
 		expect(json.sections[0].settings[2].options[2].name).to.equal('Strawberry')
 	})
 
+	it('groupedOptions formats', () => {
+		const page = new Page('mainPage')
+
+		page.section('none', section => {
+			section.enumSetting('standardOptions').groupedOptions([
+				{name: 'Group One', options: [{id: 'g1one', name: 'One'}, {id: 'g1two', name: 'Two'}]},
+				{name: 'Group Two', options: [{id: 'g2one', name: 'One'}, {id: 'g2two', name: 'Two'}]}
+			])
+			section.enumSetting('mapOptions').groupedOptions({
+				Colors: {red: 'Red', green: 'Green', blue: 'Blue'},
+				Flavors: {vanilla: 'Vanilla', chocolate: 'Chocolate', strawberry: 'Strawberry'}
+			})
+			section.enumSetting('simpleOptions').groupedOptions({
+				Colors: ['Red', 'Green', 'Blue'],
+				Flavors: ['Vanilla', 'Chocolate', 'Strawberry']
+			})
+		})
+
+		const json = page.toJson()
+		// Standard Options - group 1
+		expect(json.sections[0].settings[0].groupedOptions[0].name).to.equal('Group One')
+		expect(json.sections[0].settings[0].groupedOptions[0].options[0].id).to.equal('g1one')
+		expect(json.sections[0].settings[0].groupedOptions[0].options[0].name).to.equal('One')
+		expect(json.sections[0].settings[0].groupedOptions[0].options[1].id).to.equal('g1two')
+		expect(json.sections[0].settings[0].groupedOptions[0].options[1].name).to.equal('Two')
+		// Standard Options - group 2
+		expect(json.sections[0].settings[0].groupedOptions[1].name).to.equal('Group Two')
+		expect(json.sections[0].settings[0].groupedOptions[1].options[0].id).to.equal('g2one')
+		expect(json.sections[0].settings[0].groupedOptions[1].options[0].name).to.equal('One')
+		expect(json.sections[0].settings[0].groupedOptions[1].options[1].id).to.equal('g2two')
+		expect(json.sections[0].settings[0].groupedOptions[1].options[1].name).to.equal('Two')
+
+		// Map Options - group 1
+		expect(json.sections[0].settings[1].groupedOptions[0].name).to.equal('Colors')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[0].id).to.equal('red')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[0].name).to.equal('Red')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[1].id).to.equal('green')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[1].name).to.equal('Green')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[2].id).to.equal('blue')
+		expect(json.sections[0].settings[1].groupedOptions[0].options[2].name).to.equal('Blue')
+		// Map Options - group 2
+		expect(json.sections[0].settings[1].groupedOptions[1].name).to.equal('Flavors')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[0].id).to.equal('vanilla')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[0].name).to.equal('Vanilla')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[1].id).to.equal('chocolate')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[1].name).to.equal('Chocolate')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[2].id).to.equal('strawberry')
+		expect(json.sections[0].settings[1].groupedOptions[1].options[2].name).to.equal('Strawberry')
+
+		// Simple Options - group 1
+		expect(json.sections[0].settings[2].groupedOptions[0].name).to.equal('Colors')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[0].id).to.equal('Red')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[0].name).to.equal('Red')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[1].id).to.equal('Green')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[1].name).to.equal('Green')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[2].id).to.equal('Blue')
+		expect(json.sections[0].settings[2].groupedOptions[0].options[2].name).to.equal('Blue')
+		// Simple Options - group 2
+		expect(json.sections[0].settings[2].groupedOptions[1].name).to.equal('Flavors')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[0].id).to.equal('Vanilla')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[0].name).to.equal('Vanilla')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[1].id).to.equal('Chocolate')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[1].name).to.equal('Chocolate')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[2].id).to.equal('Strawberry')
+		expect(json.sections[0].settings[2].groupedOptions[1].options[2].name).to.equal('Strawberry')
+	})
+
 	it('page setting', () => {
 		const page = new Page('mainPage')
 
