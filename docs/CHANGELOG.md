@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.0...v1.10.1) (2019-09-06)
+
+
+### Bug Fixes
+
+* hardened acquisition of language in smart-app-context ([#112](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/112)) ([e8593d4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/e8593d4))
+
 # [1.10.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.9.0...v1.10.0) (2019-08-27)
 
 
