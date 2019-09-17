@@ -6,6 +6,7 @@ describe('device-event-spec', () => {
 	/** @type {SmartApp} */
 	let app
 	let receivedEvent
+	let receivedEventTime
 
 	beforeEach(() => {
 		app = new SmartApp({logUnhandledRejections: false})
@@ -25,8 +26,11 @@ describe('device-event-spec', () => {
 			'data': {},
 			'subscriptionName': 'contactHandler_0'
 		}
-		app.subscribedEventHandler('contactHandler', (_, event) => {
+		const expectedEventTime = '1970-01-01T00:00:00Z'
+
+		app.subscribedEventHandler('contactHandler', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -88,6 +92,7 @@ describe('device-event-spec', () => {
 		})
 
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 
 	it('should handle DEVICE_EVENT lifecycle', () => {
@@ -103,8 +108,11 @@ describe('device-event-spec', () => {
 			'stateChange': true,
 			'subscriptionName': 'switchHandler'
 		}
-		app.subscribedEventHandler('switchHandler', (_, event) => {
+		const expectedEventTime = '2019-08-20T15:36:34Z'
+
+		app.subscribedEventHandler('switchHandler', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'messageType': 'EVENT',
@@ -135,5 +143,6 @@ describe('device-event-spec', () => {
 		})
 
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 })
