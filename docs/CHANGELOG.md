@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.0...v1.13.1) (2019-09-24)
+
+
+### Bug Fixes
+
+* catch 404 exception from device health for unenrolled devices ([#116](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/116)) ([f8f3ba5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/f8f3ba5))
+
 # [1.13.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.12.0...v1.13.0) (2019-09-24)
 
 
