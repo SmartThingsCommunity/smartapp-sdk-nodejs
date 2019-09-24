@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.1...v1.11.0) (2019-09-17)
+
+
+### Features
+
+* Change to be able to set localized postMessage in decimal-setting ([#114](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/114)) ([824674a](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/824674a))
+
 ## [1.10.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.0...v1.10.1) (2019-09-06)
 
 
