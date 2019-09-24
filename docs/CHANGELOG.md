@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.11.0...v1.12.0) (2019-09-24)
+
+
+### Features
+
+* EnumSettings i18n ([#110](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/110)) ([fb82636](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/fb82636))
+
 # [1.11.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.1...v1.11.0) (2019-09-17)
 
 
