@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.12.0...v1.13.0) (2019-09-24)
+
+
+### Features
+
+* Pass event time to handlers ([#115](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/115)) ([d71e259](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/d71e259))
+
 # [1.12.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.11.0...v1.12.0) (2019-09-24)
 
 
