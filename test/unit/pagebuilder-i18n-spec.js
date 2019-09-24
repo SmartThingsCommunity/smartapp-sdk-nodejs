@@ -24,9 +24,34 @@ describe('pagebuilder-i18n-spec', () => {
 				.permissions('rx')
 		})
 
+		page.section('pickFromList', section => {
+			section.enumSetting('enumList')
+				.options([
+					{
+						id: 'option-001',
+						name: 'optionName001'
+					}
+				])
+		})
+
+		page.section('pickFromGroupedList', section => {
+			section.enumSetting('enumGroupList')
+				.groupedOptions([
+					{
+						name: 'groupName001',
+						options: [
+							{
+								id: 'option-001',
+								name: 'optionGroupName001'
+							}
+						]
+					}
+				])
+		})
+
 		const json = page.toJson()
 		// Console.log(JSON.stringify(json, null, 2))
-		expect(json.sections.length).to.equal(2)
+		expect(json.sections.length).to.equal(4)
 
 		expect(json.sections[0].name).to.equal('Quand cette porte s\'ouvre et se ferme')
 		expect(json.sections[0].settings.length).to.equal(1)
@@ -48,6 +73,19 @@ describe('pagebuilder-i18n-spec', () => {
 		expect(json.sections[1].settings[0].permissions[0]).to.equal('r')
 		expect(json.sections[1].settings[0].permissions[1]).to.equal('x')
 		expect(json.sections[1].settings[0].capabilities[0]).to.equal('switch')
+
+		expect(json.sections[2].name).to.equal('Choisissez parmi une liste')
+		expect(json.sections[2].settings.length).to.equal(1)
+		expect(json.sections[2].settings[0].id).to.equal('enumList')
+		expect(json.sections[2].settings[0].name).to.equal('Les options')
+		expect(json.sections[2].settings[0].options[0].name).to.equal('Nom de l\'option 1')
+
+		expect(json.sections[3].name).to.equal('Choisissez parmi une liste groupée')
+		expect(json.sections[3].settings.length).to.equal(1)
+		expect(json.sections[3].settings[0].id).to.equal('enumGroupList')
+		expect(json.sections[3].settings[0].name).to.equal('Liste de groupe d\'énumération')
+		expect(json.sections[3].settings[0].groupedOptions[0].name).to.equal('Options groupées')
+		expect(json.sections[3].settings[0].groupedOptions[0].options[0].name).to.equal('Nom du groupe d\'options 1')
 	})
 
 	it('should allow overrides', () => {

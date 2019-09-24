@@ -18,5 +18,12 @@
 	"whenDoorOpensAndCloses": "whenDoorOpensAndCloses",
 	"turnLightsOnAndOff": "turnLightsOnAndOff",
 	"When anything opens or closes": "When anything opens or closes",
-	"Any open or close sensor": "Any open or close sensor"
+	"Any open or close sensor": "Any open or close sensor",
+	"pages.i18nMainPage.sections.pickFromList.name": "Choisissez parmi une liste",
+	"pages.i18nMainPage.sections.pickFromGroupedList.name": "Choisissez parmi une liste groupée",
+	"pages.i18nMainPage.settings.enumList.name": "Les options",
+	"pages.i18nMainPage.settings.enumList.options.optionName001.name": "Nom de l'option 1",
+	"pages.i18nMainPage.settings.enumGroupList.name": "Liste de groupe d'énumération",
+	"pages.i18nMainPage.settings.enumGroupList.groups.groupName001.name": "Options groupées",
+	"pages.i18nMainPage.settings.enumGroupList.groups.groupName001.options.optionGroupName001.name": "Nom du groupe d'options 1"
 }
