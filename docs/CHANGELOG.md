@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.1...v1.13.2) (2019-09-26)
+
+
+### Bug Fixes
+
+* release semaphore when sequential api throws non-401 errors ([#117](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/117)) ([2fa347e](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/2fa347e))
+
 ## [1.13.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.0...v1.13.1) (2019-09-24)
 
 
