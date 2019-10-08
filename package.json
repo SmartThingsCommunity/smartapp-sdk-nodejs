@@ -40,7 +40,7 @@
     "node-cache": "~4.2.0",
     "request": "~2.88.0",
     "request-promise-native": "^1.0.7",
-    "snyk": "^1.192.3",
+    "snyk": "^1.230.5",
     "sshpk": "~1.16.1",
     "winston": "~3.2.1"
   },
