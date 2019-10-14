@@ -1,3 +1,10 @@
+## [1.13.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.4...v1.13.5) (2019-10-14)
+
+
+### Bug Fixes
+
+* Corrected bug in automatic refresh of tokens ([#120](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/120)) ([affa856](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/affa856))
+
 ## [1.13.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.3...v1.13.4) (2019-10-08)
 
 
