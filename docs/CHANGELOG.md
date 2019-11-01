@@ -1,3 +1,59 @@
+## [1.13.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.4...v1.13.5) (2019-10-14)
+
+
+### Bug Fixes
+
+* Corrected bug in automatic refresh of tokens ([#120](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/120)) ([affa856](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/affa856))
+
+## [1.13.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.3...v1.13.4) (2019-10-08)
+
+
+### Bug Fixes
+
+* update dependencies ([#119](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/119)) ([2e29498](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/2e29498))
+
+## [1.13.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.2...v1.13.3) (2019-10-08)
+
+
+### Bug Fixes
+
+* package.json & .snyk to reduce vulnerabilities ([#118](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/118)) ([841cec9](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/841cec9))
+
+## [1.13.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.1...v1.13.2) (2019-09-26)
+
+
+### Bug Fixes
+
+* release semaphore when sequential api throws non-401 errors ([#117](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/117)) ([2fa347e](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/2fa347e))
+
+## [1.13.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.0...v1.13.1) (2019-09-24)
+
+
+### Bug Fixes
+
+* catch 404 exception from device health for unenrolled devices ([#116](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/116)) ([f8f3ba5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/f8f3ba5))
+
+# [1.13.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.12.0...v1.13.0) (2019-09-24)
+
+
+### Features
+
+* Pass event time to handlers ([#115](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/115)) ([d71e259](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/d71e259))
+
+# [1.12.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.11.0...v1.12.0) (2019-09-24)
+
+
+### Features
+
+* EnumSettings i18n ([#110](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/110)) ([fb82636](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/fb82636))
+
+# [1.11.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.1...v1.11.0) (2019-09-17)
+
+
+### Features
+
+* Change to be able to set localized postMessage in decimal-setting ([#114](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/114)) ([824674a](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/824674a))
+
 ## [1.10.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.10.0...v1.10.1) (2019-09-06)
 
 

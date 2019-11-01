@@ -6,6 +6,7 @@ describe('event-type-handler-spec', () => {
 	/** @type {SmartApp} */
 	let app
 	let receivedEvent
+	let receivedEventTime
 
 	beforeEach(() => {
 		app = new SmartApp({logUnhandledRejections: false})
@@ -17,8 +18,11 @@ describe('event-type-handler-spec', () => {
 			'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
 			'modeId': '57ae8db9-9187-4293-bf7c-c0218825e94e'
 		}
-		app.subscribedModeEventHandler('modeHandler', (_, event) => {
+		const expectedEventTime = '2019-07-24T07:09:01Z'
+
+		app.subscribedModeEventHandler('modeHandler', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -50,6 +54,7 @@ describe('event-type-handler-spec', () => {
 		})
 
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 
 	it('should handle DEVICE_LIFECYCLE_EVENT', () => {
@@ -62,8 +67,11 @@ describe('event-type-handler-spec', () => {
 			'principal': '',
 			'update': {}
 		}
-		app.subscribedDeviceLifecycleEventHandler('deviceLifecycle', (_, event) => {
+		const expectedEventTime = '2019-07-24T07:17:03Z'
+
+		app.subscribedDeviceLifecycleEventHandler('deviceLifecycle', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -94,6 +102,7 @@ describe('event-type-handler-spec', () => {
 			'settings': {}
 		})
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 
 	it('should handle DEVICE_HEALTH_EVENT', () => {
@@ -105,8 +114,11 @@ describe('event-type-handler-spec', () => {
 			'status': 'OFFLINE',
 			'reason': 'SERVICE_UNAVAILABLE'
 		}
-		app.subscribedDeviceHealthEventHandler('deviceHealth', (_, event) => {
+		const expectedEventTime = '2019-07-24T07:23:17Z'
+
+		app.subscribedDeviceHealthEventHandler('deviceHealth', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -128,7 +140,7 @@ describe('event-type-handler-spec', () => {
 				},
 				'events': [
 					{
-						'eventTime': '2019-07-24T07:24:17Z',
+						'eventTime': '2019-07-24T07:23:17Z',
 						'eventType': 'DEVICE_HEALTH_EVENT',
 						'deviceHealthEvent': expectedEvent
 					}
@@ -137,6 +149,7 @@ describe('event-type-handler-spec', () => {
 			'settings': {}
 		})
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 
 	it('should handle HUB_HEALTH_EVENT', () => {
@@ -146,8 +159,11 @@ describe('event-type-handler-spec', () => {
 			'hubId': '1935208f-f4d2-4a1a-c3eb-e2e45e008928',
 			'status': 'OFFLINE'
 		}
-		app.subscribedHubHealthEventHandler('hubHealth', (_, event) => {
+		const expectedEventTime = '2019-07-24T07:23:17Z'
+
+		app.subscribedHubHealthEventHandler('hubHealth', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -168,7 +184,7 @@ describe('event-type-handler-spec', () => {
 				},
 				'events': [
 					{
-						'eventTime': '2019-07-24T07:24:17Z',
+						'eventTime': '2019-07-24T07:23:17Z',
 						'eventType': 'HUB_HEALTH_EVENT',
 						'hubHealthEvent': expectedEvent
 					}
@@ -177,6 +193,7 @@ describe('event-type-handler-spec', () => {
 			'settings': {}
 		})
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 
 	it('should handle SECURITY_ARM_STATE_EVENT', () => {
@@ -194,8 +211,11 @@ describe('event-type-handler-spec', () => {
 				}
 			}
 		}
-		app.subscribedSecurityArmStateEventHandler('securityArmState', (_, event) => {
+		const expectedEventTime = '2019-07-24T07:24:17Z'
+
+		app.subscribedSecurityArmStateEventHandler('securityArmState', (_, event, eventTime) => {
 			receivedEvent = event
+			receivedEventTime = eventTime
 		})
 		app.handleMockCallback({
 			'lifecycle': 'EVENT',
@@ -225,5 +245,6 @@ describe('event-type-handler-spec', () => {
 			'settings': {}
 		})
 		assert.deepStrictEqual(receivedEvent, expectedEvent)
+		assert.equal(receivedEventTime, expectedEventTime)
 	})
 })
