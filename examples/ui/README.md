@@ -1,4 +1,4 @@
-# Basic example of SmartApp SDK
+# Basic example of UI Configuration using SmartApp SDK
 
 ## Steps to run
 
