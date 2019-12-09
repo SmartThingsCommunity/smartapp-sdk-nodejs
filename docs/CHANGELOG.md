@@ -1,3 +1,10 @@
+## [1.13.6](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.5...v1.13.6) (2019-12-09)
+
+
+### Bug Fixes
+
+* Log responses as well as events for lambdas as is done for webhooks ([#128](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/128)) ([929f401](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/929f401))
+
 ## [1.13.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.4...v1.13.5) (2019-10-14)
 
 
