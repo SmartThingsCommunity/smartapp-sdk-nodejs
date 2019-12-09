@@ -121,6 +121,7 @@ The following properties can be set for any type of setting
 #### enumSetting (id)
 ##### _multiple (true|false)_
 ##### _closeOnSelection (true|false)_
+##### _translateOptions (true|false)_
 ##### _groupedOptions (list)_
 ##### _options (list)_
 ##### _submitOnChange (true|false)_

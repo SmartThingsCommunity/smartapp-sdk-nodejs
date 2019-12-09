@@ -25,5 +25,9 @@
 	"pages.i18nMainPage.settings.enumList.options.optionName001.name": "Nom de l'option 1",
 	"pages.i18nMainPage.settings.enumGroupList.name": "Liste de groupe d'énumération",
 	"pages.i18nMainPage.settings.enumGroupList.groups.groupName001.name": "Options groupées",
-	"pages.i18nMainPage.settings.enumGroupList.groups.groupName001.options.optionGroupName001.name": "Nom du groupe d'options 1"
+	"pages.i18nMainPage.settings.enumGroupList.groups.groupName001.options.optionGroupName001.name": "Nom du groupe d'options 1",
+	"pages.enumTestPage.sections.testSection.name": "Section de test",
+	"pages.enumTestPage.settings.testSetting.name": "Test d'énumération",
+	"pages.enumTestPage.settings.testSetting.options.red.name": "Rouge",
+	"red": "red"
 }
