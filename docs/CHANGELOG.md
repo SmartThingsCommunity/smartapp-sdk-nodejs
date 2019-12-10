@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.6...v1.14.0) (2019-12-10)
+
+
+### Features
+
+* Added switch to disable translating of options ([#129](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/129)) ([82c0d54](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/82c0d54))
+
 ## [1.13.6](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.5...v1.13.6) (2019-12-09)
 
 
