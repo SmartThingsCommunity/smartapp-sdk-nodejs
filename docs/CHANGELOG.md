@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.0...v1.14.1) (2019-12-23)
+
+
+### Bug Fixes
+
+* applied translateDefaultValue to SectionSettings to ensure compatibility ([#131](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/131)) ([02b3bfb](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/02b3bfb))
+
 # [1.14.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.6...v1.14.0) (2019-12-10)
 
 
