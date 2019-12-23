@@ -91,6 +91,7 @@ The following properties can be set for any type of setting
 ##### _disabled (true|false)_
 ##### _required (true|false)_
 ##### _defaultValue (value)_
+##### _translateDefaultValue (true|false)_
 
 #### booleanSetting (id)
 ##### _image (url)_
