@@ -1,3 +1,10 @@
+## [1.14.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.1...v1.14.2) (2019-12-24)
+
+
+### Bug Fixes
+
+* reverted text-setting change at [#127](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/127) as [#131](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/131) merged ([#134](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/134)) ([ab57673](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/ab57673))
+
 ## [1.14.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.0...v1.14.1) (2019-12-23)
 
 
