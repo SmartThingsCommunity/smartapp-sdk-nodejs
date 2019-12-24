@@ -113,6 +113,19 @@ params:
 
 ##### _rooms.delete (id, locationId = null)_
 
+### Rules
+
+##### _rules.list (locationId = null)_
+
+##### _rules.get (id, locationId = null)_
+
+##### _rules.create (data, locationId = null)_
+
+##### _rules.update (id, data, locationId = null)_
+
+##### _rooms.delete (id, locationId = null)_
+
+##### _rooms.execute (id, locationId = null)_
 
 ### Schedules
 
