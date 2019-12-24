@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.2...v1.15.0) (2019-12-24)
+
+
+### Features
+
+* Added support for rules API ([#133](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/133)) ([738a6da](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/738a6da))
+
 ## [1.14.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.1...v1.14.2) (2019-12-24)
 
 
