@@ -1,3 +1,24 @@
+# [1.15.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.2...v1.15.0) (2019-12-24)
+
+
+### Features
+
+* Added support for rules API ([#133](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/133)) ([738a6da](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/738a6da))
+
+## [1.14.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.1...v1.14.2) (2019-12-24)
+
+
+### Bug Fixes
+
+* reverted text-setting change at [#127](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/127) as [#131](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/131) merged ([#134](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/134)) ([ab57673](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/ab57673))
+
+## [1.14.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.14.0...v1.14.1) (2019-12-23)
+
+
+### Bug Fixes
+
+* applied translateDefaultValue to SectionSettings to ensure compatibility ([#131](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/131)) ([02b3bfb](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/02b3bfb))
+
 # [1.14.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.13.6...v1.14.0) (2019-12-10)
 
 
