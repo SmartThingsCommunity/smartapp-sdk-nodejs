@@ -1,4 +1,4 @@
-# SmartThings SmartApp NodeJS SDK (preview)
+# SmartThings SmartApp NodeJS SDK
 
 <p align="center">
 <a href="https://www.npmjs.com/package/@smartthings/smartapp"><img src="https://badgen.net/npm/v/@smartthings/smartapp"/></a>
@@ -14,7 +14,18 @@
 
 [Reference Documentation](doc/index.md)
 
-SDK that wraps the SmartThings REST API and reduces the amount of code necessary to write a SmartApp app. It supports both webhook and AWS Lambda implementations. This is a preview version of the API and will change over time time.
+SDK that wraps the SmartThings REST API and reduces the amount of code necessary to write a SmartApp app. It supports 
+both webhook and AWS Lambda implementations. This is a preview version of the API and will change over time time.
+
+## Version 2.0 Release
+
+_ATTENTION! This major release is not completely backwardly compatible with the 1.X version, though for most
+SmartApps the changes required should be relatively minor. The major non-backwardly changes are:_
+* _Methods that return lists now return arrays rather that an object with the properties `items` and `_links`._
+* _Axios is now used rather than request-promise-native for making HTTP calls, resulting in changes to the error
+objects thrown when exceptions occur._
+
+_See the [Version 2.0.0 release notes](docs/V2_RELEASE_NOTES.md) for more information._
 
 ## Installation
 
