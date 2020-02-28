@@ -3,7 +3,6 @@ name: Question template
 about: Ask a question about SDK usage or design
 title: 'question: '
 labels: question
-assignees: erodewald
 
 ---
 
