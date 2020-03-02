@@ -186,7 +186,6 @@ Available as a node package on [NPM](https://www.npmjs.com/package/@smartthings/
 See the full usage guide on the project's GitHub repository. ([SmartThingsCommunity/firestore-context-store-nodejs](https://github.com/SmartThingsCommunity/firestore-context-store-nodejs#usage))
 
 ---
-
 ## More about SmartThings
 
 If you are not familiar with SmartThings, we have
