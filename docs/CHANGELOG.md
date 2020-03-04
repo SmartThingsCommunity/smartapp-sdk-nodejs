@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.16.0...v1.17.0) (2020-03-04)
+
+
+### Features
+
+* Removed auto-confirmation for API Access apps ([#142](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/142)) ([43694a2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/43694a2))
+
 ## [1.15.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.15.0...v1.15.1) (2020-01-02)
 
 
