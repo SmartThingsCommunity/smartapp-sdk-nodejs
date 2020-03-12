@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.17.0...v1.18.0) (2020-03-12)
+
+
+### Features
+
+* Return executeData in response to EXECUTE lifecycle event ([#141](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/141)) ([6aa0340](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/6aa0340))
+
 # [1.17.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.16.0...v1.17.0) (2020-03-04)
 
 
