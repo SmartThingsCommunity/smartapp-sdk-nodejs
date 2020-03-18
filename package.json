@@ -1,6 +1,6 @@
 {
   "name": "@smartthings/smartapp",
-  "version": "1.18.0",
+  "version": "2.0.0",
   "description": "NodeJS SDK for SmartApps",
   "displayName": "SmartThings SmartApp SDK for NodeJS",
   "author": "SmartThings",
@@ -15,7 +15,6 @@
   "scripts": {
     "lint": "xo",
     "test:unit": "mocha test/unit/**",
-    "test:functional": "mocha test/functional",
     "test": "xo && nyc mocha test/unit/**",
     "start": "node ./smart-app.js",
     "debug": "node --inspect ./lib/smart-app.js",
@@ -33,13 +32,13 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs#readme",
   "dependencies": {
+    "@smartthings/core-sdk": "0.0.2",
     "async-mutex": "^0.1.4",
+    "axios": "^0.19.2",
     "fs-extra": "~7.0.1",
     "http-signature": "~1.2.0",
-    "i18n": "~0.8.3",
+    "i18n": "~0.8.5",
     "node-cache": "^4.2.1",
-    "request": "~2.88.0",
-    "request-promise-native": "^1.0.7",
     "snyk": "^1.297.2",
     "sshpk": "~1.16.1",
     "underscore": "^1.9.1",

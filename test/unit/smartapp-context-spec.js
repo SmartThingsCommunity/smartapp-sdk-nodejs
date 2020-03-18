@@ -79,8 +79,8 @@ describe('smartapp-context-spec', () => {
 
 		assert.equal(installData.installedApp.installedAppId, ctx.installedAppId)
 		assert.equal(installData.installedApp.locationId, ctx.locationId)
-		assert.equal(installData.authToken, ctx.api.client.authToken)
-		assert.equal(installData.refreshToken, ctx.api.client.refreshToken)
+		assert.equal(installData.authToken, ctx.authToken)
+		assert.equal(installData.refreshToken, ctx.refreshToken)
 	})
 
 	it('endpoint app with context object', async () => {
@@ -97,8 +97,8 @@ describe('smartapp-context-spec', () => {
 
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
-		assert.equal(params.authToken, ctx.api.client.authToken)
-		assert.equal(params.refreshToken, ctx.api.client.refreshToken)
+		assert.equal(params.authToken, ctx.authToken)
+		assert.equal(params.refreshToken, ctx.refreshToken)
 		assert.equal(params.locale, ctx.event.locale)
 	})
 
@@ -114,8 +114,8 @@ describe('smartapp-context-spec', () => {
 
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
-		assert.equal(params.authToken, ctx.api.client.authToken)
-		assert.equal(params.refreshToken, ctx.api.client.refreshToken)
+		assert.equal(params.authToken, ctx.authToken)
+		assert.equal(params.refreshToken, ctx.refreshToken)
 		assert.equal(params.locale, ctx.event.locale)
 	})
 })
