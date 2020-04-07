@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.0.0...v2.1.0) (2020-04-07)
+
+
+### Features
+
+* Updated core SDK for service support and bug fixes ([#146](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/146)) ([415cb49](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/415cb49f7c06716478464d8d450deb210cd8000c))
+
 # [1.18.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v1.17.0...v1.18.0) (2020-03-12)
 
 
