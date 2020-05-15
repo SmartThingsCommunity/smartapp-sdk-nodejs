@@ -64,5 +64,9 @@ typings/
 # next.js build output
 .next
 
+# intermediate typescript doc files
+docsrc/
+
+# os specific files
 .DS_Store
 .*.swp

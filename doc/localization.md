@@ -1,3 +1,0 @@
-# SmartThings SDK
-
-## Localization Reference
