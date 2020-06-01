@@ -12,7 +12,7 @@
 <a href="https://smartthingsdev.slack.com/messages/CG595N08N"><img src="https://badgen.net/badge//smartthingsdev?icon=slack"/></a>
 </p>
 
-[Reference Documentation](doc/index.md)
+#### [Reference Documentation](docs/index.md)
 
 SDK that wraps the SmartThings REST API and reduces the amount of code necessary to write a SmartApp app. It supports 
 both webhook and AWS Lambda implementations. This is a preview version of the API and will change over time time.

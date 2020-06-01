@@ -11,7 +11,8 @@
     "smartthings",
     "smartapp"
   ],
-  "main": "lib/smart-app.js",
+  "main": "index.js",
+  "types": "index.d.js",
   "scripts": {
     "lint": "xo",
     "test:unit": "mocha test/unit/**",
@@ -20,7 +21,8 @@
     "debug": "node --inspect ./lib/smart-app.js",
     "semantic-release": "semantic-release -e ./config/release.config.js",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "doc-gen": "typedoc --out docsrc --plugin typedoc-plugin-markdown lib && node ./scripts/docgen-post-process.js"
   },
   "engines": {
     "node": ">=8.9.4"
@@ -32,7 +34,9 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs#readme",
   "dependencies": {
-    "@smartthings/core-sdk": "^0.2.3",
+    "@smartthings/core-sdk": "^0.2.11",
+    "@types/aws-lambda": "^8.10.51",
+    "@types/i18n": "^0.8.6",
     "async-mutex": "^0.1.4",
     "axios": "^0.19.2",
     "fs-extra": "~7.0.1",
@@ -53,6 +57,7 @@
     "chai-datetime": "^1.5.0",
     "conventional-changelog-eslint": "~3.0.1",
     "dotenv": "^8.1.0",
+    "jsdoc": "^3.6.4",
     "mocha": "^6.2.1",
     "nock": "^10.0.6",
     "nyc": "~13.3.0",
@@ -60,6 +65,9 @@
     "semantic-git-commit-cli": "~3.2.2",
     "semantic-release": "^15.13.24",
     "sinon": "^7.5.0",
+    "typedoc": "^0.17.7",
+    "typedoc-plugin-markdown": "^2.2.17",
+    "typescript": "^3.9.3",
     "xo": "~0.24.0"
   },
   "nyc": {

@@ -1,0 +1,8 @@
+{
+  "includeDeclarations": true,
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeNotExported": true,
+  "disableSources": true
+}
