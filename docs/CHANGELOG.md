@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.1.0...v2.2.0) (2020-06-01)
+
+
+### Features
+
+* Typescript types ([#149](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/149)) ([acaadb8](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/acaadb8f41e8a6bd54aed2e2e87a2ec01026f300))
+
 # [2.1.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.0.0...v2.1.0) (2020-04-07)
 
 
