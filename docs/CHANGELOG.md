@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.2.0...v2.3.0) (2020-08-21)
+
+
+### Features
+
+* Return 422 status for missing event handlers ([#156](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/156)) ([6b04c4a](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/6b04c4a7b7f113b72c9985555c9a31c153fa2318))
+
 # [2.2.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.1.0...v2.2.0) (2020-06-01)
 
 
