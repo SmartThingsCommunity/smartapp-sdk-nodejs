@@ -1,3 +1,11 @@
+## [2.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.3.0...v2.3.1) (2020-08-28)
+
+
+### Bug Fixes
+
+* Construct proper authenticator type ([#157](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/157)) ([36d2eb3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/36d2eb388cb16671c501d799547976e9d12cb1b5))
+* log missing event handlers ([#158](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/158)) ([8ba2b46](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/8ba2b469e8736f21d13bf5a72966f9d0364b31b0))
+
 # [2.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.2.0...v2.3.0) (2020-08-21)
 
 
