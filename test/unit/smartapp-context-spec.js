@@ -2,6 +2,9 @@
 
 const assert = require('assert').strict
 const {expect} = require('chai')
+const {
+	BearerTokenAuthenticator,
+	SequentialRefreshTokenAuthenticator} = require('@smartthings/core-sdk')
 const SmartApp = require('../../lib/smart-app')
 const SmartAppContext = require('../../lib/util/smart-app-context')
 
@@ -75,8 +78,9 @@ describe('smartapp-context-spec', () => {
 		})
 
 		const ctx = await app.withContext('d692699d-e7a6-400d-a0b7-d5be96e7a564')
-		expect(ctx).to.be.instanceof(SmartAppContext)
 
+		expect(ctx).to.be.instanceof(SmartAppContext)
+		expect(ctx.api.config.authenticator).to.be.instanceof(SequentialRefreshTokenAuthenticator)
 		assert.equal(installData.installedApp.installedAppId, ctx.installedAppId)
 		assert.equal(installData.installedApp.locationId, ctx.locationId)
 		assert.equal(installData.authToken, ctx.authToken)
@@ -86,7 +90,6 @@ describe('smartapp-context-spec', () => {
 	it('endpoint app with context object', async () => {
 		const params = {
 			authToken: 'xxx',
-			refreshToken: 'yyy',
 			installedAppId: 'aaa',
 			locationId: 'bbb',
 			locale: 'en',
@@ -95,14 +98,17 @@ describe('smartapp-context-spec', () => {
 
 		const ctx = await app.withContext(params)
 
+		expect(ctx.api.config.authenticator).to.be.instanceof(BearerTokenAuthenticator)
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
 		assert.equal(params.authToken, ctx.authToken)
-		assert.equal(params.refreshToken, ctx.refreshToken)
 		assert.equal(params.locale, ctx.event.locale)
 	})
 
 	it('api app with context object', async () => {
+		const contextStore = new ContextStore()
+		app.contextStore(contextStore)
+
 		const params = {
 			authToken: 'xxx',
 			refreshToken: 'yyy',
@@ -112,6 +118,7 @@ describe('smartapp-context-spec', () => {
 
 		const ctx = await app.withContext(params)
 
+		expect(ctx.api.config.authenticator).to.be.instanceof(SequentialRefreshTokenAuthenticator)
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
 		assert.equal(params.authToken, ctx.authToken)
