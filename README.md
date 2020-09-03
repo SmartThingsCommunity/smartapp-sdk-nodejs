@@ -129,8 +129,8 @@ const smartapp = new SmartApp()
     .updated(() => { ... })
     .subscribedEventHandler( ... );
 
-exports.handler = (event, context, callback) => {
-    smartapp.handleLambdaCallback(event, context, callback);
+exports.handler = (event, context) => {
+    return smartapp.handleLambdaCallback(event, context);
 };
 ```
 There are also a few Glitch examples:
