@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.3.1...v2.4.0) (2020-09-04)
+
+
+### Features
+
+* Support async lambda event handlers ([#161](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/161)) ([3ff8f5b](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/3ff8f5bbbeff13767f1b98916114983b9bba7af9))
+
 ## [2.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.3.0...v2.3.1) (2020-08-28)
 
 
