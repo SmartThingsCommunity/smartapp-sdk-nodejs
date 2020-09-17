@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.0...v2.4.1) (2020-09-17)
+
+
+### Bug Fixes
+
+* Updated core SDK to fix subscription create bug ([#163](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/163)) ([c30f062](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/c30f062824037af82b17053046458e6b8dbb738c))
+
 # [2.4.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.3.1...v2.4.0) (2020-09-04)
 
 
