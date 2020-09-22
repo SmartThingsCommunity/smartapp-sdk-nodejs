@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.1...v2.4.2) (2020-09-22)
+
+
+### Bug Fixes
+
+* Add await to context store put operations ([#166](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/166)) ([da45caf](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/da45caf84a1582896da4af182f360e4bb3e70e92))
+
 ## [2.4.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.0...v2.4.1) (2020-09-17)
 
 
