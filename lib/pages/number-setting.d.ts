@@ -36,7 +36,7 @@ export class NumberSetting extends SectionSetting<NumberSetting> {
     max(value: number): NumberSetting
 
     /**
-     * The minumum inclusive value the decimal can be set to.
+     * The minimum inclusive value the decimal can be set to.
      */
     min(value: number): NumberSetting
 

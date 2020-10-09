@@ -83,7 +83,7 @@ export namespace AppEvent {
          */
         'value': any;
         /**
-         * The root level data type of the value field. The data types are representitive of standard JSON data types.
+         * The root level data type of the value field. The data types are representative of standard JSON data types.
          */
         'valueType': string;
         /**
@@ -459,7 +459,7 @@ export namespace AppEvent {
          */
         'installedAppId': string;
         /**
-         * A relative URL containing all of the query string parameters as returned by the third party oauth system. A SmartApp can parse the `urlPath` property to extract any senstive auth codes/tokens which can then be used to access the third party system.
+         * A relative URL containing all of the query string parameters as returned by the third party oauth system. A SmartApp can parse the `urlPath` property to extract any sensitive auth codes/tokens which can then be used to access the third party system.
          */
         'urlPath': string;
     }
@@ -490,7 +490,7 @@ export namespace AppEvent {
          */
         'appId': string;
         /**
-         * An HTTPS url that may be visted to confirm / activate an App registration.
+         * An HTTPS url that may be visited to confirm / activate an App registration.
          */
         'confirmationUrl': string;
     }

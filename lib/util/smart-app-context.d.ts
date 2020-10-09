@@ -79,7 +79,7 @@ export interface SmartAppContext {
      * Note that this method does not actually test the validity of the token, but rather
      * whether it is present or not. Contexts of CONFIGURATION lifecycle events are not
      * authenticated. Therefore if an app needs to make API calls during the configuration
-     * lifecycle it must use a token store to authenicate itself.
+     * lifecycle it must use a token store to authenticate itself.
      */
     isAuthenticated(): boolean
 

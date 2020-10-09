@@ -29,7 +29,7 @@ export class Page {
     name(value: string): Page
 
     /**
-     * Sets the next page in a mult-page app configuration
+     * Sets the next page in a multi-page app configuration
      */
     nextPageId(value: string): Page
 
@@ -54,7 +54,7 @@ export class Page {
     section(name: string, closure: (section: Section) => void | Promise<void>): Page
 
     /**
-     * Set the stylee of this page
+     * Set the style of this page
      */
     style(value: PageStyle): Page
 

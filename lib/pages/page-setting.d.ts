@@ -1,6 +1,5 @@
 import {Section} from './section'
 import {SectionSetting} from './section-setting'
-import {PageStyle} from './page'
 
 export enum PageLinkStyle {
     COMPLETE ='COMPLETE',

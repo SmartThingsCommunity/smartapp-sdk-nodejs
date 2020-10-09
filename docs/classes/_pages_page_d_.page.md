@@ -70,7 +70,7 @@ ___
 
 ▸ **nextPageId**(`value`: string): *[Page](_pages_page_d_.page.md)*
 
-Sets the next page in a mult-page app configuration
+Sets the next page in a multi-page app configuration
 
 **Parameters:**
 
@@ -147,7 +147,7 @@ ___
 
 ▸ **style**(`value`: [PageStyle](../enums/_pages_page_d_.pagestyle.md)): *[Page](_pages_page_d_.page.md)*
 
-Set the stylee of this page
+Set the style of this page
 
 **Parameters:**
 
