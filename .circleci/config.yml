@@ -15,7 +15,7 @@ references:
 executors:
   daneel:
     docker:
-      - image: circleci/node:10.15.1
+      - image: circleci/node:10
     working_directory: ~/repo
 
 jobs:
