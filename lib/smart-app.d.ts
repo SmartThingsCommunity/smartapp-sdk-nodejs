@@ -164,7 +164,7 @@ export interface ContextStore {
 }
 
 /**
- * Request object for WEBHHOOK_SMART_APPs
+ * Request object for WEBHOOK_SMART_APPs
  */
 export interface WebHookRequest {
     headers: IncomingHttpHeaders
@@ -172,7 +172,7 @@ export interface WebHookRequest {
 }
 
 /**
- * Response object for WEBHHOOK_SMART_APPs
+ * Response object for WEBHOOK_SMART_APPs
  */
 export interface WebHookResponse {
     status(code: number): WebHookResponse
@@ -277,7 +277,7 @@ export class SmartApp {
     /**
      * Defines a handler to be called for any device command event that does not have a handler
      * defined for that specific command. The default implementation of this handler simply logs a
-     * message about the missing command handler. Note that only C2C connector smartapps that create
+     * message about the missing command handler. Note that only C2C connector SmartApps that create
      * devices will receive command events.
      */
     defaultDeviceCommandHandler(

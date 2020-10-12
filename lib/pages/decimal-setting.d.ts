@@ -20,7 +20,7 @@ export class DecimalSetting extends SectionSetting<DecimalSetting> {
     max(value: number): DecimalSetting
 
     /**
-     * The minumum inclusive value the decimal can be set to.
+     * The minimum inclusive value the decimal can be set to.
      */
     min(value: number): DecimalSetting
 

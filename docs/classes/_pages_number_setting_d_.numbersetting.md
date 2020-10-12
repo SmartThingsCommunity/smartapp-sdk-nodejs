@@ -124,7 +124,7 @@ ___
 
 ▸ **min**(`value`: number): *[NumberSetting](_pages_number_setting_d_.numbersetting.md)*
 
-The minumum inclusive value the decimal can be set to.
+The minimum inclusive value the decimal can be set to.
 
 **Parameters:**
 

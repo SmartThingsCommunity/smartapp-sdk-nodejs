@@ -28,7 +28,7 @@ export class TimeSetting extends SectionSetting<TimeSetting> {
     max(value: string): TimeSetting
 
     /**
-     * The earlies time that can be entered
+     * The earliest time that can be entered
      */
     min(value: string): TimeSetting
 }

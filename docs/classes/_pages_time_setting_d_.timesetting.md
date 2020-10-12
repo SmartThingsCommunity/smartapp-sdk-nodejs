@@ -117,7 +117,7 @@ ___
 
 ▸ **min**(`value`: string): *[TimeSetting](_pages_time_setting_d_.timesetting.md)*
 
-The earlies time that can be entered
+The earliest time that can be entered
 
 **Parameters:**
 

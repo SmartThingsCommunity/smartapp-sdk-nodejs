@@ -1,15 +1,15 @@
 [Reference](../index.md) › [SmartApp](_smart_app_d_.smartapp.md) › [Page](_pages_page_d_.page.md) › [Section](_pages_section_d_.section.md)
 # Section
 
-A section is a labeled collection of settings. The contents can be made collapsable if desired.
-To create a basic non-collapsable section:
+A section is a labeled collection of settings. The contents can be made collapsible if desired.
+To create a basic non-collapsible section:
 ```
 page.section('section1', section => {
     // create settings here, e.g
     section.booleanSetting('turnBackOn')
 }
 ```
-To make this section collapsable (and initially collapsed):
+To make this section collapsible (and initially collapsed):
 ```
 page.section('section1', section => {
     section.hideable(true).hidden(true)

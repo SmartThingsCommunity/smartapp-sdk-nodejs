@@ -215,7 +215,7 @@ ___
 
 Defines a handler to be called for any device command event that does not have a handler
 defined for that specific command. The default implementation of this handler simply logs a
-message about the missing command handler. Note that only C2C connector smartapps that create
+message about the missing command handler. Note that only C2C connector SmartApps that create
 devices will receive command events.
 
 **Parameters:**
