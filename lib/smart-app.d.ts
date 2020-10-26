@@ -221,7 +221,7 @@ export class SmartApp {
 
     /**
      * Set the app that this SmartApp object is implementing. This field
-     * is necessary for any app that requires permissions in addition to those implied
+     * is necessary for any app that requires [[permissions]] in addition to those implied
      * by the app configuration settings.
      *
      * @param id either the `App.appId` or `App.appName` field of your SmartApp
@@ -403,10 +403,9 @@ export class SmartApp {
 
     /**
      * Defines a configuration page that is displayed during app installation and update.
-     * You can create as many pages as needed to satisfy your configuration needs. See the
-     * the documentation on how to design pages for your automation.
-     *
-     * https://smartthings.developer.samsung.com/docs/how-to/design-pages-smartapp.html
+     * You can create as many pages as needed to satisfy your configuration needs. See the documentation on
+     * [how to design pages](https://smartthings.developer.samsung.com/docs/how-to/design-pages-smartapp.html)
+     * for your automation.
      */
     page(id: string,
          callback: (
@@ -415,9 +414,12 @@ export class SmartApp {
              configData?: InstalledAppConfiguration) => HandlerResponse): SmartApp
 
     /**
-     * Specify of scopes explicitly required by this app. For example `['r:devices:*', and 'x:devices:*']
+     * Specify the [OAuth2 scopes](https://smartthings.developer.samsung.com/docs/auth-and-permissions.html#OAuth2-scopes)
+     * explicitly required by this app. For example `['r:devices:*', and 'x:devices:*']
      * to be able to read and control all devices in the location. You do not have to
      * provide this list for devices selected by the user in configuration settings.
+     * 
+     * If permissions are specified, [[appId]] is also required.
      */
     permissions(value: string | string[]): SmartApp
 
