@@ -60,55 +60,51 @@ import SmartApp from '@smartthings/smartapp'
 
 ## Examples
 
-The following example is the equivalent of the original SmartThings Groovy _Let There Be Light_ app that turns on and off a light when a door opens and closes.
+The following example automation is the equivalent of a simple Rule (if contact sensor opens/closes, turn lights on/off) which is easily achieved via our [Rules API](https://smartthings.developer.samsung.com/docs/rules/overview.html). It is given here as a brief showcase of the SDK, and not meant to be a good candidate for a SmartApp. Be sure to check if your automation is possible with the Rules API, as it will benefit from speed, stability, and security through future local execution support.
 
 ### Running it as a web service
 
 To run the app with an HTTP server, like Express.js:
 
 ```javascript
-const express    = require('express');
-const SmartApp   = require('@smartthings/smartapp');
-const server     = module.exports = express();
-const PORT       = 8080;
+const SmartApp = require('@smartthings/smartapp');
+const express = require('express');
+const server = express();
+const PORT = 8080;
 
-server.use(express.json());
 
 /* Define the SmartApp */
 const smartapp = new SmartApp()
-    // @smartthings_rsa.pub is your on-disk public key
-    // If you do not have it yet, omit publicKey()
-    .publicKey('@smartthings_rsa.pub') // optional until app verified
     .enableEventLogging(2) // logs all lifecycle event requests and responses as pretty-printed JSON. Omit in production
-    .configureI18n()
     .page('mainPage', (context, page, configData) => {
         page.section('sensors', section => {
             section
                 .deviceSetting('contactSensor')
                 .capabilities(['contactSensor'])
-                .required(false);
         });
         page.section('lights', section => {
             section
                 .deviceSetting('lights')
                 .capabilities(['switch'])
-                .multiple(true)
-                .permissions('rx');
+                .permissions('rx')
+                .multiple(true);
         });
     })
+    // Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
     .updated(async (context, updateData) => {
-        // Called for both INSTALLED and UPDATED lifecycle events if there is no separate installed() handler
-        await context.api.subscriptions.unsubscribeAll()
-        return context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
+        await context.api.subscriptions.delete() // clear any existing configuration
+        await context.api.subscriptions.subscribeToDevices(context.config.contactSensor, 'contactSensor', 'contact', 'myDeviceEventHandler');
     })
-    .subscribedEventHandler('myDeviceEventHandler', (context, event) => {
+    .subscribedEventHandler('myDeviceEventHandler', async (context, event) => {
         const value = event.value === 'open' ? 'on' : 'off';
-        context.api.devices.sendCommands(context.config.lights, 'switch', value);
+        await context.api.devices.sendCommands(context.config.lights, 'switch', value);
     });
 
+server.use(express.json());
+
 /* Handle POST requests */
-server.post('/', function(req, res, next) {
-  smartapp.handleHttpCallback(req, res);
+server.post('/', function (req, res, next) {
+    smartapp.handleHttpCallback(req, res);
 });
 
 /* Start listening at your defined PORT */
@@ -119,18 +115,19 @@ server.listen(PORT, () => console.log(`Server is up and running on port ${PORT}`
 
 To run as a Lambda function instead of an HTTP server, ensure that your main entry file exports `smartapp.handleLambdaCallback(...)`.
 
-> **Note:** This snippet is heavily truncated for brevity – see the web service example above a more detailed example of how to define a `smartapp`.
+> **Note:** This snippet is heavily truncated for brevity.
 
 ```javascript
-const SmartApp = require('@smartthings/smartapp')
+const SmartApp = require('@smartthings/smartapp');
+
 const smartapp = new SmartApp()
     .enableEventLogging() // logs all lifecycle event requests and responses. Omit in production
     .page( ... )
     .updated(() => { ... })
     .subscribedEventHandler( ... );
 
-exports.handler = (event, context) => {
-    return smartapp.handleLambdaCallback(event, context);
+exports.handler = (event, context, callback) => {
+    smartapp.handleLambdaCallback(event, context, callback);
 };
 ```
 There are also a few Glitch examples:
@@ -138,6 +135,8 @@ There are also a few Glitch examples:
 - [Simple SmartThings Automation App using Contact Sensors](https://glitch.com/edit/#!/south-mayonnaise?path=README.md:1:0)
 - [Simple SmartThings Automation App using Motion Detectors](https://glitch.com/edit/#!/polite-math?path=README.md:1:0)
 - [Simple Switch Cloud-to-Cloud (C2C) App](https://glitch.com/edit/#!/aquamarine-crop?path=README.md:1:0)
+
+More detailed examples to use as a starting point can be found in our [app-examples](https://github.com/SmartThingsCommunity/app-examples) repository.
 
 ### Localization
 
