@@ -1,4 +1,3 @@
-/* eslint no-undef: "off" */
 const {expect} = require('chai')
 const Page = require('../../../lib/pages/page')
 const Section = require('../../../lib/pages/section')

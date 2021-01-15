@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-unused-expressions */
+/* eslint-disable no-unused-expressions */
 const {expect} = require('chai')
 const ConfigurationError = require('../../../lib/util/configuration-error')
 

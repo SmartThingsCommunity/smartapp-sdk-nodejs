@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-unused-expressions */
+/* eslint-disable no-unused-expressions */
 const chai = require('chai')
 const EndpointContext = require('../../../lib/util/smart-app-context')
 const SmartApp = require('../../../lib/smart-app')
