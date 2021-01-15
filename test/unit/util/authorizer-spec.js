@@ -1,4 +1,4 @@
-/* eslint-disable no-undef, no-unused-expressions */
+/* eslint-disable no-unused-expressions */
 const fs = require('fs')
 const path = require('path')
 const nock = require('nock')
