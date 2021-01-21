@@ -1,10 +1,5 @@
-/* eslint-disable no-unused-expressions */
-const chai = require('chai')
 const EndpointContext = require('../../../lib/util/smart-app-context')
 const SmartApp = require('../../../lib/smart-app')
-
-const {expect} = chai
-chai.use(require('chai-datetime'))
 
 describe('smart-app-context-spec', () => {
 	let app
@@ -113,58 +108,58 @@ describe('smart-app-context-spec', () => {
 	it('should return a date config value', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configDateValue('mydate')
-		expect(value).to.equalDate(date)
+		expect(value).toEqual(date)
 
 		value = context.configDateValue('bad-key')
-		expect(value).to.be.undefined
+		expect(value).toBeUndefined()
 	})
 
 	it('should return a locale time config value', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configTimeString('mydate')
-		expect(value).to.equal(date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'}))
+		expect(value).toEqual(date.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'}))
 
 		value = context.configTimeString('mydate', {hour: 'numeric', minute: 'numeric'})
-		expect(value).to.equal(date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric'}))
+		expect(value).toEqual(date.toLocaleTimeString('en-US', {hour: 'numeric', minute: 'numeric'}))
 
 		value = context.configTimeString('bad-key')
-		expect(value).to.be.undefined
+		expect(value).toBeUndefined()
 	})
 
 	it('should return a boolean config value', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configBooleanValue('truthiness')
-		expect(value).to.equal(true)
+		expect(value).toBe(true)
 
 		value = context.configBooleanValue('bad-key')
-		expect(value).to.be.false
+		expect(value).toBe(false)
 	})
 
 	it('should return a string config value', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configStringValue('minutes')
-		expect(value).to.equal('5')
+		expect(value).toBe('5')
 
 		value = context.configStringValue('bad-key')
-		expect(value).to.be.undefined
+		expect(value).toBeUndefined()
 	})
 
 	it('should return a number config value', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configNumberValue('minutes')
-		expect(value).to.equal(5)
+		expect(value).toBe(5)
 
 		value = context.configNumberValue('bad-key')
-		expect(value).to.be.undefined
+		expect(value).toBeUndefined()
 	})
 
 	it('should return a mode config value array', () => {
 		const context = new EndpointContext(app, event, undefined)
 		let value = context.configModeIds('modes')
-		expect(value).to.be.an.instanceof(Array)
-		expect(value).to.include('0ec5488d-6fe7-4a52-ad61-8e9699948d87')
+		expect(value).toBeInstanceOf(Array)
+		expect(value).toContain('0ec5488d-6fe7-4a52-ad61-8e9699948d87')
 
 		value = context.configModeIds('bad-key')
-		expect(value).to.be.undefined
+		expect(value).toBeUndefined()
 	})
 })

@@ -1,4 +1,3 @@
-const {expect} = require('chai')
 const Page = require('../../../lib/pages/page')
 const Section = require('../../../lib/pages/section')
 const BooleanSetting = require('../../../lib/pages/boolean-setting')
@@ -16,20 +15,20 @@ describe('boolean-setting', () => {
 		const setting = new BooleanSetting(section, 'testSetting')
 		setting.name('testBoolean')
 		const json = setting.toJson()
-		expect(json.type).to.equal('BOOLEAN')
-		expect(json.name).to.equal('testBoolean')
+		expect(json.type).toBe('BOOLEAN')
+		expect(json.name).toBe('testBoolean')
 	})
 
 	it('should set an image url when set', () => {
 		const setting = new BooleanSetting(section, 'id')
 		setting.image('https://example.com/image.png')
 		const json = setting.toJson()
-		expect(json.image).to.equal('https://example.com/image.png')
+		expect(json.image).toBe('https://example.com/image.png')
 	})
 
 	it('should not include image in json when unset', () => {
 		const setting = new BooleanSetting(section, 'id')
 		const json = setting.toJson()
-		expect(json).to.not.have.property('image')
+		expect(json).not.toHaveProperty('image')
 	})
 })

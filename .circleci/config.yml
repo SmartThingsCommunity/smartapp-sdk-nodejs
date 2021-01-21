@@ -35,9 +35,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run lint
       - run: npm test
       - codecov/upload:
-          file: .nyc_output/*.json
+          file: coverage/*.json
       - *persist_to_workspace
   publish:
     executor: daneel

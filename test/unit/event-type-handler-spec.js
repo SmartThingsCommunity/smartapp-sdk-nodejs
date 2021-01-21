@@ -1,4 +1,3 @@
-/* eslint no-undef: 'off' */
 const assert = require('assert').strict
 const SmartApp = require('../../lib/smart-app')
 

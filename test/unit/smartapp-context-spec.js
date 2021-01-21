@@ -1,7 +1,4 @@
-/* eslint no-undef: "off" */
-
 const assert = require('assert').strict
-const {expect} = require('chai')
 const {
 	BearerTokenAuthenticator,
 	SequentialRefreshTokenAuthenticator} = require('@smartthings/core-sdk')
@@ -79,8 +76,8 @@ describe('smartapp-context-spec', () => {
 
 		const ctx = await app.withContext('d692699d-e7a6-400d-a0b7-d5be96e7a564')
 
-		expect(ctx).to.be.instanceof(SmartAppContext)
-		expect(ctx.api.config.authenticator).to.be.instanceof(SequentialRefreshTokenAuthenticator)
+		expect(ctx).toBeInstanceOf(SmartAppContext)
+		expect(ctx.api.config.authenticator).toBeInstanceOf(SequentialRefreshTokenAuthenticator)
 		assert.equal(installData.installedApp.installedAppId, ctx.installedAppId)
 		assert.equal(installData.installedApp.locationId, ctx.locationId)
 		assert.equal(installData.authToken, ctx.authToken)
@@ -98,7 +95,7 @@ describe('smartapp-context-spec', () => {
 
 		const ctx = await app.withContext(params)
 
-		expect(ctx.api.config.authenticator).to.be.instanceof(BearerTokenAuthenticator)
+		expect(ctx.api.config.authenticator).toBeInstanceOf(BearerTokenAuthenticator)
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
 		assert.equal(params.authToken, ctx.authToken)
@@ -118,7 +115,7 @@ describe('smartapp-context-spec', () => {
 
 		const ctx = await app.withContext(params)
 
-		expect(ctx.api.config.authenticator).to.be.instanceof(SequentialRefreshTokenAuthenticator)
+		expect(ctx.api.config.authenticator).toBeInstanceOf(SequentialRefreshTokenAuthenticator)
 		assert.equal(params.installedAppId, ctx.installedAppId)
 		assert.equal(params.locationId, ctx.locationId)
 		assert.equal(params.authToken, ctx.authToken)

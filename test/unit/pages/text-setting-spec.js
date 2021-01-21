@@ -1,9 +1,8 @@
-const {expect} = require('chai')
 const Page = require('../../../lib/pages/page')
 const Section = require('../../../lib/pages/section')
 const TextSetting = require('../../../lib/pages/text-setting')
 
-describe('text-setting', function () {
+describe('text-setting', () => {
 	let page = {}
 	let section = {}
 
@@ -12,49 +11,49 @@ describe('text-setting', function () {
 		section = new Section(page, 'testSection')
 	})
 
-	it('should set type to text', function () {
+	it('should set type to text', () => {
 		const textSetting = new TextSetting(section, 'text').toJson()
-		expect(textSetting.type).to.equal('TEXT')
+		expect(textSetting.type).toBe('TEXT')
 	})
 
-	it('should set default description', function () {
+	it('should set default description', () => {
 		const textSetting = new TextSetting(section, 'text').toJson()
-		expect(textSetting.description).to.equal('Tap to set')
+		expect(textSetting.description).toBe('Tap to set')
 	})
 
-	it('should set maxLength when specified', function () {
+	it('should set maxLength when specified', () => {
 		const maxLength = 9
 		const textSetting = new TextSetting(section, 'text')
 			.maxLength(maxLength)
 			.toJson()
 
-		expect(textSetting.maxLength).to.equal(maxLength)
+		expect(textSetting.maxLength).toBe(maxLength)
 	})
 
-	it('should set minLength when specified', function () {
+	it('should set minLength when specified', () => {
 		const minLength = 1
 		const textSetting = new TextSetting(section, 'text')
 			.minLength(minLength)
 			.toJson()
 
-		expect(textSetting.minLength).to.equal(minLength)
+		expect(textSetting.minLength).toBe(minLength)
 	})
 
-	it('should set image when specified', function () {
+	it('should set image when specified', () => {
 		const imageUrl = 'https://test.local/image.png'
 		const textSetting = new TextSetting(section, 'text')
 			.image(imageUrl)
 			.toJson()
 
-		expect(textSetting.image).to.equal(imageUrl)
+		expect(textSetting.image).toBe(imageUrl)
 	})
 
-	it('should set postMessage when specified', function () {
+	it('should set postMessage when specified', () => {
 		const postMessage = 'test'
 		const textSetting = new TextSetting(section, 'text')
 			.postMessage(postMessage)
 			.toJson()
 
-		expect(textSetting.postMessage).to.equal(postMessage)
+		expect(textSetting.postMessage).toBe(postMessage)
 	})
 })
