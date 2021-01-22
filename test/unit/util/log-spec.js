@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-expressions */
 const sinon = require('sinon')
-const {expect} = require('chai')
 const Log = require('../../../lib/util/log')
 
 const event = {
@@ -28,7 +26,7 @@ describe('log-spec', () => {
 		const logger = new Log(console, 2, true)
 		const cspy = sinon.spy(console, 'log')
 		logger.event(event)
-		expect(cspy.calledOnce).to.be.true
+		expect(cspy.calledOnce).toBe(true)
 		cspy.restore()
 	})
 
@@ -36,9 +34,9 @@ describe('log-spec', () => {
 		const log = new Log(undefined, 0, true)
 		const spy = sinon.spy(log, 'event')
 		log.event(event)
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('event')
-		expect(spy.calledWithExactly(event)).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('event')
+		expect(spy.calledWithExactly(event)).toBe(true)
 		sinon.restore()
 	})
 
@@ -46,9 +44,9 @@ describe('log-spec', () => {
 		const log = new Log(undefined, 0, true)
 		const spy = sinon.spy(log, 'response')
 		log.response(event)
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('response')
-		expect(spy.calledWithExactly(event)).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('response')
+		expect(spy.calledWithExactly(event)).toBe(true)
 		sinon.restore()
 	})
 
@@ -56,9 +54,9 @@ describe('log-spec', () => {
 		const log = new Log()
 		const spy = sinon.spy(log, 'debug')
 		log.debug('debug')
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('debug')
-		expect(spy.calledWithExactly('debug')).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('debug')
+		expect(spy.calledWithExactly('debug')).toBe(true)
 		sinon.restore()
 	})
 
@@ -66,9 +64,9 @@ describe('log-spec', () => {
 		const log = new Log()
 		const spy = sinon.spy(log, 'error')
 		log.error('error')
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('error')
-		expect(spy.calledWithExactly('error')).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('error')
+		expect(spy.calledWithExactly('error')).toBe(true)
 		sinon.restore()
 	})
 
@@ -76,9 +74,9 @@ describe('log-spec', () => {
 		const log = new Log()
 		const spy = sinon.spy(log, 'exception')
 		log.exception('exception')
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('exception')
-		expect(spy.calledWithExactly('exception')).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('exception')
+		expect(spy.calledWithExactly('exception')).toBe(true)
 		sinon.restore()
 	})
 
@@ -86,9 +84,9 @@ describe('log-spec', () => {
 		const log = new Log()
 		const spy = sinon.spy(log, 'info')
 		log.info('info')
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('info')
-		expect(spy.calledWithExactly('info')).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('info')
+		expect(spy.calledWithExactly('info')).toBe(true)
 		sinon.restore()
 	})
 
@@ -96,9 +94,9 @@ describe('log-spec', () => {
 		const log = new Log()
 		const spy = sinon.spy(log, 'warn')
 		log.warn('warn')
-		expect(spy.calledOnce).to.be.true
-		expect(spy.name).to.equal('warn')
-		expect(spy.calledWithExactly('warn')).to.be.true
+		expect(spy.calledOnce).toBe(true)
+		expect(spy.name).toBe('warn')
+		expect(spy.calledWithExactly('warn')).toBe(true)
 		sinon.restore()
 	})
 })

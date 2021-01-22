@@ -1,25 +1,22 @@
-/* eslint-disable no-unused-expressions */
 const fs = require('fs')
 const path = require('path')
 const nock = require('nock')
-const sinon = require('sinon')
-const {expect, assert} = require('chai')
-const proxyquire = require('proxyquire')
 const sshpk = require('sshpk')
 const httpSignature = require('http-signature')
 const SmartApp = require('../../../lib/smart-app')
 const Log = require('../../../lib/util/log')
 
-const Authorizer = proxyquire('../../../lib/util/authorizer', {
-	'http-signature': {
-		parseRequest: req => {
-			return {keyId: req.keyId}
-		},
-		verifySignature: () => {
-			return true
-		}
+jest.mock('http-signature', () => ({
+	parseRequest: req => {
+		return {keyId: req.keyId}
+	},
+
+	verifySignature: () => {
+		return true
 	}
-})
+}))
+
+const Authorizer = require('../../../lib/util/authorizer')
 
 const publicKeyFilePath = path.resolve(__dirname, '../../fixtures/unit_test_rsa.key')
 const publicCertFilePath = path.resolve(__dirname, '../../fixtures/unit_test_cert.crt')
@@ -37,7 +34,7 @@ describe('authorizer-spec', () => {
 			publicKey: `@${publicKeyFilePath}`
 		})
 		const actualPublicKey = await authorizer.getKey('/SmartThings/key-id')
-		assert.strictEqual(publicKey, actualPublicKey)
+		expect(publicKey).toStrictEqual(actualPublicKey)
 	})
 
 	it('should resolve a local file public key as set via public setter', async () => {
@@ -45,7 +42,7 @@ describe('authorizer-spec', () => {
 		authorizer.setPublicKey(`@${publicKeyFilePath}`)
 		const publicKey = fs.readFileSync(publicKeyFilePath, 'utf8')
 		const actualPublicKey = await authorizer.getKey('/SmartThings/key-id')
-		assert.strictEqual(publicKey, actualPublicKey)
+		expect(publicKey).toStrictEqual(actualPublicKey)
 	})
 
 	it('should resolve a remote file public key', async () => {
@@ -56,7 +53,7 @@ describe('authorizer-spec', () => {
 		const authorizer = new Authorizer()
 		const actualPublicKey = await authorizer.getKey(keyId)
 		const isKey = sshpk.Key.isKey(actualPublicKey, [1, 1])
-		assert.strictEqual(isKey, true)
+		expect(isKey).toBe(true)
 		scope.done()
 	})
 
@@ -69,7 +66,7 @@ describe('authorizer-spec', () => {
 		const isValid = await authorizer.isAuthorized({
 			keyId
 		})
-		assert.strictEqual(isValid, true)
+		expect(isValid).toBe(true)
 		scope.done()
 	})
 })
@@ -97,29 +94,35 @@ describe('authorizer-logger-spec', () => {
 		}
 	}
 
-	it('should throw exception when authorizing header key is missing', async () => {
-		const app = new SmartApp({logUnhandledRejections: false})
-		const parseRequestStub = sinon.stub(httpSignature, 'parseRequest')
-		parseRequestStub.throws('MissingHeaderException')
-		app.handleHttpCallback(request, undefined)
+	it('should log exception when authorizing header key is missing', async () => {
+		const authorizer = new Authorizer()
+		const missingHeaderError = new Error('MissingHeaderError')
+		const parseRequestSpy = jest.spyOn(httpSignature, 'parseRequest').mockImplementation(() => {
+			throw missingHeaderError
+		})
+		const logExceptionSpy = jest.spyOn(Log.prototype, 'exception')
 
-		expect(parseRequestStub.calledOnce).to.be.true
-		expect(parseRequestStub.threw('MissingHeaderException')).to.be.true
-		expect(app._authorizer._logger).to.not.be.undefined
-		parseRequestStub.restore()
+		await expect(authorizer.isAuthorized(request)).resolves.toBe(false)
+		expect(parseRequestSpy).toHaveBeenCalledTimes(1)
+		expect(authorizer._logger).toBeDefined()
+		expect(logExceptionSpy).toHaveBeenCalledTimes(1)
+		expect(logExceptionSpy).toHaveBeenCalledWith(missingHeaderError)
+
+		parseRequestSpy.mockRestore()
+		logExceptionSpy.mockRestore()
 	})
 
 	it('should use a default Log instance when none configured', async () => {
 		const app = new SmartApp({logUnhandledRejections: false})
 		app.handleMockCallback(request.body)
-		expect(app._authorizer._logger).to.not.be.undefined
-		expect(app._authorizer._logger).to.be.an.instanceof(Log)
+		expect(app._authorizer._logger).toBeDefined()
+		expect(app._authorizer._logger).toBeInstanceOf(Log)
 	})
 
 	it('should use the Log logger specified by the user', () => {
 		const app = new SmartApp({logger: console, logUnhandledRejections: false})
 		app.handleMockCallback(request.body)
-		expect(app._authorizer._logger._logger).to.not.be.undefined
-		expect(app._authorizer._logger._logger).to.be.an.instanceOf(console.Console)
+		expect(app._authorizer._logger._logger).toBeDefined()
+		expect(app._authorizer._logger._logger).toBeInstanceOf(console.Console)
 	})
 })

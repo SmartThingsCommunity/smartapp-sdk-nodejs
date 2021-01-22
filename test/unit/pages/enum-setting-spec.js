@@ -1,6 +1,5 @@
 const path = require('path')
 const i18n = require('i18n')
-const {expect} = require('chai')
 const Page = require('../../../lib/pages/page')
 const Section = require('../../../lib/pages/section')
 const EnumSetting = require('../../../lib/pages/enum-setting')
@@ -21,20 +20,20 @@ describe('boolean-setting', () => {
 	it('should set type to ENUM', () => {
 		const setting = new EnumSetting(section, 'testSetting')
 		const json = setting.toJson()
-		expect(json.type).to.equal('ENUM')
+		expect(json.type).toBe('ENUM')
 	})
 
 	it('should translate name', () => {
 		const setting = new EnumSetting(section, 'testSetting')
 		const json = setting.toJson()
-		expect(json.name).to.equal('Test d\'énumération')
+		expect(json.name).toBe('Test d\'énumération')
 	})
 
 	it('should translate options', () => {
 		const setting = new EnumSetting(section, 'testSetting')
 		setting.options(['red'])
 		const json = setting.toJson()
-		expect(json.options[0].name).to.equal('Rouge')
+		expect(json.options[0].name).toBe('Rouge')
 	})
 
 	it('should not translate options when disabled', () => {
@@ -42,6 +41,6 @@ describe('boolean-setting', () => {
 		setting.translateOptions(false)
 		setting.options(['red'])
 		const json = setting.toJson()
-		expect(json.options[0].name).to.equal('red')
+		expect(json.options[0].name).toBe('red')
 	})
 })

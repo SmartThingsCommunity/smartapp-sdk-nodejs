@@ -15,8 +15,8 @@
   "types": "index.d.js",
   "scripts": {
     "lint": "xo",
-    "test:unit": "mocha test/unit/**",
-    "test": "xo && nyc mocha test/unit/**",
+    "test:unit": "jest",
+    "test": "jest --coverage",
     "start": "node ./smart-app.js",
     "debug": "node --inspect ./lib/smart-app.js",
     "semantic-release": "semantic-release -e ./config/release.config.js",
@@ -51,14 +51,11 @@
   "devDependencies": {
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
-    "chai": "~4.2.0",
-    "chai-datetime": "^1.5.0",
     "conventional-changelog-eslint": "~3.0.1",
     "dotenv": "^8.1.0",
+    "jest": "^26.6.3",
     "jsdoc": "^3.6.4",
-    "mocha": "^6.2.1",
     "nock": "^10.0.6",
-    "nyc": "~13.3.0",
     "proxyquire": "^2.1.3",
     "semantic-git-commit-cli": "^3.7.0",
     "semantic-release": "^17.2.1",
@@ -67,26 +64,6 @@
     "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.9.3",
     "xo": "~0.24.0"
-  },
-  "nyc": {
-    "watermarks": {
-      "lines": [
-        40,
-        95
-      ],
-      "functions": [
-        40,
-        95
-      ],
-      "branches": [
-        40,
-        95
-      ],
-      "statements": [
-        40,
-        95
-      ]
-    }
   },
   "xo": {
     "space": false,
@@ -101,16 +78,9 @@
         "consistent"
       ]
     },
-    "overrides": [
-      {
-        "files": "test/**",
-        "rules": {
-          "prefer-arrow-callback": 0
-        }
-      }
-    ],
+    "overrides": [],
     "envs": [
-      "mocha"
+      "jest"
     ]
   },
   "snyk": false

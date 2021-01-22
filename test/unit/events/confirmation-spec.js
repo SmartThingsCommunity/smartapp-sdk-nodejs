@@ -1,5 +1,3 @@
-/* eslint no-undef: 'off' */
-const {expect} = require('chai')
 const sinon = require('sinon')
 const SmartApp = require('../../../lib/smart-app')
 
@@ -15,8 +13,8 @@ describe('confirmation-spec', () => {
 			}
 		})
 
-		expect(stub.calledOnce).to.equal(true)
-		expect(stub.calledWith('CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, to enable events visit https://api.smartthings.com/apps/f9a665e7-5a76-4b1e-bdfe-31135eccc2f3/confirm-registration?token=fd9581b5-628c-4cd7-b1c2-dc14761234f3')).to.equal(true)
+		expect(stub.calledOnce).toBe(true)
+		expect(stub.calledWith('CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, to enable events visit https://api.smartthings.com/apps/f9a665e7-5a76-4b1e-bdfe-31135eccc2f3/confirm-registration?token=fd9581b5-628c-4cd7-b1c2-dc14761234f3')).toBe(true)
 		stub.restore()
 	})
 
@@ -31,8 +29,8 @@ describe('confirmation-spec', () => {
 			}
 		})
 
-		expect(stub.calledOnce).to.equal(true)
-		expect(stub.calledWith('CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, to enable events visit https://api.smartthings.com/apps/f9a665e7-5a76-4b1e-bdfe-31135eccc2f3/confirm-registration?token=fd9581b5-628c-4cd7-b1c2-dc14761234f3')).to.equal(true)
+		expect(stub.calledOnce).toBe(true)
+		expect(stub.calledWith('CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, to enable events visit https://api.smartthings.com/apps/f9a665e7-5a76-4b1e-bdfe-31135eccc2f3/confirm-registration?token=fd9581b5-628c-4cd7-b1c2-dc14761234f3')).toBe(true)
 		stub.restore()
 	})
 
@@ -48,8 +46,8 @@ describe('confirmation-spec', () => {
 		}
 		app.handleMockCallback(body)
 
-		expect(stub.calledOnce).to.equal(true)
-		expect(stub.calledWith(`Unexpected CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, received ${JSON.stringify(body)}`)).to.equal(true)
+		expect(stub.calledOnce).toBe(true)
+		expect(stub.calledWith(`Unexpected CONFIRMATION request for app f9a665e7-5a76-4b1e-bdfe-31135eccc2f3, received ${JSON.stringify(body)}`)).toBe(true)
 		stub.restore()
 	})
 
@@ -65,8 +63,8 @@ describe('confirmation-spec', () => {
 		}
 		app.handleMockCallback(body)
 
-		expect(stub.calledOnce).to.equal(true)
-		expect(stub.calledWith(`Invalid CONFIRMATION request ${JSON.stringify(body)}`)).to.equal(true)
+		expect(stub.calledOnce).toBe(true)
+		expect(stub.calledWith(`Invalid CONFIRMATION request ${JSON.stringify(body)}`)).toBe(true)
 		stub.restore()
 	})
 })
