@@ -1,3 +1,10 @@
+## [2.4.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.4...v2.4.5) (2021-01-26)
+
+
+### Bug Fixes
+
+* Add Accept-Language to API calls when locale is set ([#182](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/182)) ([7dfe817](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/7dfe8179b7f8243d6d24808cfb39a8c03757d85b))
+
 ## [2.4.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.3...v2.4.4) (2021-01-07)
 
 
