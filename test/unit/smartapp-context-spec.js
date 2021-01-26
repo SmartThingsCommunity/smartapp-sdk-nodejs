@@ -122,4 +122,18 @@ describe('smartapp-context-spec', () => {
 		assert.equal(params.refreshToken, ctx.refreshToken)
 		assert.equal(params.locale, ctx.event.locale)
 	})
+
+	it('accept-language header in API calls', async () => {
+		const params = {
+			authToken: 'xxx',
+			installedAppId: 'aaa',
+			locationId: 'bbb',
+			locale: 'es',
+			config: {device: 'ccc'}
+		}
+
+		const ctx = await app.withContext(params)
+
+		expect(ctx.api.config.headers['Accept-Language']).toBe('es')
+	})
 })
