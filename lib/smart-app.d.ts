@@ -18,6 +18,7 @@ import DeviceCommandsEvent = AppEvent.DeviceCommandsEvent;
 import SecurityArmStateEvent = AppEvent.SecurityArmStateEvent;
 import ExecuteData = AppEvent.ExecuteData;
 import UninstallData = AppEvent.UninstallData;
+import {Initialization} from './util/initialization'
 
 /**
  * Configuration options for SmartApps. These can either be passed into the constructor
@@ -387,6 +388,16 @@ export class SmartApp {
      * Defines a handler to be called the first time a SmartApp is installed. If not specified then the
      * `updated()` handler will be called on the initial installation as well as updates.
      */
+    initialized(callback: (
+        context: SmartAppContext,
+        initialization: Initialization,
+        configData: AppEvent.ConfigurationData) =>
+        HandlerResponse): SmartApp
+
+    /**
+     * Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+     * `updated()` handler will be called on the initial installation as well as updates.
+     */
     installed(callback: (context: SmartAppContext, installData: AppEvent.InstallData) => HandlerResponse): SmartApp
 
     /**
@@ -418,7 +429,7 @@ export class SmartApp {
      * explicitly required by this app. For example `['r:devices:*', and 'x:devices:*']
      * to be able to read and control all devices in the location. You do not have to
      * provide this list for devices selected by the user in configuration settings.
-     * 
+     *
      * If permissions are specified, [[appId]] is also required.
      */
     permissions(value: string | string[]): SmartApp

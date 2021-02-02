@@ -57,6 +57,7 @@ Name | Type | Description |
 * [handleLambdaCallback](_smart_app_d_.smartapp.md#handlelambdacallback)
 * [handleMockCallback](_smart_app_d_.smartapp.md#handlemockcallback)
 * [handleOAuthCallback](_smart_app_d_.smartapp.md#handleoauthcallback)
+* [initialized](_smart_app_d_.smartapp.md#initialized)
 * [installed](_smart_app_d_.smartapp.md#installed)
 * [keyApiHost](_smart_app_d_.smartapp.md#keyapihost)
 * [oauthHandler](_smart_app_d_.smartapp.md#oauthhandler)
@@ -502,6 +503,31 @@ Name | Type |
 `request` | [WebHookRequest](../interfaces/_smart_app_d_.webhookrequest.md) |
 
 **Returns:** *Promise‹[ContextRecord](../interfaces/_smart_app_d_.contextrecord.md)›*
+
+___
+
+###  initialized
+
+▸ **initialized**(`callback`: function): *[SmartApp](_smart_app_d_.smartapp.md)*
+
+Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+`updated()` handler will be called on the initial installation as well as updates.
+
+**Parameters:**
+
+▪ **callback**: *function*
+
+▸ (`context`: [SmartAppContext](../interfaces/_util_smart_app_context_d_.smartappcontext.md), `initialization`: [Initialization](_util_initialization_d_.initialization.md), `configData`: [ConfigurationData](../modules/_lifecycle_events_d_.md#configurationdata)): *[HandlerResponse](../modules/_smart_app_d_.md#handlerresponse)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`context` | [SmartAppContext](../interfaces/_util_smart_app_context_d_.smartappcontext.md) |
+`initialization` | [Initialization](_util_initialization_d_.initialization.md) |
+`configData` | [ConfigurationData](../modules/_lifecycle_events_d_.md#configurationdata) |
+
+**Returns:** *[SmartApp](_smart_app_d_.smartapp.md)*
 
 ___
 
