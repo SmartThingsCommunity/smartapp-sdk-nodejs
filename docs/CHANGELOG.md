@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.5...v2.5.0) (2021-02-02)
+
+
+### Features
+
+* Added optional handler for CONFIGURATION/INITIALIZE event ([#183](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/183)) ([4179093](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/41790938f80aa34dd79333d47187b4e6bc62e14b))
+
 ## [2.4.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.4.4...v2.4.5) (2021-01-26)
 
 
