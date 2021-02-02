@@ -1,8 +1,7 @@
-const assert = require('assert').strict
 const SmartApp = require('../../lib/smart-app')
 
 describe('smartapp-initialize-spec', () => {
-	it('default handler', async () => {
+	test('default handler', async () => {
 		const app = new SmartApp()
 			.appId('xxx')
 			.firstPageId('page1')
@@ -39,10 +38,10 @@ describe('smartapp-initialize-spec', () => {
 			disableRemoveApp: true
 		}}
 
-		assert.deepStrictEqual(resp.configurationData, expectedInitResponse)
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
 	})
 
-	it('default handler', async () => {
+	test('custom handler page', async () => {
 		const app = new SmartApp()
 			.appId('xxx')
 			.permissions(['r:devices:*'])
@@ -79,10 +78,10 @@ describe('smartapp-initialize-spec', () => {
 			disableRemoveApp: false
 		}}
 
-		assert.deepStrictEqual(resp.configurationData, expectedInitResponse)
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
 	})
 
-	it('custom handler all', async () => {
+	test('custom handler all', async () => {
 		const app = new SmartApp()
 			.appId('xxx')
 			.firstPageId('page1')
@@ -125,6 +124,6 @@ describe('smartapp-initialize-spec', () => {
 			disableRemoveApp: false
 		}}
 
-		assert.deepStrictEqual(resp.configurationData, expectedInitResponse)
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
 	})
 })
