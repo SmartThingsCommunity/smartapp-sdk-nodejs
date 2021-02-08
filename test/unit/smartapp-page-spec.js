@@ -1,9 +1,12 @@
-const assert = require('assert').strict
 const SmartApp = require('../../lib/smart-app')
 
 describe('smartapp-page-spec', () => {
+	let app
+	beforeEach(() => {
+		app = new SmartApp()
+	})
+
 	it('should set page ID', () => {
-		const app = new SmartApp()
 		app.appId('xxx')
 		app.page('eaMainPage', (ctx, page) => {
 			page.section('whenDoorOpensAndCloses', section => {
@@ -56,7 +59,7 @@ describe('smartapp-page-spec', () => {
 				disableRemoveApp: false
 			}}
 
-			assert.deepStrictEqual(initResponse.configurationData, expectedInitResponse)
+			expect(initResponse.configurationData).toStrictEqual(expectedInitResponse)
 		})
 
 		// Page configuration callback
@@ -109,7 +112,8 @@ describe('smartapp-page-spec', () => {
 					]
 				}
 			}
-			assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+
+			expect(pageResponse.configurationData).toStrictEqual(expectedPageResponse)
 		})
 
 		// Default page handler configuration callback
@@ -182,12 +186,12 @@ describe('smartapp-page-spec', () => {
 					]
 				}
 			}
-			assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+
+			expect(pageResponse.configurationData).toStrictEqual(expectedPageResponse)
 		})
 	})
 
 	it('should configure event logger', () => {
-		const app = new SmartApp()
 		app.appId('xxx')
 		app.enableEventLogging(4)
 		app.page('eaMainPage', (ctx, page) => {
@@ -218,9 +222,7 @@ describe('smartapp-page-spec', () => {
 		})
 	})
 
-	it('default page handler', () => {
-		const app = new SmartApp()
-
+	test('default page handler', () => {
 		app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
 			executionId: 'abcf6e72-60f4-1f27-341b-449ad9e2192e',
@@ -263,13 +265,12 @@ describe('smartapp-page-spec', () => {
 					]
 				}
 			}
-			assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+
+			expect(pageResponse.configurationData).toStrictEqual(expectedPageResponse)
 		})
 	})
 
-	it('default page handler without pageId', () => {
-		const app = new SmartApp()
-
+	test('default page handler without pageId', () => {
 		app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
 			executionId: 'abcf6e72-60f4-1f27-341b-449ad9e2192e',
@@ -312,7 +313,37 @@ describe('smartapp-page-spec', () => {
 					]
 				}
 			}
-			assert.deepStrictEqual(pageResponse.configurationData, expectedPageResponse)
+
+			expect(pageResponse.configurationData).toStrictEqual(expectedPageResponse)
 		})
+	})
+
+	it('should respond with error when config phase is not supported', async () => {
+		const unsupportedConfigPhase = {
+			lifecycle: 'CONFIGURATION',
+			executionId: '00000000-0000-0000-0000-000000000000',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'fr'
+			},
+			configurationData: {
+				installedAppId: '00000000-0000-0000-0000-000000000000',
+				phase: 'UNSUPPORTED',
+				pageId: '',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		}
+
+		const expectedPageResponse = {
+			message: 'Server error: \'Error: Unsupported config phase: UNSUPPORTED\'',
+			statusCode: 500
+		}
+
+		await expect(app.handleMockCallback(unsupportedConfigPhase)).resolves.toStrictEqual(expectedPageResponse)
 	})
 })
