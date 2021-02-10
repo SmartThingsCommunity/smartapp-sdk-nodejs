@@ -1,4 +1,4 @@
-const assert = require('assert').strict
+const Log = require('../../lib/util/log')
 const SmartApp = require('../../lib/smart-app')
 
 describe('smartapp-spec', () => {
@@ -19,11 +19,11 @@ describe('smartapp-spec', () => {
 		}
 	})
 
-	it('should handle INSTALL event', () => {
+	it('should handle INSTALL event', async () => {
 		app.installed((_, installData) => {
 			receivedData = installData
 		})
-		app.handleMockCallback({
+		await app.handleMockCallback({
 			lifecycle: 'INSTALL',
 			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
 			locale: 'en',
@@ -36,34 +36,15 @@ describe('smartapp-spec', () => {
 			installData: expectedData,
 			settings: {}
 		})
-		assert.strictEqual(receivedData, expectedData)
+
+		expect(receivedData).toStrictEqual(expectedData)
 	})
 
-	it('should handle UNINSTALL event', () => {
-		app.uninstalled((_, uninstallData) => {
-			receivedData = uninstallData
-		})
-		app.handleMockCallback({
-			lifecycle: 'UNINSTALL',
-			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
-			locale: 'en',
-			version: '0.1.0',
-			client: {
-				os: 'ios',
-				version: '0.0.0',
-				language: 'en-US'
-			},
-			uninstallData: expectedData,
-			settings: {}
-		})
-		assert.strictEqual(receivedData, expectedData)
-	})
-
-	it('should handle UPDATE event', () => {
+	it('should handle UPDATE event', async () => {
 		app.updated((_, updateData) => {
 			receivedData = updateData
 		})
-		app.handleMockCallback({
+		await app.handleMockCallback({
 			lifecycle: 'UPDATE',
 			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
 			locale: 'en',
@@ -76,6 +57,31 @@ describe('smartapp-spec', () => {
 			updateData: expectedData,
 			settings: {}
 		})
-		assert.strictEqual(receivedData, expectedData)
+
+		expect(receivedData).toStrictEqual(expectedData)
+	})
+
+	it('should warn when event type is unhandled', async () => {
+		const logSpy = jest.spyOn(Log.prototype, 'warn')
+
+		const unhandledEvent = {
+			lifecycle: 'EVENT',
+			eventData: {
+				installedApp: {
+					installedAppId: '00000000-0000-0000-0000-000000000000'
+				},
+				events: [
+					{
+						eventType: 'UNHANDLED_EVENT'
+					}
+				]
+			}
+		}
+
+		await expect(app.handleMockCallback(unhandledEvent)).resolves.not.toThrow()
+		expect(logSpy).toBeCalledTimes(1)
+		expect(logSpy).toBeCalledWith('Unhandled event of type UNHANDLED_EVENT')
+
+		logSpy.mockClear()
 	})
 })

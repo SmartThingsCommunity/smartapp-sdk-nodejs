@@ -5,5 +5,6 @@ module.exports = {
 	// https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/blob/79983de15646dd3be84d2b3e82d409f9bc632959/package.json#L72
 	coverageReporters: ['json', 'text'],
 	testEnvironment: 'node',
-	testMatch: ['**/test/**/*.[jt]s?(x)']
+	testMatch: ['**/test/**/*.[jt]s?(x)'],
+	setupFiles: ['<rootDir>/config/jest.setup.js']
 }
