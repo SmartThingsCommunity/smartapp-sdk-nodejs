@@ -1,7 +1,6 @@
-const assert = require('assert').strict
 const SmartApp = require('../../../lib/smart-app')
 
-describe('execute-event-spec', () => {
+describe('execute-lifecycle-spec', () => {
 	/** @type {SmartApp} */
 	let app
 	let receivedEvent
@@ -103,7 +102,7 @@ describe('execute-event-spec', () => {
 			'settings': {}
 		})
 
-		assert.deepStrictEqual(receivedEvent, expectedEvent)
-		assert.deepStrictEqual(response, expectedResponse)
+		expect(receivedEvent).toStrictEqual(expectedEvent)
+		expect(response).toStrictEqual(expectedResponse)
 	})
 })

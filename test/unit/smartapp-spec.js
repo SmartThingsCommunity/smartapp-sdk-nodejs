@@ -1,68 +1,50 @@
-const Log = require('../../lib/util/log')
 const SmartApp = require('../../lib/smart-app')
 
 describe('smartapp-spec', () => {
 	let app
-	let expectedData
-	let receivedData
 
 	beforeEach(() => {
 		app = new SmartApp({logUnhandledRejections: false})
-		expectedData = {
-			authToken: 'string',
-			refreshToken: 'string',
-			installedApp: {
-				installedAppId: 'd692699d-e7a6-400d-a0b7-d5be96e7a564',
-				locationId: 'e675a3d9-2499-406c-86dc-8a492a886494',
+	})
+
+	it('should configure event logger', async () => {
+		app.enableEventLogging(4)
+
+		expect(app._log._eventsEnabled).toBe(true)
+		expect(app._log._jsonSpace).toBe(4)
+	})
+
+	it('should respond with error when config phase is not supported', async () => {
+		const unsupportedConfigPhase = {
+			lifecycle: 'CONFIGURATION',
+			executionId: '00000000-0000-0000-0000-000000000000',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'fr'
+			},
+			configurationData: {
+				installedAppId: '00000000-0000-0000-0000-000000000000',
+				phase: 'UNSUPPORTED',
+				pageId: '',
+				previousPageId: '',
 				config: {}
-			}
+			},
+			settings: {}
 		}
-	})
 
-	it('should handle INSTALL event', async () => {
-		app.installed((_, installData) => {
-			receivedData = installData
-		})
-		await app.handleMockCallback({
-			lifecycle: 'INSTALL',
-			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
-			locale: 'en',
-			version: '0.1.0',
-			client: {
-				os: 'ios',
-				version: '0.0.0',
-				language: 'en-US'
-			},
-			installData: expectedData,
-			settings: {}
-		})
+		const expectedPageResponse = {
+			message: 'Server error: \'Error: Unsupported config phase: UNSUPPORTED\'',
+			statusCode: 500
+		}
 
-		expect(receivedData).toStrictEqual(expectedData)
-	})
-
-	it('should handle UPDATE event', async () => {
-		app.updated((_, updateData) => {
-			receivedData = updateData
-		})
-		await app.handleMockCallback({
-			lifecycle: 'UPDATE',
-			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
-			locale: 'en',
-			version: '0.1.0',
-			client: {
-				os: 'ios',
-				version: '0.0.0',
-				language: 'en-US'
-			},
-			updateData: expectedData,
-			settings: {}
-		})
-
-		expect(receivedData).toStrictEqual(expectedData)
+		await expect(app.handleMockCallback(unsupportedConfigPhase)).resolves.toStrictEqual(expectedPageResponse)
 	})
 
 	it('should warn when event type is unhandled', async () => {
-		const logSpy = jest.spyOn(Log.prototype, 'warn')
+		const logSpy = jest.spyOn(app._log, 'warn')
 
 		const unhandledEvent = {
 			lifecycle: 'EVENT',

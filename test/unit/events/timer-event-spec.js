@@ -1,5 +1,4 @@
 /* eslint no-undef: 'off' */
-const assert = require('assert').strict
 const SmartApp = require('../../../lib/smart-app')
 
 describe('timer-event-spec', () => {
@@ -36,7 +35,8 @@ describe('timer-event-spec', () => {
 				]
 			}
 		})
-		assert.equal(response.statusCode, 200)
+
+		expect(response.statusCode).toBe(200)
 	})
 
 	it('should throw 422 error for undefined mode event handler', async () => {
@@ -67,6 +67,7 @@ describe('timer-event-spec', () => {
 				]
 			}
 		})
-		assert.equal(response.statusCode, 422)
+
+		expect(response.statusCode).toBe(422)
 	})
 })

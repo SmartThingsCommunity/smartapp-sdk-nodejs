@@ -1,7 +1,6 @@
-const assert = require('assert').strict
 const SmartApp = require('../../../lib/smart-app')
 
-describe('scene-event-spec', () => {
+describe('scene-lifecycle-event-spec', () => {
 	/** @type {SmartApp} */
 	let app
 
@@ -37,7 +36,8 @@ describe('scene-event-spec', () => {
 				]
 			}
 		})
-		assert.equal(response.statusCode, 200)
+
+		expect(response.statusCode).toBe(200)
 	})
 
 	it('should throw 422 error for undefined scene lifecycle event handler', async () => {
@@ -65,6 +65,7 @@ describe('scene-event-spec', () => {
 				]
 			}
 		})
-		assert.equal(response.statusCode, 422)
+
+		expect(response.statusCode).toBe(422)
 	})
 })
