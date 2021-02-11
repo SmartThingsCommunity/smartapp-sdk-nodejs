@@ -1,4 +1,3 @@
-const assert = require('assert').strict
 const SmartApp = require('../../../lib/smart-app')
 
 describe('device-event-spec', () => {
@@ -11,7 +10,7 @@ describe('device-event-spec', () => {
 		app = new SmartApp({logUnhandledRejections: false})
 	})
 
-	it('should handle DEVICE_EVENT lifecycle for enumerated devices', () => {
+	it('should handle DEVICE_EVENT for enumerated devices', async () => {
 		const expectedEvent = {
 			'eventId': '0eabc76a-c366-11e9-84dd-3bdf0e366b96',
 			'locationId': 'e1e66eab-1eab-4f09-9bb6-91da6585576d',
@@ -31,7 +30,7 @@ describe('device-event-spec', () => {
 			receivedEvent = event
 			receivedEventTime = eventTime
 		})
-		app.handleMockCallback({
+		await app.handleMockCallback({
 			'lifecycle': 'EVENT',
 			'executionId': '3070a655-2094-469b-a2c8-6f0ac70a175e',
 			'locale': 'en-US',
@@ -90,11 +89,11 @@ describe('device-event-spec', () => {
 			'settings': {}
 		})
 
-		assert.deepStrictEqual(receivedEvent, expectedEvent)
-		assert.equal(receivedEventTime, expectedEventTime)
+		expect(receivedEvent).toStrictEqual(expectedEvent)
+		expect(receivedEventTime).toBe(expectedEventTime)
 	})
 
-	it('should handle DEVICE_EVENT lifecycle for one device', () => {
+	it('should handle DEVICE_EVENT for one device', async () => {
 		const expectedEvent = {
 			'eventId': '4a8445f0-c360-11e9-9945-392003a092e5',
 			'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
@@ -113,7 +112,7 @@ describe('device-event-spec', () => {
 			receivedEvent = event
 			receivedEventTime = eventTime
 		})
-		app.handleMockCallback({
+		await app.handleMockCallback({
 			'messageType': 'EVENT',
 			'eventData': {
 				'installedApp': {
@@ -141,8 +140,8 @@ describe('device-event-spec', () => {
 			}
 		})
 
-		assert.deepStrictEqual(receivedEvent, expectedEvent)
-		assert.equal(receivedEventTime, expectedEventTime)
+		expect(receivedEvent).toStrictEqual(expectedEvent)
+		expect(receivedEventTime).toBe(expectedEventTime)
 	})
 
 	it('should throw 422 error for undefined device event handler', async () => {
@@ -178,134 +177,7 @@ describe('device-event-spec', () => {
 				]
 			}
 		})
-		assert.equal(response.statusCode, 422)
-	})
 
-	it('should throw 422 error for undefined device lifecycle event handler', async () => {
-		app.subscribedDeviceLifecycleEventHandler('otherHandler', (_, event, eventTime) => {
-			receivedEvent = event
-			receivedEventTime = eventTime
-		})
-
-		const response = await app.handleMockCallback({
-			'messageType': 'EVENT',
-			'eventData': {
-				'installedApp': {
-					'installedAppId': '07891f14-82da-4239-9900-42e437c49f45',
-					'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5'
-				},
-				'events': [
-					{
-						'eventTime': '2019-08-20T15:36:34Z',
-						'eventType': 'DEVICE_LIFECYCLE_EVENT',
-						'deviceLifecycleEvent': {
-							'lifecycle': 'CREATE',
-							'eventId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'deviceName': 'Device 1',
-							'principal': 'LOCATION',
-							'create': {
-								'presentationId': '497c21fa-a045-4008-9e84-79b160b8fa44',
-								'manufacturerName': 'SmartThings',
-								'categories': []
-							}
-						}
-					}
-				]
-			}
-		})
-		assert.equal(response.statusCode, 200)
-	})
-
-	it('should throw 422 error for undefined device lifecycle event handler', async () => {
-		const response = await app.handleMockCallback({
-			'messageType': 'EVENT',
-			'eventData': {
-				'installedApp': {
-					'installedAppId': '07891f14-82da-4239-9900-42e437c49f45',
-					'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5'
-				},
-				'events': [
-					{
-						'eventTime': '2019-08-20T15:36:34Z',
-						'eventType': 'DEVICE_LIFECYCLE_EVENT',
-						'deviceLifecycleEvent': {
-							'lifecycle': 'CREATE',
-							'eventId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'deviceName': 'Device 1',
-							'principal': 'LOCATION',
-							'create': {
-								'presentationId': '497c21fa-a045-4008-9e84-79b160b8fa44',
-								'manufacturerName': 'SmartThings',
-								'categories': []
-							}
-						}
-					}
-				]
-			}
-		})
-		assert.equal(response.statusCode, 422)
-	})
-
-	it('should return 200 status for defined device health event handler', async () => {
-		app.subscribedDeviceHealthEventHandler('otherHandler', (_, event, eventTime) => {
-			receivedEvent = event
-			receivedEventTime = eventTime
-		})
-
-		const response = await app.handleMockCallback({
-			'messageType': 'EVENT',
-			'eventData': {
-				'installedApp': {
-					'installedAppId': '07891f14-82da-4239-9900-42e437c49f45',
-					'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5'
-				},
-				'events': [
-					{
-						'eventTime': '2019-08-20T15:36:34Z',
-						'eventType': 'DEVICE_HEALTH_EVENT',
-						'deviceHealthEvent': {
-							'eventId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'hubId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'status': 'OFFLINE',
-							'reason': 'NONE'
-						}
-					}
-				]
-			}
-		})
-		assert.equal(response.statusCode, 200)
-	})
-
-	it('should throw 422 error for undefined device health event handler', async () => {
-		const response = await app.handleMockCallback({
-			'messageType': 'EVENT',
-			'eventData': {
-				'installedApp': {
-					'installedAppId': '07891f14-82da-4239-9900-42e437c49f45',
-					'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5'
-				},
-				'events': [
-					{
-						'eventTime': '2019-08-20T15:36:34Z',
-						'eventType': 'DEVICE_HEALTH_EVENT',
-						'deviceHealthEvent': {
-							'eventId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'locationId': '5f278baa-aff0-4cf0-a323-3d9ee1fc58d5',
-							'deviceId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'hubId': 'e9a510c9-3eec-444d-9153-b822caf7db7f',
-							'status': 'OFFLINE',
-							'reason': 'NONE'
-						}
-					}
-				]
-			}
-		})
-		assert.equal(response.statusCode, 422)
+		expect(response.statusCode).toBe(422)
 	})
 })

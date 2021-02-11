@@ -1,7 +1,7 @@
 const sinon = require('sinon')
 const SmartApp = require('../../../lib/smart-app')
 
-describe('confirmation-spec', () => {
+describe('confirmation-lifecycle-spec', () => {
 	it('auto confirmation default (disabled)', () => {
 		const app = new SmartApp({logUnhandledRejections: false})
 		const stub = sinon.stub(app._log, 'info')

@@ -1,7 +1,136 @@
-const SmartApp = require('../../lib/smart-app')
+const SmartApp = require('../../../lib/smart-app')
 
-describe('smartapp-page-spec', () => {
+describe('configuration-initialize', () => {
+	test('default handler', async () => {
+		const app = new SmartApp()
+			.appId('xxx')
+			.firstPageId('page1')
+			.permissions(['r:devices:*'])
+			.disableCustomDisplayName(true)
+			.disableRemoveApp(true)
+
+		// Initialize configuration callback
+		const resp = await app.handleMockCallback({
+			lifecycle: 'CONFIGURATION',
+			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'en-US'
+			},
+			configurationData: {
+				installedAppId: '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
+				phase: 'INITIALIZE',
+				pageId: '',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		})
+
+		const expectedInitResponse = {initialize: {
+			id: 'xxx',
+			firstPageId: 'page1',
+			permissions: ['r:devices:*'],
+			disableCustomDisplayName: true,
+			disableRemoveApp: true
+		}}
+
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
+	})
+
+	test('custom handler page', async () => {
+		const app = new SmartApp()
+			.appId('xxx')
+			.permissions(['r:devices:*'])
+			.initialized((ctx, initialization) => {
+				initialization.firstPageId('page2A')
+			})
+
+		// Initialize configuration callback
+		const resp = await app.handleMockCallback({
+			lifecycle: 'CONFIGURATION',
+			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'en-US'
+			},
+			configurationData: {
+				installedAppId: '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
+				phase: 'INITIALIZE',
+				pageId: '',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		})
+
+		const expectedInitResponse = {initialize: {
+			id: 'xxx',
+			firstPageId: 'page2A',
+			permissions: ['r:devices:*'],
+			disableCustomDisplayName: false,
+			disableRemoveApp: false
+		}}
+
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
+	})
+
+	test('custom handler all', async () => {
+		const app = new SmartApp()
+			.appId('xxx')
+			.firstPageId('page1')
+			.permissions(['r:devices:*'])
+			.disableCustomDisplayName(true)
+			.disableRemoveApp(true)
+			.initialized((ctx, initialization) => {
+				initialization.firstPageId('page2')
+					.disableCustomDisplayName(false)
+					.disableRemoveApp(false)
+					.permissions(['r:devices:*', 'x:devices:*'])
+			})
+
+		// Initialize configuration callback
+		const resp = await app.handleMockCallback({
+			lifecycle: 'CONFIGURATION',
+			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'en-US'
+			},
+			configurationData: {
+				installedAppId: '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
+				phase: 'INITIALIZE',
+				pageId: '',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		})
+
+		const expectedInitResponse = {initialize: {
+			id: 'xxx',
+			firstPageId: 'page2',
+			permissions: ['r:devices:*', 'x:devices:*'],
+			disableCustomDisplayName: false,
+			disableRemoveApp: false
+		}}
+
+		expect(resp.configurationData).toStrictEqual(expectedInitResponse)
+	})
+})
+
+describe('configuration-page', () => {
 	let app
+
 	beforeEach(() => {
 		app = new SmartApp()
 	})
@@ -191,37 +320,6 @@ describe('smartapp-page-spec', () => {
 		})
 	})
 
-	it('should configure event logger', () => {
-		app.appId('xxx')
-		app.enableEventLogging(4)
-		app.page('eaMainPage', (ctx, page) => {
-			page.section('whenDoorOpensAndCloses', section => {
-				section.deviceSetting('contactSensor')
-					.capabilities(['contactSensor'])
-			})
-		})
-
-		app.handleMockCallback({
-			lifecycle: 'CONFIGURATION',
-			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
-			locale: 'en',
-			version: '0.1.0',
-			client: {
-				os: 'ios',
-				version: '0.0.0',
-				language: 'en-US'
-			},
-			configurationData: {
-				installedAppId: '7d7fa36d-0ad9-4893-985c-6b75858e38e4',
-				phase: 'INITIALIZE',
-				pageId: '',
-				previousPageId: '',
-				config: {}
-			},
-			settings: {}
-		})
-	})
-
 	test('default page handler', () => {
 		app.handleMockCallback({
 			lifecycle: 'CONFIGURATION',
@@ -316,34 +414,5 @@ describe('smartapp-page-spec', () => {
 
 			expect(pageResponse.configurationData).toStrictEqual(expectedPageResponse)
 		})
-	})
-
-	it('should respond with error when config phase is not supported', async () => {
-		const unsupportedConfigPhase = {
-			lifecycle: 'CONFIGURATION',
-			executionId: '00000000-0000-0000-0000-000000000000',
-			locale: 'en',
-			version: '0.1.0',
-			client: {
-				os: 'ios',
-				version: '0.0.0',
-				language: 'fr'
-			},
-			configurationData: {
-				installedAppId: '00000000-0000-0000-0000-000000000000',
-				phase: 'UNSUPPORTED',
-				pageId: '',
-				previousPageId: '',
-				config: {}
-			},
-			settings: {}
-		}
-
-		const expectedPageResponse = {
-			message: 'Server error: \'Error: Unsupported config phase: UNSUPPORTED\'',
-			statusCode: 500
-		}
-
-		await expect(app.handleMockCallback(unsupportedConfigPhase)).resolves.toStrictEqual(expectedPageResponse)
 	})
 })
