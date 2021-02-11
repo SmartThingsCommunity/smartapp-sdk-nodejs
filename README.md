@@ -136,7 +136,7 @@ There are also a few Glitch examples:
 - [Simple SmartThings Automation App using Motion Detectors](https://glitch.com/edit/#!/polite-math?path=README.md:1:0)
 - [Simple Switch Cloud-to-Cloud (C2C) App](https://glitch.com/edit/#!/aquamarine-crop?path=README.md:1:0)
 
-More detailed examples to use as a starting point can be found in our [app-examples](https://github.com/SmartThingsCommunity/app-examples) repository.
+More detailed examples to use as a starting point can be found with our [smartthings-smartapp-example](https://github.com/topics/smartthings-smartapp-example) Github Topic.
 
 ### Localization
 
