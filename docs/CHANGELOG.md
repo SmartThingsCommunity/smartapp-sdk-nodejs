@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.1...v2.5.2) (2021-05-13)
+
+
+### Bug Fixes
+
+* Handle re-written URLs in HTTP signature validation ([#196](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/196)) ([69b89c5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/69b89c52bba7386952590880a9a19484444c8f68))
+
 ## [2.5.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.0...v2.5.1) (2021-05-11)
 
 
