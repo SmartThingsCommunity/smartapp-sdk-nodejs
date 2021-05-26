@@ -25,8 +25,8 @@ import {TimeSetting} from './time-setting'
 import {VideoSetting} from './video-setting'
 
 export enum SectionStyle {
-    NORMAL = 'NORMAL',
-    SPLASH = 'SPLASH'
+	NORMAL = 'NORMAL',
+	SPLASH = 'SPLASH'
 }
 
 /**
@@ -49,140 +49,140 @@ export enum SectionStyle {
  * ```
  */
 export class Section {
-    constructor(page: Page, name: string)
+	constructor(page: Page, name: string)
 
-    /**
-     * Sets the name (label) of the section. Normally not set if the i18n framework is being used
-     */
-    name(id: string): Section
+	/**
+	 * Sets the name (label) of the section. Normally not set if the i18n framework is being used
+	 */
+	name(id: string): Section
 
-    /**
-     * Specifies that the section should initially be hidden
-     */
-    hidden(id: string): Section
+	/**
+	 * Specifies that the section should initially be hidden
+	 */
+	hidden(id: string): Section
 
-    /**
-     * Specifies that the section should be able to be hidden (though not initially hidden)
-     */
-    hideable(id: string): Section
+	/**
+	 * Specifies that the section should be able to be hidden (though not initially hidden)
+	 */
+	hideable(id: string): Section
 
-    /**
-     * Sets the session style
-     */
-    style(id: string): Section
+	/**
+	 * Sets the session style
+	 */
+	style(id: string): Section
 
-    /**
-     * Specifies that all settings in the session should default to being required
-     */
-    defaultRequired(id: string): Section
+	/**
+	 * Specifies that all settings in the session should default to being required
+	 */
+	defaultRequired(id: string): Section
 
-    /**
-     * Creates a new boolean setting
-     */
-    booleanSetting(id: string): BooleanSetting
+	/**
+	 * Creates a new boolean setting
+	 */
+	booleanSetting(id: string): BooleanSetting
 
-    // colorSetting(id: string): ColorSetting
+	// colorSetting(id: string): ColorSetting
 
-    /**
-     * Creates a new decimal setting
-     */
-    decimalSetting(id: string): DecimalSetting
+	/**
+	 * Creates a new decimal setting
+	 */
+	decimalSetting(id: string): DecimalSetting
 
-    /**
-     * Creates a new device setting
-     */
-    deviceSetting(id: string): DeviceSetting
+	/**
+	 * Creates a new device setting
+	 */
+	deviceSetting(id: string): DeviceSetting
 
-    /**
-     * Creates a new email setting
-     */
-    emailSetting(id: string): EmailSetting
+	/**
+	 * Creates a new email setting
+	 */
+	emailSetting(id: string): EmailSetting
 
-    /**
-     * Creates a new enumerated list setting
-     */
-    enumSetting(id: string): EnumSetting
+	/**
+	 * Creates a new enumerated list setting
+	 */
+	enumSetting(id: string): EnumSetting
 
-    /**
-     * Creates a new image setting
-     */
-    imageSetting(id: string): ImageSetting
+	/**
+	 * Creates a new image setting
+	 */
+	imageSetting(id: string): ImageSetting
 
-    // imagesSetting(id: string): ImagesSetting
+	// imagesSetting(id: string): ImagesSetting
 
-    /**
-     * Creates a new link setting
-     */
-    linkSetting(id: string): LinkSetting
+	/**
+	 * Creates a new link setting
+	 */
+	linkSetting(id: string): LinkSetting
 
-    // messageGroupSetting(id: string): MessageGroupSetting
+	// messageGroupSetting(id: string): MessageGroupSetting
 
-    /**
-     * Creates a new mode setting
-     */
-    modeSetting(id: string): ModeSetting
+	/**
+	 * Creates a new mode setting
+	 */
+	modeSetting(id: string): ModeSetting
 
-    /**
-     * Creates a new number setting
-     */
-    numberSetting(id: string): NumberSetting
+	/**
+	 * Creates a new number setting
+	 */
+	numberSetting(id: string): NumberSetting
 
-    /**
-     * Creates a new OAuth2 setting
-     */
-    oauthSetting(id: string): OAuthSetting
+	/**
+	 * Creates a new OAuth2 setting
+	 */
+	oauthSetting(id: string): OAuthSetting
 
-    /**
-     * Creates a new page link setting
-     */
-    pageSetting(id: string): PageSetting
+	/**
+	 * Creates a new page link setting
+	 */
+	pageSetting(id: string): PageSetting
 
-    /**
-     * Creates a new paragraph setting
-     */
-    paragraphSetting(id: string): ParagraphSetting
+	/**
+	 * Creates a new paragraph setting
+	 */
+	paragraphSetting(id: string): ParagraphSetting
 
-    /**
-     * Creates a new password setting
-     */
-    passwordSetting(id: string): PasswordSetting
+	/**
+	 * Creates a new password setting
+	 */
+	passwordSetting(id: string): PasswordSetting
 
-    /**
-     * Creates a new phone setting
-     */
-    phoneSetting(id: string): PhoneSetting
+	/**
+	 * Creates a new phone setting
+	 */
+	phoneSetting(id: string): PhoneSetting
 
-    /**
-     * Creates a new scene setting
-     */
-    sceneSetting(id: string): SceneSetting
+	/**
+	 * Creates a new scene setting
+	 */
+	sceneSetting(id: string): SceneSetting
 
-    /**
-     * Creates a new security system setting
-     */
-    securitySetting(id: string): SecuritySetting
+	/**
+	 * Creates a new security system setting
+	 */
+	securitySetting(id: string): SecuritySetting
 
-    /**
-     * Creates a new sound setting
-     */
-    soundSetting(id: string): SoundSetting
+	/**
+	 * Creates a new sound setting
+	 */
+	soundSetting(id: string): SoundSetting
 
-    /**
-     * Creates a new text setting
-     */
-    textSetting(id: string): TextSetting
+	/**
+	 * Creates a new text setting
+	 */
+	textSetting(id: string): TextSetting
 
-    /**
-     * Creates a new time setting
-     */
-    timeSetting(id: string): TimeSetting
+	/**
+	 * Creates a new time setting
+	 */
+	timeSetting(id: string): TimeSetting
 
-    /**
-     * Creates a new video setting
-     */
-    videoSetting(id: string): VideoSetting
+	/**
+	 * Creates a new video setting
+	 */
+	videoSetting(id: string): VideoSetting
 
-    protected i18nKey(id: string): string
-    protected toJson(id: string): string
-    protected translate(id: string): void;
+	protected i18nKey(id: string): string
+	protected toJson(id: string): string
+	protected translate(id: string): void;
 }

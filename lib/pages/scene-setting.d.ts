@@ -2,10 +2,10 @@ import {Section} from './section'
 import {SectionSetting} from './section-setting'
 
 export enum SceneStyle {
-    COMPLETE = 'COMPLETE',
-    ERROR = 'ERROR',
-    DROPDOWN = 'DROPDOWN',
-    DEFAULT = 'DEFAULT'
+	COMPLETE = 'COMPLETE',
+	ERROR = 'ERROR',
+	DROPDOWN = 'DROPDOWN',
+	DEFAULT = 'DEFAULT'
 }
 
 /**
@@ -15,20 +15,20 @@ export enum SceneStyle {
  * ```
  */
 export class SceneSetting extends SectionSetting<SceneSetting> {
-    constructor(section: Section, id: string)
+	constructor(section: Section, id: string)
 
-    /**
-     * Specifies whether this input should close on selection.
-     */
-    closeOnSelection(value: true): SceneSetting
+	/**
+	 * Specifies whether this input should close on selection.
+	 */
+	closeOnSelection(value: true): SceneSetting
 
-    /**
-     * Specifies whether this device setting can have multiple values.
-     */
-    multiple(value: true): SceneSetting
+	/**
+	 * Specifies whether this device setting can have multiple values.
+	 */
+	multiple(value: true): SceneSetting
 
-    /**
-     * Sets the style of the control
-     */
-    style(value: SceneStyle): SceneSetting
+	/**
+	 * Sets the style of the control
+	 */
+	style(value: SceneStyle): SceneSetting
 }

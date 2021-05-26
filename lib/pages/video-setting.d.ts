@@ -10,15 +10,15 @@ import {SectionSetting} from './section-setting'
  * ```
  */
 export class VideoSetting extends SectionSetting<VideoSetting> {
-    constructor(section: Section, id: string)
+	constructor(section: Section, id: string)
 
-    /**
-     * Set the URL of an image to display as a preview of the video
-     */
-    image(source: string): VideoSetting
+	/**
+	 * Set the URL of an image to display as a preview of the video
+	 */
+	image(source: string): VideoSetting
 
-    /**
-     * Set the URL of the video
-     */
-    video(source: string): VideoSetting
+	/**
+	 * Set the URL of the video
+	 */
+	video(source: string): VideoSetting
 }

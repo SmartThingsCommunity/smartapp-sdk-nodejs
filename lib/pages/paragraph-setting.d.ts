@@ -20,16 +20,16 @@ import {SectionSetting} from './section-setting'
  * ```
  */
 export class ParagraphSetting extends SectionSetting<ParagraphSetting> {
-    constructor(section: Section, id: string)
+	constructor(section: Section, id: string)
 
-    /**
-     * Specify an image URL to display with this setting
-     * @param source HTTPS url or Base64-encoded data URI. Max length 2048 characters.
-     */
-    image(source: string): ParagraphSetting
+	/**
+	 * Specify an image URL to display with this setting
+	 * @param source HTTPS url or Base64-encoded data URI. Max length 2048 characters.
+	 */
+	image(source: string): ParagraphSetting
 
-    /**
-     * Sets the paragraph text. Normally not used if the i18n framework is being used.
-     */
-    text(value: string): ParagraphSetting
+	/**
+	 * Sets the paragraph text. Normally not used if the i18n framework is being used.
+	 */
+	text(value: string): ParagraphSetting
 }
