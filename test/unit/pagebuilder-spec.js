@@ -113,7 +113,7 @@ describe('pagebuilder', () => {
 				section.deviceSetting('sensor')
 					.capabilities(['motionSensor'])
 					.name('Select a motion sensor')
-			} catch (error) {
+			} catch {
 				caughtError = true
 			}
 		})

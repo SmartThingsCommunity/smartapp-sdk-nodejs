@@ -2,9 +2,9 @@ import {Section} from './section'
 import {SectionSetting} from './section-setting'
 
 export enum ModeStyle {
-    COMPLETE = 'COMPLETE',
-    ERROR = 'ERROR',
-    DEFAULT = 'DEFAULT',
+	COMPLETE = 'COMPLETE',
+	ERROR = 'ERROR',
+	DEFAULT = 'DEFAULT',
 }
 
 /**
@@ -19,20 +19,20 @@ export enum ModeStyle {
  * ```
  */
 export class ModeSetting extends SectionSetting<ModeSetting> {
-    constructor(section: Section, id: string)
+	constructor(section: Section, id: string)
 
-    /**
-     * Specifies whether this input should close on selection.
-     */
-    closeOnSelection(value: boolean): ModeSetting
+	/**
+	 * Specifies whether this input should close on selection.
+	 */
+	closeOnSelection(value: boolean): ModeSetting
 
-    /**
-     * Specifies whether this device setting can have multiple values.
-     */
-    multiple(boolean: true): ModeSetting
+	/**
+	 * Specifies whether this device setting can have multiple values.
+	 */
+	multiple(boolean: true): ModeSetting
 
-    /**
-     * Set the style of the setting in the UI.
-     */
-    style(value: ModeStyle): ModeSetting
+	/**
+	 * Set the style of the setting in the UI.
+	 */
+	style(value: ModeStyle): ModeSetting
 }

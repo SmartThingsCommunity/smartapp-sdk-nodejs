@@ -9,10 +9,10 @@ import {SectionSetting} from './section-setting'
  * ```
  */
 export class ImagesSetting extends SectionSetting<ImagesSetting> {
-    constructor(section: Section, id: string)
+	constructor(section: Section, id: string)
 
-    /**
-     * A list of image URLs to be displayed in a carousel
-     */
-    images(sources: string[]): ImagesSetting
+	/**
+	 * A list of image URLs to be displayed in a carousel
+	 */
+	images(sources: string[]): ImagesSetting
 }
