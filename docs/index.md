@@ -72,6 +72,7 @@ const smartapp = new SmartApp()
             context.config.contactSensor, 'contactSensor', 'contact', 'deviceEventHandler');
     })
 ```
+* [initialized](classes/_smart_app_d_.smartapp.md#initialized)
 * [installed](classes/_smart_app_d_.smartapp.md#installed)
 * [uninstalled](classes/_smart_app_d_.smartapp.md#uninstalled)
 * [updated](classes/_smart_app_d_.smartapp.md#updated)

@@ -1,28 +1,28 @@
-import {Page} from './page'
+import { Page } from './page'
 
-import {BooleanSetting} from './boolean-setting'
-// import {ColorSetting} from './color-setting'
-import {DecimalSetting} from './decimal-setting'
-import {DeviceSetting} from './device-setting'
-import {EmailSetting} from './email-setting'
-import {EnumSetting} from './enum-setting'
-import {ImageSetting} from './image-setting'
-// import {ImagesSetting} from './images-setting'
-import {LinkSetting} from './link-setting'
-// import {MessageGroupSetting} from './message-group-setting'
-import {ModeSetting} from './mode-setting'
-import {NumberSetting} from './number-setting'
-import {OAuthSetting} from './oauth-setting'
-import {PageSetting} from './page-setting'
-import {ParagraphSetting} from './paragraph-setting'
-import {PasswordSetting} from './password-setting'
-import {PhoneSetting} from './phone-setting'
-import {SceneSetting} from './scene-setting'
-import {SecuritySetting} from './security-setting'
-import {SoundSetting} from './sound-setting'
-import {TextSetting} from './text-setting'
-import {TimeSetting} from './time-setting'
-import {VideoSetting} from './video-setting'
+import { BooleanSetting } from './boolean-setting'
+// import { ColorSetting } from './color-setting'
+import { DecimalSetting } from './decimal-setting'
+import { DeviceSetting } from './device-setting'
+import { EmailSetting } from './email-setting'
+import { EnumSetting } from './enum-setting'
+import { ImageSetting } from './image-setting'
+import { ImagesSetting } from './images-setting'
+import { LinkSetting } from './link-setting'
+// import { MessageGroupSetting } from './message-group-setting'
+import { ModeSetting } from './mode-setting'
+import { NumberSetting } from './number-setting'
+import { OAuthSetting } from './oauth-setting'
+import { PageSetting } from './page-setting'
+import { ParagraphSetting } from './paragraph-setting'
+import { PasswordSetting } from './password-setting'
+import { PhoneSetting } from './phone-setting'
+import { SceneSetting } from './scene-setting'
+import { SecuritySetting } from './security-setting'
+import { SoundSetting } from './sound-setting'
+import { TextSetting } from './text-setting'
+import { TimeSetting } from './time-setting'
+import { VideoSetting } from './video-setting'
 
 export enum SectionStyle {
 	NORMAL = 'NORMAL',
@@ -54,27 +54,27 @@ export class Section {
 	/**
 	 * Sets the name (label) of the section. Normally not set if the i18n framework is being used
 	 */
-	name(id: string): Section
+	name(value: string): Section
 
 	/**
 	 * Specifies that the section should initially be hidden
 	 */
-	hidden(id: string): Section
+	hidden(value: boolean): Section
 
 	/**
 	 * Specifies that the section should be able to be hidden (though not initially hidden)
 	 */
-	hideable(id: string): Section
+	hideable(value: boolean): Section
 
 	/**
 	 * Sets the session style
 	 */
-	style(id: string): Section
+	style(style: SectionStyle): Section
 
 	/**
 	 * Specifies that all settings in the session should default to being required
 	 */
-	defaultRequired(id: string): Section
+	defaultRequired(defaultRequired: boolean): Section
 
 	/**
 	 * Creates a new boolean setting
@@ -108,7 +108,10 @@ export class Section {
 	 */
 	imageSetting(id: string): ImageSetting
 
-	// imagesSetting(id: string): ImagesSetting
+	/**
+	 * Creates a new images setting
+	 */
+	imagesSetting(id: string): ImagesSetting
 
 	/**
 	 * Creates a new link setting

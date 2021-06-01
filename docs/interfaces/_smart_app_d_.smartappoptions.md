@@ -9,6 +9,7 @@
 * [disableCustomDisplayName](_smart_app_d_.smartappoptions.md#optional-disablecustomdisplayname)
 * [disableRemoveApp](_smart_app_d_.smartappoptions.md#optional-disableremoveapp)
 * [enableEventLogging](_smart_app_d_.smartappoptions.md#optional-enableeventlogging)
+* [firstPageId](_smart_app_d_.smartappoptions.md#optional-firstpageid)
 * [jsonSpace](_smart_app_d_.smartappoptions.md#optional-jsonspace)
 * [keyApiHost](_smart_app_d_.smartappoptions.md#optional-keyapihost)
 * [keyCacheTTL](_smart_app_d_.smartappoptions.md#optional-keycachettl)
@@ -79,6 +80,15 @@ ___
 • **enableEventLogging**? : *boolean*
 
 Enables logging of all lifecycle events and responses
+
+___
+
+### `Optional` firstPageId
+
+• **firstPageId**? : *string*
+
+Sets the initial configuration page to be rendered when an app is installed or updated.
+If not specified then the first page defined will be rendered.
 
 ___
 

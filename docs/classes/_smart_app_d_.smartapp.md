@@ -510,7 +510,7 @@ ___
 
 ▸ **initialized**(`callback`: function): *[SmartApp](_smart_app_d_.smartapp.md)*
 
-Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+Defines a handler to be called before configuration the first time a SmartApp is installed. If not specified then the
 `updated()` handler will be called on the initial installation as well as updates.
 
 **Parameters:**
@@ -535,7 +535,7 @@ ___
 
 ▸ **installed**(`callback`: function): *[SmartApp](_smart_app_d_.smartapp.md)*
 
-Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+Defines a handler to be called after configuration the first time a SmartApp is installed. If not specified then the
 `updated()` handler will be called on the initial installation as well as updates.
 
 **Parameters:**
