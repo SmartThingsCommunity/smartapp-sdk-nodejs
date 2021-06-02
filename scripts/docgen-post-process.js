@@ -15,7 +15,7 @@ const enumsOutDir =      path.join(outDir, 'enums')
 const interfacesInDir =  path.join(srcDir, 'interfaces')
 const interfacesOutDir = path.join(outDir, 'interfaces')
 
-	function processSmartAppClass() {
+function processSmartAppClass() {
 	let text = fs.readFileSync(smartAppInFile, 'UTF-8')
 	const lines = text.split('\n')
 	let skip = false

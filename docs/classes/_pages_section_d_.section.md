@@ -34,6 +34,7 @@ page.section('section1', section => {
 * [emailSetting](_pages_email_setting_d_.emailsetting.md)
 * [enumSetting](_pages_enum_setting_d_.enumsetting.md)
 * [imageSetting](_pages_image_setting_d_.imagesetting.md)
+* [imagesSetting](_pages_images_setting_d_.imagessetting.md)
 * [linkSetting](_pages_link_setting_d_.linksetting.md)
 * [modeSetting](_pages_mode_setting_d_.modesetting.md)
 * [numberSetting](_pages_number_setting_d_.numbersetting.md)
@@ -51,7 +52,7 @@ page.section('section1', section => {
 
 ###  defaultRequired
 
-▸ **defaultRequired**(`id`: string): *[Section](_pages_section_d_.section.md)*
+▸ **defaultRequired**(`defaultRequired`: boolean): *[Section](_pages_section_d_.section.md)*
 
 Specifies that all settings in the session should default to being required
 
@@ -59,7 +60,7 @@ Specifies that all settings in the session should default to being required
 
 Name | Type |
 ------ | ------ |
-`id` | string |
+`defaultRequired` | boolean |
 
 **Returns:** *[Section](_pages_section_d_.section.md)*
 
@@ -67,7 +68,7 @@ ___
 
 ###  hidden
 
-▸ **hidden**(`id`: string): *[Section](_pages_section_d_.section.md)*
+▸ **hidden**(`value`: boolean): *[Section](_pages_section_d_.section.md)*
 
 Specifies that the section should initially be hidden
 
@@ -75,7 +76,7 @@ Specifies that the section should initially be hidden
 
 Name | Type |
 ------ | ------ |
-`id` | string |
+`value` | boolean |
 
 **Returns:** *[Section](_pages_section_d_.section.md)*
 
@@ -83,7 +84,7 @@ ___
 
 ###  hideable
 
-▸ **hideable**(`id`: string): *[Section](_pages_section_d_.section.md)*
+▸ **hideable**(`value`: boolean): *[Section](_pages_section_d_.section.md)*
 
 Specifies that the section should be able to be hidden (though not initially hidden)
 
@@ -91,7 +92,7 @@ Specifies that the section should be able to be hidden (though not initially hid
 
 Name | Type |
 ------ | ------ |
-`id` | string |
+`value` | boolean |
 
 **Returns:** *[Section](_pages_section_d_.section.md)*
 
@@ -99,7 +100,7 @@ ___
 
 ###  name
 
-▸ **name**(`id`: string): *[Section](_pages_section_d_.section.md)*
+▸ **name**(`value`: string): *[Section](_pages_section_d_.section.md)*
 
 Sets the name (label) of the section. Normally not set if the i18n framework is being used
 
@@ -107,7 +108,7 @@ Sets the name (label) of the section. Normally not set if the i18n framework is 
 
 Name | Type |
 ------ | ------ |
-`id` | string |
+`value` | string |
 
 **Returns:** *[Section](_pages_section_d_.section.md)*
 
@@ -115,7 +116,7 @@ ___
 
 ###  style
 
-▸ **style**(`id`: string): *[Section](_pages_section_d_.section.md)*
+▸ **style**(`style`: [SectionStyle](../enums/_pages_section_d_.sectionstyle.md)): *[Section](_pages_section_d_.section.md)*
 
 Sets the session style
 
@@ -123,7 +124,7 @@ Sets the session style
 
 Name | Type |
 ------ | ------ |
-`id` | string |
+`style` | [SectionStyle](../enums/_pages_section_d_.sectionstyle.md) |
 
 **Returns:** *[Section](_pages_section_d_.section.md)*
 

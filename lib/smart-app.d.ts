@@ -119,6 +119,12 @@ export interface SmartAppOptions {
 	* Catch and log any unhandled rejections. Defaults to true
 	*/
 	logUnhandledRejections?: boolean
+
+	/**
+	* Sets the initial configuration page to be rendered when an app is installed or updated.
+	* If not specified then the first page defined will be rendered.
+	*/
+	firstPageId?: string
 }
 
 /**
@@ -382,7 +388,7 @@ export class SmartApp {
 	handleOAuthCallback(request: WebHookRequest): Promise<ContextRecord>
 
 	/**
-	* Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+	* Defines a handler to be called before configuration the first time a SmartApp is installed. If not specified then the
 	* `updated()` handler will be called on the initial installation as well as updates.
 	*/
 	initialized(callback: (
@@ -392,7 +398,7 @@ export class SmartApp {
 	HandlerResponse): SmartApp
 
 	/**
-	* Defines a handler to be called the first time a SmartApp is installed. If not specified then the
+	* Defines a handler to be called after configuration the first time a SmartApp is installed. If not specified then the
 	* `updated()` handler will be called on the initial installation as well as updates.
 	*/
 	installed(callback: (context: SmartAppContext, installData: AppEvent.InstallData) => HandlerResponse): SmartApp
