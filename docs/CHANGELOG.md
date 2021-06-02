@@ -1,3 +1,10 @@
+## [2.5.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.2...v2.5.3) (2021-06-02)
+
+
+### Bug Fixes
+
+* **Initialization:** add return type annotations ([#198](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/198)) ([b4b1afc](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/b4b1afcf2bde579ad0e97a3435f50eac71927600))
+
 ## [2.5.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.1...v2.5.2) (2021-05-13)
 
 
