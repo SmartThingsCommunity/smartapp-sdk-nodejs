@@ -1,3 +1,10 @@
+## [2.5.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.3...v2.5.4) (2021-07-08)
+
+
+### Bug Fixes
+
+* await async updated handlers during install ([#202](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/202)) ([834c176](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/834c17642edcf58920b6f3ecaa20997cd4e7bb1b)), closes [#200](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/200)
+
 ## [2.5.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.2...v2.5.3) (2021-06-02)
 
 
