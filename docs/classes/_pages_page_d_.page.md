@@ -86,7 +86,7 @@ ___
 
 ▸ **nextText**(`value`: string): *[Page](_pages_page_d_.page.md)*
 
-Set the text of the next page link. Defaults to "Next"
+Set the text of the next page link (defaults to "Next"). Only applies if style is `SPLASH`
 
 **Parameters:**
 

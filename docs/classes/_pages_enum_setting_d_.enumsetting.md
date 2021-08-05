@@ -47,7 +47,7 @@ section.enumSetting('groupedEnum')
             {id:'red', name:'Red'},
             {id:'yellow', name:'Yellow'},
             {id:'blue', name:'Blue'}]},
-        {name: 'primaryColors', options: [
+        {name: 'secondaryColors', options: [
             {id:'green', name:'Green'},
             {id:'orange', name:'Orange'},
             {id:'purple', name:'Purple'}]},
@@ -213,7 +213,7 @@ ___
 
 ▸ **multiple**(`value`: boolean): *[EnumSetting](_pages_enum_setting_d_.enumsetting.md)*
 
-Specifies whether this device setting can have multiple values.
+Specifies whether this enum setting can have multiple values.
 
 **Parameters:**
 

@@ -52,7 +52,7 @@ export namespace i18n {
 
 		/**
 		 * Whether to write new locale information to disk
-		 * @default true
+		 * @default false
 		 */
 		updateFiles?: boolean;
 

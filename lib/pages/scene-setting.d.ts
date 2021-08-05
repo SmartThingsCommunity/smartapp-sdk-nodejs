@@ -9,7 +9,7 @@ export enum SceneStyle {
 }
 
 /**
- * A scene setting display a control that allows one or more scenes to be selected.
+ * A scene setting displays a control that allows one or more scenes to be selected.
  * ```
  * section.sceneSetting('selectedScene')
  * ```
@@ -23,7 +23,7 @@ export class SceneSetting extends SectionSetting<SceneSetting> {
 	closeOnSelection(value: true): SceneSetting
 
 	/**
-	 * Specifies whether this device setting can have multiple values.
+	 * Specifies whether this scene setting can have multiple values.
 	 */
 	multiple(value: true): SceneSetting
 

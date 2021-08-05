@@ -92,7 +92,7 @@ ___
 
 ▸ **multiple**(`value`: boolean): *[SecuritySetting](_pages_security_setting_d_.securitysetting.md)*
 
-Specifies whether this device setting can have multiple values.
+Specifies whether this security setting can have multiple values.
 
 **Parameters:**
 

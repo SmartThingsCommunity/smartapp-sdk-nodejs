@@ -2,7 +2,7 @@ import {Section} from './section'
 import {SectionSetting} from './section-setting'
 
 /**
- * An image settings simply displays an image on the configuration page. There is no user input involved.
+ * An image setting simply displays an image on the configuration page. There is no user input involved.
  * ```
  * section.imageSetting('banner')
  *     .image('https://mysite/image.png')

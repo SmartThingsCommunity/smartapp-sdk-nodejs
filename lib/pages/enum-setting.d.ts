@@ -66,7 +66,7 @@ export enum OptionsStyle {
  *             {id:'red', name:'Red'},
  *             {id:'yellow', name:'Yellow'},
  *             {id:'blue', name:'Blue'}]},
- *         {name: 'primaryColors', options: [
+ *         {name: 'secondaryColors', options: [
  *             {id:'green', name:'Green'},
  *             {id:'orange', name:'Orange'},
  *             {id:'purple', name:'Purple'}]},
@@ -87,7 +87,7 @@ export class EnumSetting extends SectionSetting<EnumSetting> {
 	groupedOptions(groups: OptionGroup[]): EnumSetting
 
 	/**
-	 * Specifies whether this device setting can have multiple values.
+	 * Specifies whether this enum setting can have multiple values.
 	 */
 	multiple(value: boolean): EnumSetting
 

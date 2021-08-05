@@ -28,7 +28,7 @@ export class SoundSetting extends SectionSetting<SoundSetting> {
 	groupedOptions(groupedOptions: SoundOptionGroup[]): SoundSetting
 
 	/**
-	 * Specifies whether this device setting can have multiple values.
+	 * Specifies whether this sound setting can have multiple values.
 	 */
 	multiple(value: boolean): SoundSetting
 

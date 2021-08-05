@@ -388,8 +388,7 @@ export class SmartApp {
 	handleOAuthCallback(request: WebHookRequest): Promise<ContextRecord>
 
 	/**
-	* Defines a handler to be called before configuration the first time a SmartApp is installed. If not specified then the
-	* `updated()` handler will be called on the initial installation as well as updates.
+	* Defines a handler to be called before configuration the first time a SmartApp is installed.
 	*/
 	initialized(callback: (
 		context: SmartAppContext,

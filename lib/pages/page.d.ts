@@ -34,7 +34,7 @@ export class Page {
 	nextPageId(value: string): Page
 
 	/**
-	* Set the text of the next page link. Defaults to "Next"
+	* Set the text of the next page link (defaults to "Next"). Only applies if style is `SPLASH`
 	*/
 	nextText(value: string): Page
 

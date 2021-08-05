@@ -2,7 +2,7 @@ import {Section} from './section'
 import {SectionSetting} from './section-setting'
 
 /**
- * An email setting creates an input box with a keyboard appropriate for the entry of email addresses
+ * An email setting creates an input box with a keyboard appropriate for the entry of email addresses.
  * ```
  * section.emailSetting("emailAddress")
  * ```

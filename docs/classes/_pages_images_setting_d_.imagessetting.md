@@ -2,7 +2,7 @@
 
 # ImagesSetting
 
-An images settings displays a carousel of images on the configuration page. There is no user input involved.
+An images setting displays a carousel of images on the configuration page. There is no user input involved.
 ```
 section.imageSetting('banner')
     .images(['https://mysite/image.png', 'https://mysite/image2.png', 'https://mysite/image3.png')

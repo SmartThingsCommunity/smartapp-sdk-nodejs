@@ -9,7 +9,7 @@ export enum PageLinkStyle {
 }
 
 /**
- * A page setting create a link to another configuration page. Tapping on the link displays
+ * A page setting creates a link to another configuration page. Tapping on the link displays
  * the linked page.
  */
 export class PageSetting extends SectionSetting<PageSetting> {
