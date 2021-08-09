@@ -9,7 +9,7 @@ export enum LinkStyle {
 }
 
 /**
- * A link setting display a hypertext link that opens an external web page in a browser window. It
+ * A link setting displays a hypertext link that opens an external web page in a browser window. It
  * does not replace the current configuration page window.
  * ```
  * section.linkSetting('moreInfo')

@@ -1,7 +1,6 @@
 import { Page } from './page'
 
 import { BooleanSetting } from './boolean-setting'
-// import { ColorSetting } from './color-setting'
 import { DecimalSetting } from './decimal-setting'
 import { DeviceSetting } from './device-setting'
 import { EmailSetting } from './email-setting'
@@ -80,8 +79,6 @@ export class Section {
 	 * Creates a new boolean setting
 	 */
 	booleanSetting(id: string): BooleanSetting
-
-	// colorSetting(id: string): ColorSetting
 
 	/**
 	 * Creates a new decimal setting

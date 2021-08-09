@@ -20,7 +20,7 @@ export class SecuritySetting extends SectionSetting<SecuritySetting> {
 	closeOnSelection(value: boolean): SecuritySetting
 
 	/**
-	 * Specifies whether this device setting can have multiple values.
+	 * Specifies whether this security setting can have multiple values.
 	 */
 	multiple(value: boolean): SecuritySetting
 

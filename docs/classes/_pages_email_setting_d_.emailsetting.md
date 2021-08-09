@@ -2,7 +2,7 @@
 
 # EmailSetting
 
-An email setting creates an input box with a keyboard appropriate for the entry of email addresses
+An email setting creates an input box with a keyboard appropriate for the entry of email addresses.
 ```
 section.emailSetting("emailAddress")
 ```

@@ -2,7 +2,7 @@
 
 # ColorSetting
 
-NOT IMPLEMENTED
+**`deprecated`** Not currently implemented
 
 ## Methods
 

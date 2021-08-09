@@ -2,7 +2,7 @@
 
 # TextSetting
 
-A text setting create a text input field with full alphanumeric keypad.
+A text setting creates a text input field with full alphanumeric keypad.
 ```
 section.textSetting('warningMessage')
 ```

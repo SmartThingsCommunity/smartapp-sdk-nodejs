@@ -8,12 +8,12 @@ export enum ModeStyle {
 }
 
 /**
- * A device setting creates a control that allows the user to select one or more location modes. To allow the selection
+ * A mode setting creates a control that allows the user to select one or more location modes. To allow the selection
  * of only one mode:
  * ```
  * section.modeSetting('targetMode')
  * ```
- * The allow the selection of more than one mode:
+ * To allow the selection of more than one mode:
  * ```
  * section.modeSetting('permittedModes').multiple(true)
  * ```
@@ -27,7 +27,7 @@ export class ModeSetting extends SectionSetting<ModeSetting> {
 	closeOnSelection(value: boolean): ModeSetting
 
 	/**
-	 * Specifies whether this device setting can have multiple values.
+	 * Specifies whether this mode setting can have multiple values.
 	 */
 	multiple(boolean: true): ModeSetting
 

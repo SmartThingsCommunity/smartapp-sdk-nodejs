@@ -2,7 +2,7 @@
 
 # SceneSetting
 
-A scene setting display a control that allows one or more scenes to be selected.
+A scene setting displays a control that allows one or more scenes to be selected.
 ```
 section.sceneSetting('selectedScene')
 ```
@@ -95,7 +95,7 @@ ___
 
 ▸ **multiple**(`value`: true): *[SceneSetting](_pages_scene_setting_d_.scenesetting.md)*
 
-Specifies whether this device setting can have multiple values.
+Specifies whether this scene setting can have multiple values.
 
 **Parameters:**
 

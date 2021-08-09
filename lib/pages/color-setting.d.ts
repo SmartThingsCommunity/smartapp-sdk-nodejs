@@ -2,7 +2,7 @@ import {Section} from './section'
 import {SectionSetting} from './section-setting'
 
 /**
- * NOT IMPLEMENTED
+ * @deprecated Not currently implemented
  */
 export class ColorSetting extends SectionSetting<ColorSetting> {
 	constructor(section: Section, id: string)

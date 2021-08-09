@@ -91,7 +91,7 @@ ___
 
 ▸ **multiple**(`value`: boolean): *[SoundSetting](_pages_sound_setting_d_.soundsetting.md)*
 
-Specifies whether this device setting can have multiple values.
+Specifies whether this sound setting can have multiple values.
 
 **Parameters:**
 
