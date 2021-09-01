@@ -1,3 +1,10 @@
+## [2.5.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.4...v2.5.5) (2021-09-01)
+
+
+### Bug Fixes
+
+* Fixed bug when making API calls from page handlers in installed apps ([#205](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/205)) ([34b50d5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/34b50d51f0aaad618d22f20c0e3261f4b1986716))
+
 ## [2.5.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.3...v2.5.4) (2021-07-08)
 
 
