@@ -4,40 +4,7 @@ const {
 	SequentialRefreshTokenAuthenticator} = require('@smartthings/core-sdk')
 const SmartApp = require('../../lib/smart-app')
 const SmartAppContext = require('../../lib/util/smart-app-context')
-
-class ContextStore {
-	constructor() {
-		this.contexts = {}
-	}
-
-	get(installedAppId) {
-		return new Promise(resolve => {
-			resolve(this.contexts[installedAppId])
-		})
-	}
-
-	put(params) {
-		this.contexts[params.installedAppId] = params
-		return new Promise(resolve => {
-			resolve()
-		})
-	}
-
-	update(installedAppId, params) {
-		this.contexts[params.installedAppId].authToken = params.authToken
-		this.contexts[params.installedAppId].refreshToken = params.refreshToken
-		return new Promise(resolve => {
-			resolve()
-		})
-	}
-
-	delete(installedAppId) {
-		this.contexts[installedAppId] = null
-		return new Promise(resolve => {
-			resolve()
-		})
-	}
-}
+const ContextStore = require('../utilities/context-store')
 
 describe('smartapp-context-spec', () => {
 	let app

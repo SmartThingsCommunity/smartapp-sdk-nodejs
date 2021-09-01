@@ -6,7 +6,7 @@ module.exports = {
 	collectCoverageFrom: ['lib/**/*.js'],
 	coverageReporters: ['json', 'text'],
 	testEnvironment: 'node',
-	testPathIgnorePatterns: ['test/data'],
+	testPathIgnorePatterns: ['test/data', 'test/utilities'],
 	testMatch: ['**/test/**/*.[jt]s?(x)'],
 	setupFiles: ['<rootDir>/config/jest.setup.js']
 }

@@ -1,4 +1,5 @@
 const SmartApp = require('../../lib/smart-app')
+const ContextStore = require('../utilities/context-store')
 
 describe('smartapp-spec', () => {
 	let app
@@ -65,5 +66,36 @@ describe('smartapp-spec', () => {
 		expect(logSpy).toBeCalledWith('Unhandled event of type UNHANDLED_EVENT')
 
 		logSpy.mockClear()
+	})
+
+	it('should construct mutext for page event', async () => {
+		let mutex
+		app.contextStore(new ContextStore())
+		app.page('mainPage', (context, _) => {
+			mutex = context.apiMutex
+		})
+
+		const pageEvent = {
+			lifecycle: 'CONFIGURATION',
+			executionId: '00000000-0000-0000-0000-000000000000',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'fr'
+			},
+			configurationData: {
+				installedAppId: '00000000-0000-0000-0000-000000000000',
+				phase: 'PAGE',
+				pageId: 'mainPage',
+				previousPageId: '',
+				config: {}
+			},
+			settings: {}
+		}
+
+		await expect(app.handleMockCallback(pageEvent)).resolves.not.toThrow()
+		expect(mutex).toBeDefined()
 	})
 })

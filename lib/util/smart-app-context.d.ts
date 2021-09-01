@@ -87,6 +87,8 @@ export interface SmartAppContext {
 	* Retrieve the tokens of the installed instance from the token store and return a new, authenticated
 	* SmartAppContext. This method is typically used to allow API calls to be made from the handlers
 	* of CONFIGURATION/PAGE lifecycle events.
+	* @deprecated This method will be removed at some point after the platform has been changed to include
+	* valid tokens in CONFIGURATION events as it does for all other lifecycle events.
 	*/
 	retrieveTokens(): Promise<SmartAppContext>
 
