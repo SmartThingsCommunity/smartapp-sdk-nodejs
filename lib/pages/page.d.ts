@@ -58,6 +58,12 @@ export class Page {
 	*/
 	style(value: PageStyle): Page
 
+	/**
+	 * Returns the page definition as a JSON object. Exported to support unit testing. Otherwise not used in writing
+	 * SmartApps
+	 */
+	toJson(): any
+
 	protected i18nKey(value: string): string
 	protected translate(...args: any): Page
 }
