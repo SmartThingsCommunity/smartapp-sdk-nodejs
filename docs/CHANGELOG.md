@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.5...v2.6.0) (2021-09-13)
+
+
+### Features
+
+* Exported Page class to support unit testing of SmartApps ([#206](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/206)) ([0af7ef9](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/0af7ef9680673a445e7cf034cff70e3e68428f64))
+
 ## [2.5.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.4...v2.5.5) (2021-09-01)
 
 
