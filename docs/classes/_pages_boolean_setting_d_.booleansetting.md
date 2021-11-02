@@ -2,7 +2,7 @@
 
 # BooleanSetting
 
-A boolean setting creates a toggle control that can be turned on an off by the user.
+A boolean setting creates a toggle control that can be turned on and off by the user.
 ```
 section.booleanSetting('turnBackOn')
 ```
@@ -167,4 +167,3 @@ Name | Type |
 `value` | string |
 
 **Returns:** *[BooleanSetting](_pages_boolean_setting_d_.booleansetting.md)*
-
