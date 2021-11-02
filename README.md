@@ -14,7 +14,7 @@
 
 ## Reference Documentation
 
-Looking for reference documentation? Find it [here](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/blob/master/docs/index.md).
+Looking for reference documentation? Find it [here](docs/index.md).
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ Looking for reference documentation? Find it [here](https://github.com/SmartThin
 >
 >This is a preview version of the API and will change over time.
 >
->This major release is not completely backwardly compatible with the 1.X version, though for most SmartApps the changes required should be relatively minor. The major non-backwards compatible changes include:
+>*This major release is not completely backwardly compatible with  version 1.X*, though for most SmartApps the changes required should be relatively minor. The major non-backwards compatible changes include:
 >* _Methods that return lists now return arrays rather that an object with the properties `items` and `_links`._
 >* _Axios is now used rather than request-promise-native for making HTTP calls, resulting in changes to the error
 objects thrown when exceptions occur._
