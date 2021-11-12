@@ -1,4 +1,4 @@
-# SmartThings SmartApp NodeJS SDK
+# SmartThings SmartApp Node.js SDK
 
 <p align="center">
 <a href="https://www.npmjs.com/package/@smartthings/smartapp"><img src="https://badgen.net/npm/v/@smartthings/smartapp"/></a>
@@ -14,22 +14,20 @@
 
 ## Reference Documentation
 
-Looking for reference documentation? Find it [here](docs/index.md).
+For a detailed look at the API, check out the [reference documentation](docs/index.md).
 
 ## Getting Started
 
 >**Version 2.0 Release**
 >
->This is a preview version of the API and will change over time.
->
->*This major release is not completely backwardly compatible with  version 1.X*, though for most SmartApps the changes required should be relatively minor. The major non-backwards compatible changes include:
->* _Methods that return lists now return arrays rather that an object with the properties `items` and `_links`._
->* _Axios is now used rather than request-promise-native for making HTTP calls, resulting in changes to the error
-objects thrown when exceptions occur._
+>This major release is not fully backwards compatible with version 1.X, though for most SmartApps the changes required should be relatively minor. The major non-backwards compatible changes include:
+>* Methods that return lists now return arrays instead of objects with the properties `items` and `_links`.
+>* Axios is now used rather than request-promise-native for making HTTP calls, resulting in changes to the error
+objects thrown when exceptions occur.
 >
 >See the [Version 2.0.0 release notes](docs/V2_RELEASE_NOTES.md) for more information.
 
-This SDK includes a set of NodeJS libraries for building Webhook and AWS Lambda SmartApps, and interacting with the public SmartThings API.
+This SDK includes a set of Node.js libraries for building Webhook and AWS Lambda SmartApps, and interacting with the public SmartThings API.
 
 Highlights include:
 
@@ -64,7 +62,7 @@ npm i @smartthings/smartapp --save
 
 ## Importing
 
-`NodeJS`:
+`Node.js`:
 
 ```javascript
 const SmartApp = require('@smartthings/smartapp')
