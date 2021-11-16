@@ -33,9 +33,8 @@ section.deviceSetting("motionSensors")
 
 ▸ **capabilities**(`items`: string[]): *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
 
-Sets the required capabilities for the devices in the select options.
-To appear in the select list devices must have all of these
-capabilities.
+Sets the required capabilities for the devices in the selection options.
+To appear in the selection list, devices must have all of the specified capabilities.
 
 **Parameters:**
 
@@ -51,7 +50,7 @@ ___
 
 ▸ **capability**(`item`: string): *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
 
-Sets the required capability for the devices in the select options.
+Sets the required capability for the devices in the selection options.
 
 **Parameters:**
 
@@ -137,7 +136,7 @@ ___
 
 ▸ **excludeCapabilities**(`items`: string[]): *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
 
-Devices with these capabilities will be excluded from the select options
+Devices with these capabilities will be excluded from the selection options
 even though they match the criteria specified in the `capabilities()` method
 
 **Parameters:**
@@ -154,7 +153,7 @@ ___
 
 ▸ **excludeCapability**(`item`: string): *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
 
-Devices with this capability will be excluded from the select options
+Devices with this capability will be excluded from the selection options
 even though they match the criteria specified in the `capabilities()` method
 
 **Parameters:**
@@ -208,8 +207,8 @@ ___
 ▸ **permissions**(`value`: string | string[] | [PermissionsEnum](../enums/_pages_device_setting_d_.permissionsenum.md)[]): *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
 
 The required permissions for the selected device(s). This value can be
-specified as a string (`rwx`), and array of strings(`['r','w','x']`), or
-and array of typescript enum values (`[PermissionsEnum.R, PermissionsEnum.W, PermissionsEnum.X]`)
+specified as a string (`rwx`), an array of strings(`['r','w','x']`), or
+an array of typescript enum values (`[PermissionsEnum.R, PermissionsEnum.W, PermissionsEnum.X]`)
 
 **Parameters:**
 
@@ -295,4 +294,3 @@ Name | Type |
 `value` | string |
 
 **Returns:** *[DeviceSetting](_pages_device_setting_d_.devicesetting.md)*
-
