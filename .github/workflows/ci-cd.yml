@@ -1,0 +1,70 @@
+name: CI/CD
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  lint-commits:
+    if: github.event_name == 'pull_request'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "npm"
+      - run: npm ci --ignore-scripts
+      - run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
+
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # add/remove versions as we move support forward
+        node-version: [12, 14, 16]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:unit
+
+  release:
+    needs: build
+
+    # don't run on forks
+    if: ${{ github.repository_owner == 'SmartThingsCommunity' && github.ref == 'refs/heads/master' }}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "npm"
+      - run: npm ci
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PI_GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: smartthingspi
+          GIT_AUTHOR_EMAIL: pi-team@smartthings.com
+          GIT_COMMITTER_NAME: smartthingspi
+          GIT_COMMITTER_EMAIL: pi-team@smartthings.com
+        run: npx semantic-release

@@ -40,12 +40,6 @@ jobs:
       - codecov/upload:
           file: coverage/*.json
       - *persist_to_workspace
-  publish:
-    executor: daneel
-    steps:
-      - *attach_workspace
-      - checkout
-      - run: npm run semantic-release
 
 workflows:
   build:
@@ -54,10 +48,3 @@ workflows:
           filters:
             branches:
               only: /.*/
-      - publish:
-          context: pi
-          requires:
-            - build
-          filters:
-            branches:
-              only: master

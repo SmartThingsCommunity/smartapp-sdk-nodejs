@@ -19,13 +19,12 @@
     "test": "jest --coverage",
     "start": "node ./smart-app.js",
     "debug": "node --inspect ./lib/smart-app.js",
-    "semantic-release": "semantic-release -e ./config/release.config.js",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "doc-gen": "typedoc --out docsrc --plugin typedoc-plugin-markdown lib && node ./scripts/docgen-post-process.js"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "license": "Apache-2.0",
   "repository": "github:SmartThingsCommunity/smartapp-sdk-nodejs",
@@ -34,7 +33,7 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs#readme",
   "dependencies": {
-    "@smartthings/core-sdk": "^1.9.0",
+    "@smartthings/core-sdk": "^2.1.0",
     "@types/aws-lambda": "^8.10.51",
     "@types/i18n": "^0.8.6",
     "async-mutex": "^0.1.4",
@@ -48,17 +47,19 @@
     "winston": "~3.2.1"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@types/jest": "^26.0.24",
-    "conventional-changelog-eslint": "~3.0.1",
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@types/jest": "^27.4.0",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^8.1.0",
-    "jest": "^26.6.3",
+    "jest": "^27.4.7",
     "jsdoc": "^3.6.7",
     "nock": "^10.0.6",
     "proxyquire": "^2.1.3",
-    "semantic-git-commit-cli": "^3.7.0",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^18.0.1",
     "sinon": "^7.5.0",
     "snyk": "^1.613.0",
     "typedoc": "^0.17.7",
