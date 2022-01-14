@@ -30,14 +30,12 @@ We're always looking for more opinions on discussions in the issue tracker. It's
   - Use a clear and descriptive title for the pull request and commits
   - We use [semantic-release](https://www.npmjs.com/package/semantic-release) to automatically generate release
     notes, versions and publish releases. This requires commit messages must be formatted properly using
-    [Angular's git commit guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
-  - As a convenience, a tool called `semantic-git-commit-cli` is installed in node_modules so you can commit using
-    `npx sgc` instead of `git commit`. This tool will ask a series of questions and generate a properly-formatted
-    commit message for you. You can still run `git commit` and format the message properly yourself if you prefer.
+    [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/). Our CI will check this and fail any PRs that are formatted incorrectly.
+  - This repo is [commitizen friendly](https://github.com/commitizen/cz-cli), so you can use the `cz` cli to help create your commits.
 - Lint and test before submitting the pull request by running `$ npm test`
 - Write a convincing description of why we should land your pull request. Answer _why_ it's needed and provide use-cases.
 - Make the pull request from a [topic branch](https://github.com/dchelimsky/rspec/wiki/Topic-Branches) (not master)
-- You might be asked to do changes to your pull request. There's never a need to open another pull request – [just update the existing one.](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md)
+- You might be asked to do changes to your pull request. There's never a need to open another pull request – [just update the existing one.](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md)
 
 ## [Finding contributions to work on](labels/help%20wanted)
 
