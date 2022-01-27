@@ -1,3 +1,10 @@
+### [2.6.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.0...v2.6.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **deps:** npm audit ([#215](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/215)) ([7ad8032](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/7ad803267928096d256b0b0d06cb01acdb2d8f11))
+
 ## [2.6.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.5.5...v2.6.0) (2021-09-13)
 
 
@@ -432,4 +439,3 @@
 * add checkout to publish step ([cf0c8ad](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/cf0c8ad9675b05ba55a71b682fdc56cb2db5e8f6))
 * Added delete api request method ([#51](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/51)) ([e8a3869](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/e8a3869d1ffb42811c59d4b03a695a623fb3fbea))
 * set _defaultRequired = true ([e56b903](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/e56b90389e12d360ab21d28446810bcd7a048df5)), closes [#48](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/48)
-
