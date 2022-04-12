@@ -1,3 +1,10 @@
+### [2.6.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.1...v2.6.2) (2022-04-12)
+
+
+### Bug Fixes
+
+* **deps:** npm audit ([#220](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/220)) ([6f229cc](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/6f229cccf84a94ca58b0fd9a38414e2c4a32c0b6))
+
 ### [2.6.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.0...v2.6.1) (2022-01-27)
 
 
