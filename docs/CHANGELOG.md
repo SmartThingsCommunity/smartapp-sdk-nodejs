@@ -1,3 +1,17 @@
+## [3.0.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.2...v3.0.0) (2022-08-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* The SmartThingsClient (context.api) has been updated
+which includes breaking changes to select devices and apps methods.
+The SDK will also no longer write OAuth client details to the context
+store if it is configured.
+
+### Features
+
+* update Core SDK to v5 ([#227](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/227)) ([e0e374c](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/e0e374c871c64e985db6caeb5099a814172284ec))
+
 ### [2.6.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.1...v2.6.2) (2022-04-12)
 
 
