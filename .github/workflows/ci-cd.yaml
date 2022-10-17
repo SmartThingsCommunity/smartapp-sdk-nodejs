@@ -5,7 +5,7 @@ on:
   pull_request:
   workflow_dispatch:
     branches:
-      - master
+      - main
 
 jobs:
   lint-commits:
@@ -47,7 +47,7 @@ jobs:
     needs: build
 
     # don't run on forks
-    if: ${{ github.repository_owner == 'SmartThingsCommunity' && github.ref == 'refs/heads/master' }}
+    if: ${{ github.repository_owner == 'SmartThingsCommunity' && github.ref == 'refs/heads/main' }}
 
     runs-on: ubuntu-latest
 
