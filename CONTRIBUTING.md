@@ -34,7 +34,7 @@ We're always looking for more opinions on discussions in the issue tracker. It's
   - This repo is [commitizen friendly](https://github.com/commitizen/cz-cli), so you can use the `cz` cli to help create your commits.
 - Lint and test before submitting the pull request by running `$ npm test`
 - Write a convincing description of why we should land your pull request. Answer _why_ it's needed and provide use-cases.
-- Make the pull request from a [topic branch](https://github.com/dchelimsky/rspec/wiki/Topic-Branches) (not master)
+- Make the pull request from a [topic branch](https://github.com/dchelimsky/rspec/wiki/Topic-Branches) (not main)
 - You might be asked to do changes to your pull request. There's never a need to open another pull request – [just update the existing one.](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md)
 
 ## [Finding contributions to work on](labels/help%20wanted)
