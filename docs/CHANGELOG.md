@@ -1,3 +1,11 @@
+### [3.0.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v3.0.0...v3.0.1) (2022-12-13)
+
+
+### Bug Fixes
+
+* specify main as the semantic release branch ([#235](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/235)) ([75d34c3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/75d34c31e179133f94c55be40b80509357bade7f))
+* support other API urls for API_ONLY apps ([#234](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/234)) ([22578a6](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/22578a6abadb54cd9ebe5d58d028487d5ec5b62a))
+
 ## [3.0.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v2.6.2...v3.0.0) (2022-08-11)
 
 
