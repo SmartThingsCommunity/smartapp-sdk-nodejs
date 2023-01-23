@@ -571,7 +571,7 @@ Defines a configuration page that is displayed during app installation and updat
 You can create as many pages as needed to satisfy your configuration needs. See the
 the documentation on how to design pages for your automation.
 
-https://smartthings.developer.samsung.com/docs/how-to/design-pages-smartapp.html
+https://developer.smartthings.com/docs/connected-services/configuration#page-phase
 
 **Parameters:**
 

@@ -34,7 +34,7 @@ We're always looking for more opinions on discussions in the issue tracker. It's
   - This repo is [commitizen friendly](https://github.com/commitizen/cz-cli), so you can use the `cz` cli to help create your commits.
 - Lint and test before submitting the pull request by running `$ npm test`
 - Write a convincing description of why we should land your pull request. Answer _why_ it's needed and provide use-cases.
-- Make the pull request from a [topic branch](https://github.com/dchelimsky/rspec/wiki/Topic-Branches) (not main)
+- Make the pull request from a [topic branch](https://alvinalexander.com/git/git-topic-branch-workflow-pattern-pro-git/) (not main)
 - You might be asked to do changes to your pull request. There's never a need to open another pull request – [just update the existing one.](https://github.com/RichardLitt/knowledge/blob/master/github/amending-a-commit-guide.md)
 
 ## [Finding contributions to work on](labels/help%20wanted)
@@ -46,12 +46,12 @@ Look at the existing issues for areas of contribution. Searching for issues labe
 ## More about SmartThings
 
 If you are not familiar with SmartThings, we have
-[extensive on-line documentation](https://smartthings.developer.samsung.com/develop/index.html).
+[extensive on-line documentation](https://developer.smartthings.com/docs/getting-started/welcome/).
 
 To create and manage your services and devices on SmartThings, create an account in the
-[developer workspace](https://devworkspace.developer.samsung.com/).
+[developer workspace](https://smartthings.developer.samsung.com/workspace/).
 
-The [SmartThings Community](https://community.smartthings.com/c/developers/) is a good place share and
+The [SmartThings Community](https://community.smartthings.com/) is a good place share and
 ask questions.
 
 There is also a [SmartThings reddit community](https://www.reddit.com/r/SmartThings/) where you
@@ -61,4 +61,4 @@ can read and share information.
 
 Licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
-Copyright 2019 SmartThings, Inc.
+Copyright 2023 SmartThings, Inc.

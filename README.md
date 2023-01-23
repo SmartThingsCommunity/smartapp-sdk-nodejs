@@ -47,11 +47,11 @@ SmartApps are custom applications that execute outside of the SmartThings Platfo
 
 There are two distinct options for hosting your SmartApp: AWS Lambda and Webhook.
 
-- **Webhook** SmartApps are any publicly-accessible web server that will receive a POST request payload.
-
 - **AWS Lambda** SmartApps are hosted in the Amazon Web Services cloud and are invoked by ARN instead of a public-DNS address.
 
-To learn more about SmartApps, including choosing the best hosting solution for your SmartApp, visit the [SmartApp developer documentation](https://developer-preview.smartthings.com/docs/connected-services/smartapp-basics).
+- **Webhook** SmartApps are any publicly-accessible web server that will receive a POST request payload.
+
+To learn more about SmartApps, including choosing the best hosting solution for your SmartApp, visit the [SmartApp developer documentation](https://developer.smartthings.com/docs/connected-services/smartapp-basics).
 
 ## Installation
 
@@ -77,7 +77,7 @@ import SmartApp from '@smartthings/smartapp'
 
 The example SmartApp below is the equivalent of a simple Rule (if contact sensor opens/closes, turn lights on/off) which is easily achieved via our Rules API. It is given here as a brief showcase of the SDK, and is not meant to be a good candidate for a SmartApp.
 
->Before hosting your own Automation, be sure to check out [Rules](https://developer-preview.smartthings.com/docs/automations/rules). When all services and Device features involved in a Rule are local, Rules execute locally on a Hub, allowing you to benefit from greater speed, stability, and security than cloud-reliant solutions.
+>Before hosting your own Automation, be sure to check out [Rules](https://developer.smartthings.com/docs/automations/rules). When all services and Device features involved in a Rule are local, Rules execute locally on a Hub, allowing you to benefit from greater speed, stability, and security than cloud-reliant solutions.
 
 ### Running as a Web Service
 
@@ -220,12 +220,12 @@ See the full usage guide on the [project's GitHub repository](https://github.com
 ---
 ## More about SmartThings
 
-Check out our complete developer documentation [here](https://developer-preview.smartthings.com/docs/getting-started/welcome/).
+Check out our complete developer documentation [here](https://developer.smartthings.com/docs/getting-started/welcome).
 
 To create and manage your services and devices on SmartThings, create an account in the
-[developer workspace](https://devworkspace.developer.samsung.com/).
+[developer workspace](https://smartthings.developer.samsung.com/workspace/).
 
-The [SmartThings Community](https://community.smartthings.com/c/developers/) is a good place share and
+The [SmartThings Community](https://community.smartthings.com/) is a good place share and
 ask questions.
 
 There is also a [SmartThings reddit community](https://www.reddit.com/r/SmartThings/) where you
@@ -235,4 +235,4 @@ can read and share information.
 
 Licensed under the [Apache License, Version 2.0](LICENSE)
 
-Copyright 2019 SmartThings, Inc.
+Copyright 2023 SmartThings, Inc.

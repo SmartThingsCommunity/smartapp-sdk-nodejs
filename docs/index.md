@@ -1,6 +1,6 @@
 # SmartApp SDK Reference
 
-The [SmartApp](classes/_smart_app_d_.smartapp.md) class handles all SmartApp [lifecycle events](https://developer-preview.smartthings.com/docs/connected-services/lifecycles) and callbacks. It is instantiated and configured with handlers where appropriate and is invoked in response to either web server HTTP requests, or in response to AWS Lambda function calls. 
+The [SmartApp](classes/_smart_app_d_.smartapp.md) class handles all SmartApp [lifecycle events](https://developer.smartthings.com/docs/connected-services/lifecycles) and callbacks. It is instantiated and configured with handlers where appropriate and is invoked in response to either web server HTTP requests, or in response to AWS Lambda function calls. 
 
 ## Instantiation and Initialization
 
