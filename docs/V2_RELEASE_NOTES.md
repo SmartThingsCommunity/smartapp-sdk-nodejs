@@ -11,10 +11,10 @@ Methods that return lists now return arrays rather that an object with the prope
 is done automatically by the API. The 1.X version of the SDK does not support paging at all in these methods, which
 can result in missed items, such as when a location has more than 200 devices.
 
-This change was also made for consitency, since not all endpoints used the `items`
+This change was also made for consistency, since not all endpoints used the `items`
 object, and for convenience. Since the lists are of limited length and unordered,
 paging is of limited practical use. Most applications, such as displaying a sorted display of items require all pages
-to be retrieved. In the future methods with potentially unbounded numbers of items with inherient order, such as event
+to be retrieved. In the future methods with potentially unbounded numbers of items with inherent order, such as event
 history, will include a paging mechanism.
 
 ### REST API calls are now handled by a separate package
@@ -26,13 +26,13 @@ therefore don't need to use this SDK.
 As a result of the switch to use the [@smartthings/core-sdk](https://www.npmjs.com/package/@smartthings/core-sdk)
 for REST API calls, [Axios](https://www.npmjs.com/package/axios) is now used as the HTTP client rather than
 [request-promise-native](https://www.npmjs.com/package/request-promise-native) (which has been deprecated). As a result, the error object has changed. It's now an instance of the
-[AxiosError](https://github.com/axios/axios/blob/main/index.d.ts#L76-L92) class, so instead of accessing the
+[AxiosError](https://github.com/axios/axios/blob/main/index.d.ts#L12-L41) class, so instead of accessing the
 status of an error response with `.catch(error => {error.statusCode})` you'd do so with
 `.catch(error => {error.response.status})`.
 
 ### All methods return a Promise
 All methods now return a Promise. Before there were some methods that returned void. There was also inconsistency
-in the response of methods that returned no data, with some returning an empty obhect `{}`, others returning an
+in the response of methods that returned no data, with some returning an empty object `{}`, others returning an
 empty string `"`, and still others returning a status value `{"status": "success"}`. Now all such methods return
 a status value.
 

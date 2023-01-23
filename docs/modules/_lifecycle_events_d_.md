@@ -51,7 +51,7 @@ The display mode of the operating system of the client.
 
 • **language**: *string*
 
-Language header representing the client's preferred language. The format of the `Accept-Language` header follows what is defined in [RFC 7231, section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)
+Language header representing the client's preferred language. The format of the `Accept-Language` header follows what is defined in [RFC 7231, section 5.3.5](https://www.rfc-editor.org/rfc/rfc7231#section-5.3.5)
 
 ###  os
 

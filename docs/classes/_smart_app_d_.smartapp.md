@@ -3,8 +3,7 @@
 # SmartApp
 
 An instance of the SmartApp class is created to handle lifecycle events for WEBHOOK_SMART_APP, LAMBDA_SMART_APP,
-and API_ONLY apps. Options can either be passed in as parameters to the
-to the constructor, for example:
+and API_ONLY apps. Options can either be passed in as parameters to the constructor, for example:
 ```
 import {SmartApp} from '@smartthings/smartapp'
 ...
@@ -594,7 +593,7 @@ ___
 
 Defines a configuration page that is displayed during app installation and update.
 You can create as many pages as needed to satisfy your configuration needs. See the documentation on
-[how to design pages](https://smartthings.developer.samsung.com/docs/how-to/design-pages-smartapp.html)
+[how to design pages](https://developer.smartthings.com/docs/connected-services/configuration#page-phase)
 for your automation.
 
 **Parameters:**
@@ -621,7 +620,7 @@ ___
 
 ▸ **permissions**(`value`: string | string[]): *[SmartApp](_smart_app_d_.smartapp.md)*
 
-Specify the [OAuth2 scopes](https://smartthings.developer.samsung.com/docs/auth-and-permissions.html#OAuth2-scopes)
+Specify the [OAuth2 scopes](https://developer.smartthings.com/docs/connected-services/oauth-integrations)
 explicitly required by this app. For example `['r:devices:*', and 'x:devices:*']
 to be able to read and control all devices in the location. You do not have to
 provide this list for devices selected by the user in configuration settings.
