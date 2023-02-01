@@ -374,7 +374,7 @@ export class SmartApp {
 	/**
 	* To be called by AWS Lambda functions to handle LAMBDA_APP lifecycle events.
 	*/
-	handleLambdaCallback(event: any, context: Context, callback: () => any): void;
+	handleLambdaCallback(event: any, context: Context, callback: () => any): void
 
 	/**
 	* To be called by test scripts

@@ -184,5 +184,5 @@ export class Section {
 
 	protected i18nKey(id: string): string
 	protected toJson(id: string): string
-	protected translate(id: string): void;
+	protected translate(id: string): void
 }
