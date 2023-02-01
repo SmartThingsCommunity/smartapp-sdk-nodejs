@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v3.0.2...v4.0.0) (2023-02-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove deprecated color-setting feature (#239)
+
+### Features
+
+* remove deprecated color-setting feature ([#239](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/239)) ([d8449bc](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/d8449bc78ad383c64c6df1e3d9668055863ac518))
+
 ## [3.0.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v3.0.1...v3.0.2) (2023-02-01)
 
 
