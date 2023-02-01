@@ -10,7 +10,7 @@ export enum PageStyle {
  * being composed of one or more settings.
  */
 export class Page {
-	constructor(id: string, language?: string);
+	constructor(id: string, language?: string)
 
 	/**
 	* Mark this page as complete, which renders a Done button that initiates the installation or update process.
