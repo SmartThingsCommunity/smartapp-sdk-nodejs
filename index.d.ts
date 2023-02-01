@@ -1,7 +1,6 @@
 export * from './lib/smart-app'
 export * from './lib/util/smart-app-context'
 export * from './lib/pages/boolean-setting'
-export * from './lib/pages/color-setting'
 export * from './lib/pages/decimal-setting'
 export * from './lib/pages/device-setting'
 export * from './lib/pages/email-setting'
