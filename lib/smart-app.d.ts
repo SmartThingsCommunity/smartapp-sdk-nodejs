@@ -454,7 +454,7 @@ export class SmartApp {
 	refreshUrl(url: string): SmartApp
 
 	/**
-	* Defines a handler for scheduled events. The name corresponds the the name specified when the event is
+	* Defines a handler for scheduled events. The name corresponds to the name specified when the event is
 	* scheduled by the `context.api.schedules.create()` call or any of its other variants. There can be
 	* multiple scheduled event handlers in one app.
 	* @param name the name used when the event to be handled was scheduled
@@ -466,6 +466,17 @@ export class SmartApp {
 			context: SmartAppContext,
 			eventData: TimerEvent,
 			eventTime?: string) => HandlerResponse): SmartApp
+
+	/**
+	 * Defines a default handler for scheduled events that is called if a matching named handler is not found.
+	 * @param callback the handler to be called with the event
+	 */
+	defaultScheduledEventHandler(
+		callback: (
+			context: SmartAppContext,
+			eventData: TimerEvent,
+			eventTime?: string
+		) => HandlerResponse): SmartApp
 
 	/**
 	* Defines a handler for device event subscriptions. Device events occur whenever one

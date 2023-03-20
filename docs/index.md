@@ -82,6 +82,7 @@ const smartapp = new SmartApp()
     })
 ```
 * [defaultDeviceCommandHandler](classes/_smart_app_d_.smartapp.md#defaultdevicecommandhandler)
+* [defaultScheduledEventHandler](classes/_smart_app_d_.smartapp.md#defaultscheduledeventhandler)
 * [deviceCommand](classes/_smart_app_d_.smartapp.md#devicecommand)
 * [deviceCommandHandler](classes/_smart_app_d_.smartapp.md#devicecommandhandler)
 * [oauthHandler](classes/_smart_app_d_.smartapp.md#oauthhandler)
