@@ -1,3 +1,10 @@
+## [4.1.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.0.0...v4.1.0) (2023-03-20)
+
+
+### Features
+
+* added default scheduled event handler ([#243](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/243)) ([f790c7e](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/f790c7e8152cb5de1a436aa3ecdbcb34a4df79d6))
+
 ## [4.0.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v3.0.2...v4.0.0) (2023-02-01)
 
 
