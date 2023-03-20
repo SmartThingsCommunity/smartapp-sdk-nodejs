@@ -44,6 +44,7 @@ Name | Type | Description |
 * [contextStore](_smart_app_d_.smartapp.md#contextstore)
 * [defaultDeviceCommandHandler](_smart_app_d_.smartapp.md#defaultdevicecommandhandler)
 * [defaultPage](_smart_app_d_.smartapp.md#defaultpage)
+* [defaultScheduledEventHandler](_smart_app_d_.smartapp.md#defaultscheduledeventhandler)
 * [deviceCommand](_smart_app_d_.smartapp.md#devicecommand)
 * [deviceCommandHandler](_smart_app_d_.smartapp.md#devicecommandhandler)
 * [disableCustomDisplayName](_smart_app_d_.smartapp.md#disablecustomdisplayname)
@@ -260,6 +261,31 @@ Name | Type |
 `configData?` | InstalledAppConfiguration |
 
 **Returns:** *[SmartApp](_smart_app_d_.smartapp.md)*
+
+___
+
+###  defaultScheduledEventHandler
+
+▸ **defaultScheduledEventHandler**(`callback`: function): *[SmartApp](_smart_app_d_.smartapp.md)*
+
+Defines a handler to be called for any scheduled event that does not have a handler
+defined for that specific event. 
+
+**Parameters:**
+
+▪ **callback**: *function*
+
+▸ (`context`: [SmartAppContext](../interfaces/_util_smart_app_context_d_.smartappcontext.md), `eventData`: TimerEvent): *[HandlerResponse](../modules/_smart_app_d_.md#handlerresponse)*
+
+**Parameters:**
+
+Name | Type                                                                           |
+------ |--------------------------------------------------------------------------------|
+`context` | [SmartAppContext](../interfaces/_util_smart_app_context_d_.smartappcontext.md) |                                                                        |
+`eventData` | TimerEvent                                                                     |
+
+**Returns:** *[SmartApp](_smart_app_d_.smartapp.md)*
+
 
 ___
 
