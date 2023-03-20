@@ -161,7 +161,9 @@ ___
 ▸ **postMessage**(`value`: string): *[NumberSetting](_pages_number_setting_d_.numbersetting.md)*
 
 A string to be shown after the text input field. One common use for this field is to
-specify a unit of measure.
+specify a unit of measure. Omitting the value and calling `postMessage()` will set the
+value to the default i18n string, allowing translations to be defines in the locale
+file in the usual way.
 
 **Parameters:**
 
@@ -195,7 +197,7 @@ ___
 
 ▸ **step**(`value`: number): *[NumberSetting](_pages_number_setting_d_.numbersetting.md)*
 
-The step between values values. If the style is not set to slider then setting a step will
+The step between values. If the style is not set to slider then setting a step will
 cause up and down arrows to appear next to the input box that increment or decrement the value
 by the value of the step.
 

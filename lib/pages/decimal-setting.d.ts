@@ -32,8 +32,10 @@ export class DecimalSetting extends SectionSetting<DecimalSetting> {
 
 	/**
 	* A string to be shown after the text input field. One common use for this field is to
-	* specify a unit of measure.
+	* specify a unit of measure. Omitting the value and calling `postMessage()` will set the
+	* value to the default i18n string, allowing translations to be defines in the locale
+	* file in the usual way.
 	* @param value Max length 10 characters
 	*/
-	postMessage(value: string): DecimalSetting
+	postMessage(value?: string): DecimalSetting
 }
