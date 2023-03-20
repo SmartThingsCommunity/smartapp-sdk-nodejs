@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.1.0...v4.2.0) (2023-03-20)
+
+
+### Features
+
+* added i18n translation to postMessage fields ([#244](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/244)) ([21ffbb7](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/21ffbb7f13eaa98e830c163d4ca31705eaf517c0))
+
 ## [4.1.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.0.0...v4.1.0) (2023-03-20)
 
 
