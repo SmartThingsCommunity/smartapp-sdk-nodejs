@@ -235,4 +235,4 @@ can read and share information.
 
 Licensed under the [Apache License, Version 2.0](LICENSE)
 
-Copyright 2023 SmartThings, Inc.
+Copyright 2023 Samsung Electronics Co., LTD.
