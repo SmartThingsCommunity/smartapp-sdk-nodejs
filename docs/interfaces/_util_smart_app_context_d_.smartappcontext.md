@@ -15,7 +15,11 @@
 * [configNumberValue](_util_smart_app_context_d_.smartappcontext.md#confignumbervalue)
 * [configStringValue](_util_smart_app_context_d_.smartappcontext.md#configstringvalue)
 * [configTimeString](_util_smart_app_context_d_.smartappcontext.md#configtimestring)
+* [getItem](_util_smart_app_context_d_.smartappcontext.md#getitem)
 * [isAuthenticated](_util_smart_app_context_d_.smartappcontext.md#isauthenticated)
+* [removeAllItems](_util_smart_app_context_d_.smartappcontext.md#removeallitems)
+* [removeItem](_util_smart_app_context_d_.smartappcontext.md#removeitem)
+* [setItem](_util_smart_app_context_d_.smartappcontext.md#setitem)
 * [retrieveTokens](_util_smart_app_context_d_.smartappcontext.md#retrievetokens)
 * [setLocationId](_util_smart_app_context_d_.smartappcontext.md#setlocationid)
 
@@ -205,4 +209,62 @@ Name | Type | Description |
 `id` | string | the location UUID  |
 
 **Returns:** *void*
+
+___
+
+###  getItem
+
+▸ **getItem**(`key`: string): *Promise‹any›*
+
+Returns the value of the specified key from the app context state store
+
+**Parameters:**
+
+Name | Type | Description                          |
+------ | ------ |--------------------------------------|
+`key` | string | the name of the property to retrieve |
+
+**Returns:** *Promise‹any›*
+
+###  setItem
+
+▸ **setItem**(`key`: string, `value`: any): *Promise‹void›*
+
+Add or replaces the value of the specified key in the app context state store. The value can be any
+JSON-serializable type.
+
+**Parameters:**
+
+Name | Type   | Description                          |
+------ |--------|--------------------------------------|
+`key` | string | the name of the property to retrieve |
+`value` | any    | the value to be stored               |
+
+**Returns:** *Promise‹void›*
+
+___
+
+###  removeItem
+
+▸ **removeItem**(`key`: string): *Promise‹void›*
+
+Removes the specified entry from the app context state store
+
+**Parameters:**
+
+Name | Type | Description                        |
+------ | ------ |------------------------------------|
+`key` | string | the name of the property to remove |
+
+**Returns:** *Promise‹void›*
+
+___
+
+###  removeAllItems
+
+▸ **removeAllItems**(): *Promise‹void›*
+
+Removes all items from the app context state store
+
+**Returns:** *Promise‹void›*
 

@@ -103,4 +103,40 @@ describe('smartapp-context-spec', () => {
 
 		expect(ctx.api.config.headers['Accept-Language']).toBe('es')
 	})
+
+	test('get item', async () => {
+		const contextStore = new ContextStore(
+			{
+				'get-item-1': {
+					installedAppId: 'get-item-1',
+					state: {
+						count: 1
+					}
+				}
+			}
+		)
+		app.contextStore(contextStore)
+		const ctx = await app.withContext('get-item-1')
+		const count = await ctx.getItem('count')
+
+		expect(count).toBe(1)
+	})
+
+	test('set item', async () => {
+		const contextStore = new ContextStore(
+			{
+				'set-item-1': {
+					installedAppId: 'set-item-1',
+					state: {}
+				}
+			}
+		)
+		app.contextStore(contextStore)
+		const ctx = await app.withContext('set-item-1')
+		await ctx.setItem('count', 2)
+
+		const count = await ctx.getItem('count')
+
+		expect(count).toBe(2)
+	})
 })

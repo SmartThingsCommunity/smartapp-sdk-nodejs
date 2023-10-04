@@ -7,7 +7,7 @@ describe('oauth-callback-lifecycle-spec', () => {
 		executionId: '00000000-0000-0000-0000-000000000000',
 		locale: 'en',
 		version: '1.0.0',
-		oAuthCallbackData: {
+		oauthCallbackData: {
 			installedAppId: '00000000-0000-0000-0000-000000000000',
 			urlPath: 'localhost'
 		}

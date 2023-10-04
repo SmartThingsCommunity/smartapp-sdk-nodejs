@@ -1,9 +1,10 @@
 class ContextStore {
-	constructor() {
+	constructor(contextRecords = {}) {
 		this.contexts = {
 			'00000000-0000-0000-0000-000000000000': {
 				locationId: 'e9a56178-3518-49f3-b944-a25ac941c3bd'
-			}
+			},
+			...contextRecords
 		}
 	}
 
@@ -31,6 +32,20 @@ class ContextStore {
 	delete(installedAppId) {
 		this.contexts[installedAppId] = null
 		return new Promise(resolve => {
+			resolve()
+		})
+	}
+
+	getItem(installedAppId, key) {
+		return new Promise(resolve => {
+			resolve(this.contexts[installedAppId].state[key])
+		})
+	}
+
+	setItem(installedAppId, key, value) {
+		this.contexts[installedAppId][key] = value
+		return new Promise(resolve => {
+			this.contexts[installedAppId].state[key] = value
 			resolve()
 		})
 	}

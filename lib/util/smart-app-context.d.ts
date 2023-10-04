@@ -98,4 +98,28 @@ export interface SmartAppContext {
 	* @param id the location UUID
 	*/
 	setLocationId(id: string): void
+
+	/**
+	 * Returns the value of a property stored in the installed app state. The property is identified by a key.
+	 * @param key the name of the property
+	 */
+	getItem(key: string): Promise<any>
+
+	/**
+	 * Stores a property in the installed app state. The property is identified by a key.
+	 * @param key name of the property
+	 * @param value of the property
+	 */
+	setItem(key: string, value: any): Promise<any>
+
+	/**
+	 * Removes a property from the installed app state. The property is identified by a key.
+	 * @param key
+	 */
+	removeItem(key: string): Promise<any>
+
+	/**
+	 * Removes all properties from the installed app state.
+	 */
+	removeAllItems(): Promise<void>
 }
