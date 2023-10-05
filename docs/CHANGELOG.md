@@ -1,3 +1,11 @@
+## [4.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.2.0...v4.3.0) (2023-10-05)
+
+
+### Features
+
+* added methods to store and retrieve state in the context store ([#249](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/249)) ([1d35407](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/1d35407af07ad5f4c8b80a96fc2a22da3e5fe4c2))
+* release of context store methods ([#250](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/250)) ([4e53c3c](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/4e53c3c12e6bb704d754fd11e7a0d02829d3b486))
+
 ## [4.2.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.1.0...v4.2.0) (2023-03-20)
 
 
