@@ -13,7 +13,7 @@ describe('smartapp-context-spec', () => {
 		app = new SmartApp({logUnhandledRejections: false})
 	})
 
-	it('endpoint app with context store', async () => {
+	it('endpoint app with unitialized context store', async () => {
 		const installData = {
 			authToken: 'xxx',
 			refreshToken: 'yyy',
@@ -49,6 +49,53 @@ describe('smartapp-context-spec', () => {
 		assert.equal(installData.installedApp.locationId, ctx.locationId)
 		assert.equal(installData.authToken, ctx.authToken)
 		assert.equal(installData.refreshToken, ctx.refreshToken)
+	})
+
+	it('endpoint app with populated context store', async () => {
+		const installData = {
+			authToken: 'xxx',
+			refreshToken: 'yyy',
+			installedApp: {
+				installedAppId: 'd692699d-e7a6-400d-a0b7-d5be96e7a564',
+				locationId: 'e675a3d9-2499-406c-86dc-8a492a886494',
+				config: {}
+			}
+		}
+
+		const contextStore = new ContextStore({
+			'd692699d-e7a6-400d-a0b7-d5be96e7a564': {
+				locationId: 'e675a3d9-2499-406c-86dc-8a492a886494',
+				installedAppId: 'd692699d-e7a6-400d-a0b7-d5be96e7a564',
+				state: {
+					accessToken: 'xxx'
+				}
+			}
+		})
+		app.contextStore(contextStore)
+
+		await app.handleMockCallback({
+			lifecycle: 'INSTALL',
+			executionId: 'e6903fe6-f88f-da69-4c12-e2802606ccbc',
+			locale: 'en',
+			version: '0.1.0',
+			client: {
+				os: 'ios',
+				version: '0.0.0',
+				language: 'en-US'
+			},
+			installData,
+			settings: {}
+		})
+
+		const ctx = await app.withContext('d692699d-e7a6-400d-a0b7-d5be96e7a564')
+
+		expect(ctx).toBeInstanceOf(SmartAppContext)
+		expect(ctx.api.config.authenticator).toBeInstanceOf(SequentialRefreshTokenAuthenticator)
+		assert.equal(installData.installedApp.installedAppId, ctx.installedAppId)
+		assert.equal(installData.installedApp.locationId, ctx.locationId)
+		assert.equal(installData.authToken, ctx.authToken)
+		assert.equal(installData.refreshToken, ctx.refreshToken)
+		assert.equal(await ctx.getItem('accessToken'), 'xxx')
 	})
 
 	it('endpoint app with context object', async () => {
