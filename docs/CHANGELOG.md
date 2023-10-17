@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.0...v4.3.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* bug where context state was overwritten at install ([#251](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/251)) ([13b1c56](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/13b1c56513c997c80f310c37feca11e93e409b8b))
+
 ## [4.3.0](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.2.0...v4.3.0) (2023-10-05)
 
 
