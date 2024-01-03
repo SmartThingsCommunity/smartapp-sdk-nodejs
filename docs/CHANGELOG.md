@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.1...v4.3.2) (2024-01-03)
+
+
+### Bug Fixes
+
+* corrections to handleHttp and handleUnverified ([#259](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/259)) ([4c55a98](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/4c55a987e549a67a2d4925e803458ba4a56566be))
+
 ## [4.3.1](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.0...v4.3.1) (2023-10-17)
 
 
