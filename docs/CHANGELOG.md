@@ -1,3 +1,10 @@
+## [4.3.3](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.2...v4.3.3) (2024-04-17)
+
+
+### Bug Fixes
+
+* decouple axios version from core SDK ([#261](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/261)) ([aaa4ffe](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/aaa4ffe028e61591c0a729629f287fd720a97138))
+
 ## [4.3.2](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.1...v4.3.2) (2024-01-03)
 
 
