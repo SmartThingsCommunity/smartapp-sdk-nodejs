@@ -3,7 +3,7 @@ import { IncomingHttpHeaders } from 'http'
 import { i18n } from './i18n'
 import ConfigurationOptions = i18n.ConfigurationOptions
 import { Logger } from './util/log'
-import { DeviceCommand, InstalledAppConfiguration } from '@smartthings/core-sdk'
+import { InstalledAppConfiguration } from '@smartthings/core-sdk'
 import { Page } from './pages/page'
 import { SmartAppContext } from './util/smart-app-context'
 import { AppEvent } from './lifecycle-events'
@@ -15,6 +15,7 @@ import ModeEvent = AppEvent.ModeEvent
 import SceneLifecycleEvent = AppEvent.SceneLifecycleEvent
 import TimerEvent = AppEvent.TimerEvent
 import DeviceCommandsEvent = AppEvent.DeviceCommandsEvent
+import DeviceCommandsEventCommand = AppEvent.DeviceCommandsEventCommand
 import SecurityArmStateEvent = AppEvent.SecurityArmStateEvent
 import ExecuteData = AppEvent.ExecuteData
 import UninstallData = AppEvent.UninstallData
@@ -288,7 +289,7 @@ export class SmartApp {
 		callback: (
 			context: SmartAppContext,
 			deviceId: string,
-			cmd: DeviceCommand) => HandlerResponse): SmartApp
+			cmd: DeviceCommandsEventCommand) => HandlerResponse): SmartApp
 
 	/**
 	* Defines a handler that is called for any configuration page that does not have a specific page handler
@@ -310,7 +311,7 @@ export class SmartApp {
 	deviceCommand(command: string, callback: (
 		context: SmartAppContext,
 		deviceId: string,
-		cmd: DeviceCommand,
+		cmd: DeviceCommandsEventCommand,
 		eventTime?: string) => HandlerResponse): SmartApp
 
 	/**
