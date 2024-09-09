@@ -186,4 +186,50 @@ describe('smartapp-context-spec', () => {
 
 		expect(count).toBe(2)
 	})
+
+	test('remove item', async () => {
+		const contextStore = new ContextStore(
+			{
+				'set-item-1': {
+					installedAppId: 'set-item-1',
+					state: {
+						count: 1,
+						total: 50
+					}
+				}
+			}
+		)
+		app.contextStore(contextStore)
+		const ctx = await app.withContext('set-item-1')
+		await ctx.removeItem('count')
+
+		const count = await ctx.getItem('count')
+		expect(count).toBeUndefined()
+
+		const total = await ctx.getItem('total')
+		expect(total).toBe(50)
+	})
+
+	test('remove all items', async () => {
+		const contextStore = new ContextStore(
+			{
+				'set-item-1': {
+					installedAppId: 'set-item-1',
+					state: {
+						count: 1,
+						total: 50
+					}
+				}
+			}
+		)
+		app.contextStore(contextStore)
+		const ctx = await app.withContext('set-item-1')
+		await ctx.removeAllItems()
+
+		const count = await ctx.getItem('count')
+		expect(count).toBeUndefined()
+
+		const total = await ctx.getItem('total')
+		expect(total).toBeUndefined()
+	})
 })
