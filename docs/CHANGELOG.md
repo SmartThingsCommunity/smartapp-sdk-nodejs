@@ -1,3 +1,10 @@
+## [4.3.5](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.4...v4.3.5) (2024-09-10)
+
+
+### Bug Fixes
+
+* bugfix to context store remove item methods ([#264](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/264)) ([476c133](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/476c133fe4ff66bf94e130a44a66fb0d1931fd22))
+
 ## [4.3.4](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.3...v4.3.4) (2024-04-25)
 
 
