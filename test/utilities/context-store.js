@@ -49,6 +49,20 @@ class ContextStore {
 			resolve()
 		})
 	}
+
+	removeItem(installedAppId, key) {
+		return new Promise(resolve => {
+			delete this.contexts[installedAppId].state[key]
+			resolve()
+		})
+	}
+
+	removeAllItems(installedAppId) {
+		return new Promise(resolve => {
+			this.contexts[installedAppId].state = {}
+			resolve()
+		})
+	}
 }
 
 module.exports = ContextStore
