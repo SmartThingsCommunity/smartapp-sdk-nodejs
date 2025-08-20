@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
           cache: "npm"
       - run: npm ci --ignore-scripts
       - run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         # add/remove versions as we move support forward
-        node-version: [14, 16, 18]
+        node-version: [20, 22]
 
     steps:
       - uses: actions/checkout@v3
@@ -56,7 +56,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
           cache: "npm"
       - run: npm ci
       - name: Release
