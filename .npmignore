@@ -1,4 +1,17 @@
 examples/
 test/
 docs/
+docsrc/
 scripts/
+coverage/
+
+
+.DS_Store
+.vscode/
+.idea/
+.github/
+.env
+env.example
+README.md
+*.tgz
+
