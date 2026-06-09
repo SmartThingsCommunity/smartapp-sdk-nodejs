@@ -13,7 +13,7 @@ export enum LinkStyle {
  * does not replace the current configuration page window.
  * ```
  * section.linkSetting('moreInfo')
- *     .url('http://www.smartthings.com')
+ *     .url('https://www.smartthings.com')
  * ```
  */
 export class LinkSetting extends SectionSetting<LinkSetting> {

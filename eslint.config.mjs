@@ -36,7 +36,9 @@ const customRules = {
 	'unicorn/prefer-switch': 'off',
 	'unicorn/no-immediate-mutation': 'off',
 	'unicorn/no-useless-undefined': 'off',
-	'unicorn/consistent-existence-index-check': 'off'
+	'unicorn/consistent-existence-index-check': 'off',
+	'unicorn/consistent-compound-words': 'off',
+	'unicorn/prefer-split-limit': 'off'
 }
 
 const styleRules = {

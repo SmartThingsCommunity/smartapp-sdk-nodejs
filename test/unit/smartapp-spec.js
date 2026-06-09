@@ -62,8 +62,8 @@ describe('smartapp-spec', () => {
 		}
 
 		await expect(app.handleMockCallback(unhandledEvent)).resolves.not.toThrow()
-		expect(logSpy).toBeCalledTimes(1)
-		expect(logSpy).toBeCalledWith('Unhandled event of type UNHANDLED_EVENT')
+		expect(logSpy).toHaveBeenCalledTimes(1)
+		expect(logSpy).toHaveBeenCalledWith('Unhandled event of type UNHANDLED_EVENT')
 
 		logSpy.mockClear()
 	})
