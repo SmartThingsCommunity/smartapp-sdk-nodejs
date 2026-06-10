@@ -1,3 +1,9 @@
+## [4.3.7](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.6...v4.3.7) (2026-06-10)
+
+### Bug Fixes
+
+* release dependency updates ([#277](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/issues/277)) ([ee24f32](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/commit/ee24f326052458b17a095f8f88b1999b36a241b0))
+
 ## [4.3.6](https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs/compare/v4.3.5...v4.3.6) (2025-08-20)
 
 
