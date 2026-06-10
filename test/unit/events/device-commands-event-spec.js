@@ -47,7 +47,7 @@ describe('device-commands-event-spec', () => {
 
 		const response = await app.handleMockCallback(deviceCommandsEvent)
 
-		expect(mockCallback).toBeCalledTimes(1)
+		expect(mockCallback).toHaveBeenCalledTimes(1)
 		expect(response.statusCode).toBe(200)
 	})
 
@@ -56,7 +56,7 @@ describe('device-commands-event-spec', () => {
 
 		const response = await app.handleMockCallback(deviceCommandsEvent)
 
-		expect(mockCallback).toBeCalledTimes(1)
+		expect(mockCallback).toHaveBeenCalledTimes(1)
 		expect(response.statusCode).toBe(200)
 	})
 
@@ -65,7 +65,7 @@ describe('device-commands-event-spec', () => {
 
 		const response = await app.handleMockCallback(deviceCommandsEvent)
 
-		expect(mockCallback).toBeCalledTimes(1)
+		expect(mockCallback).toHaveBeenCalledTimes(1)
 		expect(response.statusCode).toBe(200)
 	})
 
@@ -77,8 +77,8 @@ describe('device-commands-event-spec', () => {
 		const event = deviceCommandsEvent.eventData.events[0]
 		const command = event.deviceCommandsEvent.commands[0]
 
-		expect(logSpy).toBeCalledTimes(1)
-		expect(logSpy).toBeCalledWith(`No command handler for ${JSON.stringify(command)} of device ${event.deviceCommandsEvent.deviceId}`)
+		expect(logSpy).toHaveBeenCalledTimes(1)
+		expect(logSpy).toHaveBeenCalledWith(`No command handler for ${JSON.stringify(command)} of device ${event.deviceCommandsEvent.deviceId}`)
 		expect(response.statusCode).toBe(200)
 
 		logSpy.mockClear()

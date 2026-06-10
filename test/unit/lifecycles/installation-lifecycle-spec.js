@@ -57,7 +57,7 @@ describe('installation-lifecycle-spec', () => {
 
 		await app.handleMockCallback(INSTALL)
 
-		expect(updateHandler).not.toBeCalled()
+		expect(updateHandler).not.toHaveBeenCalled()
 		expect(receivedData).toStrictEqual(INSTALL.installData)
 	})
 

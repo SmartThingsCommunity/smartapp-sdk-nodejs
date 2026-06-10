@@ -2,10 +2,10 @@ name: CI/CD
 
 on:
   push:
-  pull_request:
-  workflow_dispatch:
     branches:
       - main
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   lint-commits:
@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6.0.3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v6.4.0
         with:
-          node-version: 22
+          node-version: 24
           cache: "npm"
       - run: npm ci --ignore-scripts
       - run: npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
@@ -30,12 +30,12 @@ jobs:
     strategy:
       matrix:
         # add/remove versions as we move support forward
-        node-version: [20, 22]
+        node-version: [22, 24, 26]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6.0.3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
@@ -52,11 +52,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6.0.3
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6.4.0
         with:
-          node-version: 22
+          node-version: 24
           cache: "npm"
       - run: npm ci
       - name: Release

@@ -23,7 +23,7 @@ describe('oauth-callback-lifecycle-spec', () => {
 
 		const response = await app.handleMockCallback(oauthCallbackLifecycle)
 
-		expect(mockCallback).toBeCalledTimes(1)
+		expect(mockCallback).toHaveBeenCalledTimes(1)
 		expect(response.statusCode).toBe(200)
 	})
 
