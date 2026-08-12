@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/SmartThingsCommunity/smartapp-sdk-nodejs#readme",
   "dependencies": {
-    "@smartthings/core-sdk": "^8.5.2",
+    "@smartthings/core-sdk": "^8.5.3",
     "@types/aws-lambda": "^8.10.162",
     "async-mutex": "^0.5.0",
     "axios": "^1.16.1",
